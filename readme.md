@@ -41,7 +41,7 @@ DEBUG=onibe:server npm start
 Start with pm2
 
 ```
-git pull && pm2 start npm --name "kfwebsite" -- start
+git pull && pm2 start npm --name "onibe" -- start
 ```
 
 ## Contributors
