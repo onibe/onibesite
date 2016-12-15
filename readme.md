@@ -46,5 +46,3 @@ git pull && pm2 start npm --name "onibe" -- start
 
 ## Contributors
 Submit a pull-request to be list as an contributor
-
-- Test Github integration
