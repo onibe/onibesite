@@ -1,5 +1,6 @@
 {
   "site_name": "onibe",
+  "port": 3000,
   "theme": "onibe-light",
   "sendgrid_token": "",
   "sendgrid_user": "",
