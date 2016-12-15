@@ -1,5 +1,4 @@
 .navbar {
-    background-color: $light-grey;
     opacity: 0.9;
 }
 
@@ -8,10 +7,9 @@
 }
 
 .navbar-link {
-    background-color: $light-grey;
     transition: background-color 0.4s ease;
     a {
-        color: $lighter-black !important;  
+        color: $light-grey !important;
     }
 }
 
