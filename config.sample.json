@@ -1,0 +1,10 @@
+{
+  "site_name": "onibe",
+  "theme": "onibe-light",
+  "sendgrid_token": "",
+  "sendgrid_user": "",
+  "sendgrid_password": "",
+  "smtp_server": "",
+  "smtp_sender_email": "",
+  "smtp_sender_name": ""
+}

@@ -1,0 +1,44 @@
+.homepage {
+  &-window {
+    height: calc(100vh);
+    background: $color3; /* fallback for old browsers */
+    background-image: url("/onibe-light/images/aqours-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &-window-inner {
+    text-align: center;
+    background-color:rgba(0, 0, 0, 0.4);
+    font-size: 24px;
+    padding: 20px 0;
+    @media (max-width: $screen-xs-max) {
+      padding: 20px;
+    }
+  }
+  &-feature{
+    margin: 0px 0 0 0;
+  }
+  &-feature:first-child {
+    margin: 0 0 0 0;
+  }
+  &-feature-header{
+    margin: 0 0 0 0;
+  }
+  &-feature-body{
+    margin: 80px 0 80px 0;
+  }
+  &-circle-bg {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    background: $color3; /* fallback for old browsers */
+    //background: -webkit-linear-gradient(to left, $color3, $color4); /* Chrome 10-25, Safari 5.1-6 */
+    //background: linear-gradient(to left, $color3 , $color4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  &-circle-description {
+    padding: 20px 0;
+  }
+}

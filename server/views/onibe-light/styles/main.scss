@@ -1,0 +1,203 @@
+@import "./variables";
+@import "./mixins";
+@import "./bootstrap";
+@import "./fonts";
+@import "./homepage";
+@import "./nav-logo";
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+$footer-height: 100px;
+
+body {
+  font-family: $font-family-primary;
+  color: $gray;
+  font-weight: 400;
+  background-color: $light-grey;
+  margin: 0 0 $footer-height 0;
+}
+
+a {
+  color: $color5;
+}
+
+p {
+  color: $color5;
+}
+
+h1 {
+  font-family: $font-family-secondary;
+  color: $color1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-secondary;
+  color: $color1;
+
+}
+
+.font-family-secondary {
+  font-family: $font-family-secondary;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.logo {
+  color: $color3;
+}
+
+.holder {
+  top: 50%;
+  left: 0;
+  bottom: auto;
+  right: 0;
+  margin-top: 50px;
+
+  h1 {
+    font-size: 80px;
+    line-height: 80px;
+    color: $white;
+  }
+
+  p {
+    font-size: 30px;
+    color: $white;
+  }
+}
+
+.module {
+  padding: 120px 0 150px 0;
+}
+
+.section {
+  padding: 4em 0 5em;
+}
+
+.grey {
+  background: $color7;
+  border-top: 1px solid $color8;
+  border-bottom: 1px solid $color8;
+}
+
+.team p {
+  text-align: center;
+}
+
+.team-member {
+  width: 25%;
+  text-align: center;
+  padding: 30px;
+  margin: 20px auto;
+  display: block;
+  float: left;
+}
+
+.team img {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.team-member-image {
+  border-radius: 50%;
+  margin-bottom: 20px;
+  width: 70%;
+  max-width: 180px;
+  height: 70%;
+  box-shadow: 0 5px 9px $gray1;
+}
+
+.team-member-name {
+  height: 25px;
+  margin-bottom: 10px;
+}
+
+.team-member-title {
+  height: 40px;
+  font-size: 15px;
+}
+
+.navbar-offset {
+  margin-top: 70px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  /* Set the fixed height of the footer here */
+  height: 100px;
+  background: $color3;
+
+  .copyright {
+    margin: 20px 0 0 0;
+    text-align: right;
+  }
+
+  .copyright span {
+    font-size: 16px;
+    //letter-spacing: 0.05em;
+    //font-weight: 300;
+    color: $white;
+  }
+
+  .copyright span.separator {
+    font-size: 10px;
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-2px);
+    -ms-transform: translateY(-2px);
+    -o-transform: translateY(-2px);
+    transform: translateY(-2px);
+    display: inline-block;
+    margin: 0 10px;
+    color: $color1;
+  }
+
+  .copyright a {
+    color: $white;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .copyright a:hover {
+    color: $color1;
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    background: $color1;
+    width: 169px;
+    margin: 8px 0 8px auto;
+  }
+}
+
+/**
+ * Overrides: this overrides bootstrap's caret properties
+ */
+.materialize .select-wrapper span.caret {
+  width: auto;
+  border: 0;
+}
+
+.materialize .input-field label {
+  text-align: left;
+}
+
+// Overrides: scaffolding.scss
+html {
+  font-size: 14px;
+}
+
+.hiddendiv {
+  display: none;
+}

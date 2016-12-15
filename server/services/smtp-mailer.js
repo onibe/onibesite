@@ -1,0 +1,77 @@
+'use strict';
+
+var nodemailer = require('nodemailer');
+var sendGridTransport = require('nodemailer-sendgrid-transport'); // Can replaced with normal SMTP
+
+var config = require('../../config.json');
+
+var options = {
+    auth: {
+        api_key: config.sendgrid_token
+    }
+};
+
+// create reusable transporter object using SMTP transport
+var transporter = nodemailer.createTransport(sendGridTransport(options));
+
+var smtp = {};
+
+/**
+ * recipient: information about the recipient
+ * */
+smtp.sendMail = function(mail) {
+    return new Promise(function(resolve, reject) {
+
+        // setup e-mail data with unicode symbols
+        var sender = {
+            name: config.smtp_sender_name,
+            email: config.smtp_sender_email
+        };
+
+        var mailOptions = {
+            from: sender.name+' <'+sender.email+'>', // sender address
+            to: [mail.email],            // list of receivers
+            subject: mail.subject,    // Subject line
+            html: mail.message      // html body
+        };
+
+        // send mail with defined transport object
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                return reject(error);
+            }
+
+            resolve(info);
+        });
+    });
+};
+
+smtp.sendMailToAdmin = function(mail) {
+    return new Promise(function(resolve, reject) {
+
+        // setup e-mail data with unicode symbols
+        var sender = {
+            name: config.smtp_sender_name,
+            email: config.smtp_sender_email
+        };
+
+        var mailOptions = {
+            from: sender.name+' <'+sender.email+'>', // sender address
+            to: [config.admin_email],            // list of receivers
+            subject: mail.subject,    // Subject line
+            html: mail.message      // html body
+        };
+
+        // send mail with defined transport object
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                return reject(error);
+            }
+
+            resolve(info);
+        });
+    });
+};
+
+
+module.exports = smtp;
