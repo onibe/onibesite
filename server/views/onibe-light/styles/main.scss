@@ -100,6 +100,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .team-member {
+  &-cover {
+    background: url('/onibe-light/images/LLSS.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: $color3;
+  }
   &-image {
     border-radius: 50%;
     margin-bottom: 20px;
