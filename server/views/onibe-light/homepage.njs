@@ -1,15 +1,16 @@
 {% extends "layouts/layout.njs" %}
 
-{% block content %}
+{% set data = data %}
 
+{% block content %}
 <div class="homepage-window">
     <div class="container">
         <div class="row">
             <div class="col-md-12 homepage-window-inner">
                 <div class="font-family-secondary holder">
                     <article>
-                       <h1>Header</h1>
-                       <p>Slogan Here</p>
+                       <h1>{{ data.header }}</h1>
+                       <p>{{ data.slogan }}</p>
                        <a class="btn btn-primary" href="/services" role="button">🍝</a>
                     </article>  
                 </div>
@@ -20,66 +21,16 @@
 
 <div class="homepage-feature text-center">
     <div class="container">
-        <div class="homepage-feature-header row">
-            <h2>Some Text</h2>
+
+        <div class="col-md-9">
+
         </div>
-        <div class="homepage-feature-body row">
-            <a href="/services">
-            <div class="col-md-4">
-                <div class="img-circle homepage-circle-bg"></div>
-                <div class="homepage-circle-description">
-                    🍝
-                </div>
+        <div class="col-md-3">
+            <div class="twitter-container">
+                <a class="twitter-timeline" href="https://twitter.com/teamonibe">Tweets by TwitterDev</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
-            </a>
-            <a href="/services">
-            <div class="col-md-4">
-                <div class="img-circle homepage-circle-bg"></div>
-                <div class="homepage-circle-description">
-                    🍝
-                </div>
-            </div>
-            </a>
-
-            <a href="/services">
-            <div class="col-md-4">
-                <div class="img-circle homepage-circle-bg"></div>
-                <div class="homepage-circle-description">
-                    🍝
-                </div>
-            </div>
-            </a>
-        </div>
-       <div class="homepage-feature-body row">
-            <a href="/services">
-            <div class="col-md-4">
-                <div class="img-circle homepage-circle-bg"></div>
-                <div class="homepage-circle-description">
-                    🍝
-                </div>
-            </div>
-            </a>
-
-            <a href="/services">
-            <div class="col-md-4">
-                <div class="img-circle homepage-circle-bg"></div>
-                <div class="homepage-circle-description">
-                    🍝
-                </div>
-            </div>
-            </a>
-
-            <a href="/services">
-            <div class="col-md-4">
-                <div class="img-circle homepage-circle-bg"></div>
-                <div class="homepage-circle-description">
-                    🍝
-                </div>
-            </div>
-            </a>
         </div>
     </div>
 </div>
-
 
 {% endblock %}

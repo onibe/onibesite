@@ -1,8 +1,7 @@
 {% extends "layouts/layout.njs" %}
 
+{% set data = data %}
+
 {% block content %}
-
     {% include "block/story.njs" %}
-    {% include "block/team.njs" %}
-
 {% endblock %}
