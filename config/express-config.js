@@ -1,15 +1,16 @@
 "use strict";
 
 // SET LOCAL require: usage: require(__base + '/path');
-var path = require('path');
-var rootPath = path.normalize(__dirname);
+const path = require('path');
+const rootPath = path.normalize(__dirname);
 global.__base = rootPath + '/..';
 
-var express = require('express');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var glob = require('glob');
+const express = require('express');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const glob = require('glob');
+const compression = require('compression');
 
 
 function preInitialize(app,config) {
@@ -20,11 +21,12 @@ function preInitialize(app,config) {
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(cookieParser());
     app.use(express.static(path.join(__base, 'public')));
+    app.use(compression());
 
     // Autoloaded Initializers
-    var initializers = glob.sync(__base + '/config/initializers/*.js');
+    const initializers = glob.sync(__base + '/config/initializers/*.js');
     initializers.forEach(function (initializer) {
-        var initilizerFile = require(initializer);
+        const initilizerFile = require(initializer);
         initilizerFile(app,config);
     });
 }
@@ -32,7 +34,7 @@ function preInitialize(app,config) {
 function postInitialize(app) {
     // catch 404 and forward to error handler
     app.use(function(req, res, next) {
-        var err = new Error('Not Found');
+        const err = new Error('Not Found');
         err.status = 404;
         next(err);
     });

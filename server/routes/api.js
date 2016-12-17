@@ -1,9 +1,9 @@
 "use strict";
 
-var express = require('express');
-var smtp = require('../services/smtp-mailer');
+const express = require('express');
+const smtp = require('../services/smtp-mailer');
 
-var router = express.Router();
+const router = express.Router();
 
 /* GET Main Page */
 router.get('/contact', function(req, res, next) {
@@ -13,8 +13,8 @@ router.get('/contact', function(req, res, next) {
 /* GET Home Page */
 router.post('/contact', function(req, res, next) {
 
-    var adminMessage = adminMessageFormatter(req.body);
-    var customerMessage = customerMessageFormatter(req.body);
+    const adminMessage = adminMessageFormatter(req.body);
+    const customerMessage = customerMessageFormatter(req.body);
 
     if(messageValidator(adminMessage)){
         smtp.sendMailToAdmin(adminMessage)
@@ -37,7 +37,7 @@ router.get('/version', function(req, res, next) {
 
 // Replace this with an actual Validator
 function messageValidator(obj) {
-    var valid = true;
+    let valid = true;
     Object.keys(obj).forEach(function(key) {
         if(obj[key] === null){
             valid = false;
@@ -48,7 +48,7 @@ function messageValidator(obj) {
 }
 
 function adminMessageFormatter(form) {
-    var text = `Name: ${form.name} <br />
+    const text = `Name: ${form.name} <br />
     Email: ${form.email}  <br />
     Project: ${form.projects.join(", ")}  <br />
     Budget: ${form.budget}  <br />

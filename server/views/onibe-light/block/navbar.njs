@@ -8,12 +8,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/">ONIBE</a>
+                    <a class="navbar-brand" href="/">{{ data.title }}</a>
                 </div>
                 <div class="collapse navbar-collapse" id="kfPages">
-                    <ul class="nav navbar-nav navbar-right">       
-                        <li class="navbar-link"><a href="/services">Services</a></li>
-                        <li class="navbar-link"><a href="/about">About</a></li>
+                    <ul class="nav navbar-nav navbar-right">
+                        {% for name, link in data.nav %}
+                            <li class="navbar-link"><a href="{{ link }}">{{ name }}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>

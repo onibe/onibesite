@@ -1,20 +1,20 @@
 'use strict';
 
-var nodemailer = require('nodemailer');
-var sendGridTransport = require('nodemailer-sendgrid-transport'); // Can replaced with normal SMTP
+const nodemailer = require('nodemailer');
+const sendGridTransport = require('nodemailer-sendgrid-transport'); // Can replaced with normal SMTP
 
-var config = require('../../config.json');
+const config = require('../../config.json');
 
-var options = {
+const options = {
     auth: {
         api_key: config.sendgrid_token
     }
 };
 
 // create reusable transporter object using SMTP transport
-var transporter = nodemailer.createTransport(sendGridTransport(options));
+const transporter = nodemailer.createTransport(sendGridTransport(options));
 
-var smtp = {};
+const smtp = {};
 
 /**
  * recipient: information about the recipient
@@ -23,12 +23,12 @@ smtp.sendMail = function(mail) {
     return new Promise(function(resolve, reject) {
 
         // setup e-mail data with unicode symbols
-        var sender = {
+        const sender = {
             name: config.smtp_sender_name,
             email: config.smtp_sender_email
         };
 
-        var mailOptions = {
+        const mailOptions = {
             from: sender.name+' <'+sender.email+'>', // sender address
             to: [mail.email],            // list of receivers
             subject: mail.subject,    // Subject line
@@ -50,12 +50,12 @@ smtp.sendMailToAdmin = function(mail) {
     return new Promise(function(resolve, reject) {
 
         // setup e-mail data with unicode symbols
-        var sender = {
+        const sender = {
             name: config.smtp_sender_name,
             email: config.smtp_sender_email
         };
 
-        var mailOptions = {
+        const mailOptions = {
             from: sender.name+' <'+sender.email+'>', // sender address
             to: [config.admin_email],            // list of receivers
             subject: mail.subject,    // Subject line

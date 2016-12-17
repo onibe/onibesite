@@ -1,17 +1,34 @@
 "use strict";
 
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const profiles = require('../data/profiles.json');
+
+const router = express.Router();
+
+const defaultMenu = function(data) {
+    return {
+        data: Object.assign({},{
+            "title": "ONIBE",
+            "header": "Onibe Team Translation",
+            "slogan": "O no",
+            "nav": {
+                "team": "/team",
+                "about": "/about",
+            },
+            "social_media": {
+                "facebook": "https://www.facebook.com/teamonibe/",
+                "twitter": "https://twitter.com/teamonibe"
+            },
+            "copyright": "Copyright © 2016, Team Onibe | All rights reserved"
+        },data)
+    };
+};
 
 // Render Pages
 router.get('/', function(req, res, next) {
-    res.render("homepage",{
-        "title": "Onibe",
-        "data": {
-            "title":"Homepage",
-            "permission": ["admin"]
-        }
-    });
+    res.render("homepage",defaultMenu({
+
+    }));
 });
 
 /* GET Home Page */
@@ -25,13 +42,27 @@ router.get('/main', function(req, res, next) {
 });
 
 router.get('/about', function(req, res, next) {
-    res.render("about",{});
+    res.render("about", defaultMenu({
+
+    }));
 });
 
 
-router.get('/services', function(req, res, next) {
-    res.render("services",{});
+router.get('/team', function(req, res, next) {
+    res.render("team",defaultMenu({
+        "team": profiles
+    }));
 });
+
+
+router.get('/team/:username', function(req, res, next) {
+
+    console.log(req.params.username);
+    res.render("profile",defaultMenu({
+        "profile": profiles.find(profile => profile.name === req.params.username)
+    }));
+});
+
 
 /* GET home page. */
 router.get('/version', function(req, res, next) {
