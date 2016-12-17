@@ -5,12 +5,12 @@
 ```
 npm install -g gulp
 npm install
-gulp
+gulp default
 ```
 - Open on localhost:3000
 
 ## Requirements 
-- node v6.0.0 and above, v7.0.0 is still having problems with gulp.
+- node v6.0.0 and above
 
 ## Guidelines
 Javascript:
