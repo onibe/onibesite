@@ -11,8 +11,7 @@
                     <article>
                        <h1>{{ data.header }}</h1>
                        <p>{{ data.slogan }}</p>
-                       <a class="btn btn-primary" href="/services" role="button">🍝</a>
-                    </article>  
+                    </article>
                 </div>
             </div>
         </div>

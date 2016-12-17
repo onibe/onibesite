@@ -21,7 +21,7 @@
         <div class="container voffset">
             <div class="row">
                 {% for item in data.team %}
-                    <div class="col-md-3 team-member">
+                    <div class="col-sm-6 col-md-3 team-member">
                         <a class="team-member-image-link" href="/team/{{ item.username }}">
                             <img src="{{ item.picture }}" class="team-member-image">
                         </a>
