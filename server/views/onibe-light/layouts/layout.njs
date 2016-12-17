@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="/dist/onibe-light/styles/main.css"  />
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <title>{{testVar}}</title>
     </head>
     <body>

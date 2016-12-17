@@ -17,5 +17,25 @@
             </div>
         </div>
     </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" >
+                <div>
+                    Social Media
+                </div>
+                <div>
+                    <a href="{{ data.social_media.facebook }}">
+                        <i class="fa fa-facebook" aria-hidden="true"></i> Facebook
+                    </a>
+                </div>
+                <div>
+                    <a href="{{ data.social_media.twitter }}">
+                        <i class="fa fa-twitter" aria-hidden="true"></i> Twitter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
