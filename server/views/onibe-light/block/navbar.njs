@@ -8,7 +8,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand bg-check-target" href="/">{{ data.title }}</a>
+                    <a class="navbar-brand hidden-sm hidden-md hidden-lg" href="/">
+                        {{ data.title }}
+                    </a>
+                    <a class="navbar-logo hidden-xs" href="/">
+                        <img class="navbar-logo-img" src="/onibe-light/images/onibe-logo.png"/>
+                    </a>
                 </div>
                 <div class="collapse navbar-collapse" id="kfPages">
                     <ul class="nav navbar-nav navbar-right">

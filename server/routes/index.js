@@ -8,10 +8,10 @@ const router = express.Router();
 const defaultMenu = function(data) {
     return {
         data: Object.assign({},{
-            "title": "onibe",
-            "header": "Team Onibe Translation Group",
+            "title": "ONIBE",
+            "header": "Team ONIBE Translation Group",
             "meta": {
-                "title": "onibe",
+                "title": "ONIBE",
                 "description": "Love Live Translators",
                 "facebook": {
                     "type": "blog",
@@ -28,7 +28,7 @@ const defaultMenu = function(data) {
                 "facebook": "https://www.facebook.com/teamonibe/",
                 "twitter": "https://twitter.com/teamonibe"
             },
-            "copyright": "Copyright © 2016, Team Onibe | All rights reserved"
+            "copyright": "Copyright © 2016, Team ONIBE | All rights reserved"
         },data)
     };
 };
@@ -38,16 +38,6 @@ router.get('/', function(req, res, next) {
     res.render("homepage",defaultMenu({
 
     }));
-});
-
-/* GET Home Page */
-router.get('/main', function(req, res, next) {
-    res.render("main",{
-        "title": "Onibe",
-        "data": {
-            "title":"Onibe"
-        }
-    });
 });
 
 router.get('/about', function(req, res, next) {

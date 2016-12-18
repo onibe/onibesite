@@ -3,21 +3,27 @@
 {% set data = data %}
 
 {% block content %}
-<div class="homepage-window bg-check-source">
-    <div style="flex-grow: 1;"></div>
-    <div class="homepage-window-inner">
-        <div class="font-family-secondary holder">
-            <article>
-                <h1 class="ui">{{ data.header }}</h1>
-                <p class="ui">{{ data.slogan }}</p>
-            </article>
+<div class="homepage-window-wrapper">
+    <div class="homepage-window container">
+        <div style="flex-grow: 1;"></div>
+        {#<img src="/onibe-light/images/onibe-logo.png" />#}
+
+        <div class="homepage-window-inner">
+            {#<span style="align-self: flex-end; color: #949599; text-shadow: 1px 1px #FFF; font-size: 46px; font-family: 'Dosis'; font-weight: 700">Translation Group</span>#}
+            <div class="holder">
+                <article>
+                    <h1>{{ data.header }}</h1>
+                    <p>{{ data.slogan }}</p>
+                </article>
+            </div>
+        </div>
+        <div class="homepage-window-button-container">
+            <div class="homepage-scroll-down-button">
+                <i class="fa fa-arrow-down" aria-hidden="true"></i>
+            </div>
         </div>
     </div>
-    <div class="homepage-window-button-container">
-        <div class="homepage-scroll-down-button">
-            <i class="fa fa-arrow-down" aria-hidden="true"></i>
-        </div>
-    </div>
+
 </div>
     <div class="icon icon--simple target"></div>
 
@@ -29,7 +35,7 @@
             </div>
             <div class="col-md-8" style="text-align: left">
                 <div class="homepage-about" >
-                    <h1>We are Team Onibe</h1>
+                    <h1>We are Team ONIBE</h1>
                     <p>
                         A new group aimed at translating Love Live related content to English for the community! We're comprised of various members from the Love Live community (wikia, tumblr, youtube, reddit, twitter)
                     </p>
