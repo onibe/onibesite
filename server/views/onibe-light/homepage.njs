@@ -14,8 +14,8 @@
         </div>
     </div>
     <div class="homepage-window-button-container">
-        <div class="homepage-window-button">
-        <i style="color: white" class="fa fa-arrow-down" aria-hidden="true"></i>
+        <div class="homepage-scroll-down-button">
+            <i class="fa fa-arrow-down" aria-hidden="true"></i>
         </div>
     </div>
 </div>

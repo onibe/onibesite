@@ -2,6 +2,7 @@
 
 require('jquery');
 require('../bootstrap/javascripts/bootstrap');
+require('smoothscroll-polyfill').polyfill();
 
 // Change Menu Background onscroll
 $(window).scroll(() => {
@@ -12,4 +13,10 @@ $(window).scroll(() => {
     } else {
         $(".navbar").removeClass("scrolling");
     }
+});
+
+$('.homepage-scroll-down-button').click(() => {
+    document.querySelector('.homepage-feature').scrollIntoView({
+        behavior: 'smooth'
+    });
 });
