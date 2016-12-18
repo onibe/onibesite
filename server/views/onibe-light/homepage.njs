@@ -69,13 +69,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 hidden-xs">
                 <div class="twitter-container">
                     <h4>Twitter Feed</h4>
                     <a class="twitter-timeline" data-height="500" href="https://twitter.com/teamonibe">Tweets by TwitterDev</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 hidden-xs">
                 <div class="facebook-container">
                     <h4>Facebook Feed</h4>
                     <div class="fb-page" data-href="https://www.facebook.com/teamonibe" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/teamonibe" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/teamonibe">ONIBE Translations</a></blockquote></div>                </div>
