@@ -8,8 +8,7 @@
             </div>
             <div class="col-lg-6 col-sm-12">
                 <div class="section-title">
-                    <h2>Some Story</h2>
-                    <p>???????????</p>
+                    <h2>More Information coming later</h2>
                 </div>
             </div>
         </div>

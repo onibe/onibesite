@@ -35,13 +35,17 @@
   }
 
   &-window-button {
-    width: 50px;
     align-self: flex-end;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid white;
   }
-
+  &-scroll-down-button{
+    align-self: flex-end;
+    margin: 0 0 20px 0;
+    i {
+      color: $white;
+      cursor: pointer;
+      font-size: 52px;
+    }
+  }
 
   &-circle-bg {
     width: 200px;
