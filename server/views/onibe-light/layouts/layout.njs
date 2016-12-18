@@ -7,11 +7,10 @@
         <link rel="stylesheet" href="/dist/onibe-light/styles/main.css"  />
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i" rel="stylesheet">
         <title>{{testVar}}</title>
     </head>
     <body>
-
         {% include "block/navbar.njs" %}
 
         {% block content %}
@@ -21,5 +20,13 @@
 
         <!-- Scripts -->
         <script src="/dist/onibe-light/js/homepage.js"></script>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=242063639196012";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
     </body>
 </html>

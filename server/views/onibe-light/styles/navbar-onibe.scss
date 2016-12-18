@@ -1,0 +1,65 @@
+.navbar-onibe {
+  font-family: $font-family-secondary;
+  transition: background-color 0.4s ease;
+
+  border: 0px solid #FFF;
+  background-color: rgba(255,255,255,0.9);
+  @media (min-width: $screen-sm-min) {
+    background-color: transparent;
+  }
+
+  &.scrolling {
+    background-color: rgba(255,255,255,0.9);
+    .navbar-brand {
+      color: $color1;
+      text-shadow: 0 0;
+    }
+    .navbar-link {
+      a {
+        color: $color1;
+        text-shadow: 0 0;
+      }
+    }
+  }
+
+  .navbar-brand {
+    font-family: $font-family-secondary;
+    font-size: 24px;
+    color: $color3;
+    text-shadow: 0 0;
+    @media (min-width: $screen-sm-min) {
+      font-size: 36px;
+      color: $white;
+      text-shadow: 2px 2px $color3;
+    }
+  }
+
+  .navbar-toggle {
+    background-color: $color1;
+    .icon-bar {
+      background: $white;
+    }
+  }
+
+
+  .navbar-link {
+    a {
+      color: $color3;
+      font-size: 18px;
+      text-shadow: 0 0;
+      @media (min-width: $screen-sm-min) {
+        color: $white;
+        font-size: 24px;
+        text-shadow: 2px 2px $color3;
+      }
+    }
+  }
+
+  .navbar-link:hover {
+    a {
+      color: $color3;
+      text-shadow: 0 0 $color3;
+    }
+  }
+
+}

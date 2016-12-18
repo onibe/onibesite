@@ -3,20 +3,19 @@
 @import "./bootstrap";
 @import "./fonts";
 @import "./homepage";
-@import "./nav-logo";
+@import "./navbar-onibe";
 
 html {
   position: relative;
   min-height: 100%;
 }
 
-$footer-height: 100px;
+$footer-height: 150px;
 
 body {
   font-family: $font-family-primary;
   color: $gray;
   font-weight: 400;
-  background-color: $light-grey;
   margin: 0 0 $footer-height 0;
 }
 
@@ -51,24 +50,6 @@ h1, h2, h3, h4, h5, h6 {
   color: $color3;
 }
 
-.holder {
-  top: 50%;
-  left: 0;
-  bottom: auto;
-  right: 0;
-  margin-top: 50px;
-
-  h1 {
-    font-size: 80px;
-    line-height: 80px;
-    color: $white;
-  }
-
-  p {
-    font-size: 30px;
-    color: $white;
-  }
-}
 
 .section {
   padding: 4em 0 5em;
@@ -149,17 +130,19 @@ h1, h2, h3, h4, h5, h6 {
 .voffset8 { margin-top: 100px; }
 .voffset9 { margin-top: 150px; }
 
+// Sticky Footer
 #footer {
   position: absolute;
   bottom: 0;
   width: 100%;
+  display: flex;
+  align-items: center;
 
   /* Set the fixed height of the footer here */
-  height: 100px;
+  height: $footer-height;
   background: $color3;
 
   .copyright {
-    margin: 20px 0 0 0;
     text-align: right;
   }
 
