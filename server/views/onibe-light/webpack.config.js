@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 
 var PATH = {
     entry: './js',
@@ -26,7 +27,14 @@ var settings = {
         root: [
             path.resolve("./node_modules")
         ]
-    }
+    },
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery"
+        })
+    ]
 };
 
 

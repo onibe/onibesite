@@ -5,7 +5,7 @@
 {% block content %}
 <div>
 {#<div class="navbar-offset">#}
-    <div class="team-member-cover" >
+    <div class="team-member-cover bg-check-source" >
         <div class="container">
             <div class="row" style="height: 360px;display: flex; align-items: center">
                 <div class="col-md-12" >

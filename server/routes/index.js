@@ -8,9 +8,9 @@ const router = express.Router();
 const defaultMenu = function(data) {
     return {
         data: Object.assign({},{
-            "title": "ONIBE",
-            "header": "Onibe Team Translation",
-            "slogan": "O no",
+            "title": "onibe",
+            "header": "Team Onibe Translation Group",
+            "slogan": "",
             "nav": {
                 "team": "/team",
                 "about": "/about",

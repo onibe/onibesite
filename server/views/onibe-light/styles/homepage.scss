@@ -1,18 +1,17 @@
 .homepage {
   &-window {
-    height: calc(100vh);
+    height: calc(100vh - 70px);
     background: $color3; /* fallback for old browsers */
     background-image: url("/onibe-light/images/aqours-bg.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: top center;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
   }
   &-window-inner {
     text-align: center;
-    background-color:rgba(0, 0, 0, 0.4);
-    font-size: 24px;
     padding: 20px 0;
     @media (max-width: $screen-xs-max) {
       padding: 20px;
@@ -20,19 +19,30 @@
   }
   &-feature{
     margin: 0px 0 0 0;
+    padding: 100px 0;
     background-image: url("/onibe-light/images/muse-bg.jpg");
     background-size: cover;
     background-position: center;
+    @media (min-width: $screen-sm-min) {
+      padding: 200px 0;
+    }
+
   }
-  &-feature:first-child {
-    margin: 0 0 0 0;
+
+  &-window-button-container {
+    flex-grow: 1;
+    display: flex;
   }
-  &-feature-header{
-    margin: 0 0 0 0;
+
+  &-window-button {
+    width: 50px;
+    align-self: flex-end;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
   }
-  &-feature-body{
-    margin: 80px 0 80px 0;
-  }
+
+
   &-circle-bg {
     width: 200px;
     height: 200px;
@@ -43,5 +53,34 @@
   }
   &-circle-description {
     padding: 20px 0;
+  }
+  &-social-media{
+    background: rgba(242, 247, 255, 1);;
+  }
+}
+
+
+.holder {
+  top: 50%;
+  left: 0;
+  bottom: auto;
+  right: 0;
+  margin-top: 50px;
+
+  h1 {
+    font-size: 40px;
+    line-height: 40px;
+    text-shadow: 4px 4px $color3;
+    font-weight: 800;
+    color: $color1;
+    @media (min-width: $screen-sm-min) {
+      font-size: 80px;
+      line-height: 80px;
+    }
+  }
+
+  p {
+    font-size: 30px;
+    color: $white;
   }
 }
