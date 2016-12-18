@@ -22,6 +22,9 @@ Styles
 -
 
 ## Todos
+- Optimize Images
+- Move Images to CDN
+- Add Blogging Capability
 - Server Unit Testing Via mocha
 - Client Unit Testing via karma
 - Deployment scripts
