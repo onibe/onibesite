@@ -9,7 +9,7 @@ const defaultMenu = function(data) {
     return {
         data: Object.assign({},{
             "title": "ONIBE",
-            "header": "Team ONIBE Translation Group",
+            "header": "Team ONIBE Translations",
             "meta": {
                 "title": "ONIBE",
                 "description": "Love Live Translators",
