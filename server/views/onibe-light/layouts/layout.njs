@@ -9,7 +9,12 @@
         <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i" rel="stylesheet">
         <meta name="description" content="{{ data.meta.description }}">
-        <title>{{title}}</title>
+        <meta name="keywords" content="{{ data.meta.keywords }}">
+        <meta property="og:title" content="{{ data.meta.facebook.title }}"/>
+        <meta property="og:site_name" content="{{ data.meta.facebook.site_name }}"/>
+        <meta property="og:type" content="{{ data.meta.facebook.type }}"/>
+
+        <title>{{data.meta.title}}</title>
     </head>
     <body>
         {% include "block/navbar.njs" %}

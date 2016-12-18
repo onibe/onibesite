@@ -11,7 +11,13 @@ const defaultMenu = function(data) {
             "title": "onibe",
             "header": "Team Onibe Translation Group",
             "meta": {
-                "description": "Love Live Translators"
+                "title": "onibe",
+                "description": "Love Live Translators",
+                "facebook": {
+                    "type": "blog",
+                    "title": "onibe" || data.title,
+                    "site_name": "onibe",
+                }
             },
             "slogan": "",
             "nav": {
