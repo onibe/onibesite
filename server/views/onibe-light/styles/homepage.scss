@@ -1,14 +1,17 @@
 .homepage {
-  &-window {
+  &-window-wrapper{
     height: calc(100vh - 70px);
     background: $color3; /* fallback for old browsers */
     background-image: url("/onibe-light/images/aqours-bg.jpg");
     background-size: cover;
     background-position: top center;
+  }
+  &-window {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 100%;
   }
   &-window-inner {
     text-align: center;
@@ -30,7 +33,6 @@
   }
 
   &-window-button-container {
-    flex-grow: 1;
     display: flex;
   }
 
@@ -69,14 +71,14 @@
   left: 0;
   bottom: auto;
   right: 0;
-  margin-top: 50px;
+  margin: 100px 0 0 0;
 
   h1 {
     font-size: 40px;
     line-height: 40px;
     text-shadow: 2px 2px $color3;
-    font-weight: 800;
-    color: $color1;
+    font-weight: 600;
+    color: $white;
     @media (min-width: $screen-sm-min) {
       text-shadow: 4px 4px $color3;
       font-size: 80px;

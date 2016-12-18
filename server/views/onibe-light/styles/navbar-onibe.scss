@@ -8,6 +8,15 @@
     background-color: transparent;
   }
 
+  .navbar-logo {
+    float: left;
+    padding: 7px 10px;
+    line-height: 25px;
+    height: 70px;
+  }
+  .navbar-logo-img {
+    width: 150px;
+  }
   &.scrolling {
     background-color: rgba(255,255,255,0.9);
     .navbar-brand {
