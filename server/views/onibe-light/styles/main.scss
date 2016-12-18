@@ -55,11 +55,6 @@ h1, h2, h3, h4, h5, h6 {
   padding: 4em 0 5em;
 }
 
-.story {
-  padding: 120px 0 150px 0;
-  background: $color3;
-}
-
 .team-member {
   display: flex;
   align-items: center;
@@ -81,11 +76,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .team-member {
-  &-cover {
+  &-wrapper {
     background: url('/onibe-light/images/LLSS.jpg');
     background-size: cover;
     background-position: center;
     background-color: $color3;
+  }
+  &-cover {
+    height: 440px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
   &-image {
     border-radius: 50%;
@@ -109,10 +110,21 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-
 .team-member-title {
   font-size: 15px;
 }
+
+
+.about {
+  height: calc(100vh - 150px);
+  background: $color4;
+  .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
+
 
 .navbar-offset {
   margin-top: 70px;
