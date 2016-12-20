@@ -2,6 +2,7 @@
 
 const express = require('express');
 const profiles = require('../data/profiles.json');
+const uniqBy = require('lodash/uniqBy');
 
 const router = express.Router();
 
@@ -46,10 +47,24 @@ router.get('/about', function(req, res, next) {
     }));
 });
 
+const roles = [
+    "admin",
+    "translator",
+    "typesetter",
+    "qc",
+    "website",
+    "manager",
+    "social_media",
+    ""
+];
+
+const sortedProfile = uniqBy(roles.map(role =>
+     profiles.filter((profile) => profile.role.map(profileRole => profileRole.toLowerCase()).includes(role))
+).reduce((a,b) => a.concat(b)), 'username');
 
 router.get('/team', function(req, res, next) {
     res.render("team",defaultMenu({
-        "team": profiles
+        "team": sortedProfile
     }));
 });
 
