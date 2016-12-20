@@ -23,9 +23,13 @@
                 {% for item in data.team %}
                     <div class="col-sm-6 col-md-3 team-member">
                         {% if item.picture %}
-                        <a class="team-member-image-link" href="/team/{{ item.username }}">
-                            <img src="{{ item.picture }}" class="team-member-image">
-                        </a>
+                            <a class="team-member-image-link" href="/team/{{ item.username }}">
+                                <img src="{{ item.picture }}" class="team-member-image">
+                            </a>
+                        {% else %}
+                            <a class="team-member-image-link" href="/team/{{ item.username }}">
+                                <img src="/onibe-light/images/profile-pics/spaghetti.png" class="team-member-image">
+                            </a>
                         {% endif %}
                         <a class="team-member-image-link" href="/team/{{ item.username }}">
                             <h4 class="team-member-name">{{ item.username }}</h4>
@@ -35,10 +39,10 @@
                         </a>
                     </div>
                     {% if loop.index % 4 == 0 %}
-                        <div class="clearfix visible-md-block visible-lg-block"></div>
+                        <div class="voffset4 rvoffset4 clearfix visible-md-block visible-lg-block"></div>
                     {% endif %}
                     {% if loop.index % 2 == 0 %}
-                        <div class="clearfix visible-sm-block visible-sm-block"></div>
+                        <div class="voffset4 rvoffset4 clearfix visible-sm-block visible-sm-block"></div>
                     {% endif %}
                 {% endfor %}
             </div>
