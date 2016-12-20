@@ -127,6 +127,9 @@ h1, h2, h3, h4, h5, h6 {
       display: inline-block;
       font-weight: normal;
 
+      -webkit-clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0 50%);
+      clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0 50%);
+
       // Fix to media class in label-social media,, #FIX THIS
       zoom: 0;
       overflow: inherit;
@@ -301,3 +304,8 @@ html {
 .label-qc{
   background: rgb(241, 196, 15);
 };
+
+.btn-hex {
+  -webkit-clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0 50%);
+  clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0 50%);
+}

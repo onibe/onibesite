@@ -39,7 +39,7 @@
                     <p>
                         A new group aimed at translating Love Live related content to English for the community! We're comprised of various members from the Love Live community (wikia, tumblr, youtube, reddit, twitter)
                     </p>
-                    <div><a class="btn btn-primary" href="/team">Meet the team</a></div>
+                    <div><a class="btn btn-hex btn-primary" href="/team">Meet the team</a></div>
                 </div>
 
             </div>
