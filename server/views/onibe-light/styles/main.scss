@@ -72,6 +72,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .team-member {
   padding: 60px 0;
+  background: $light-grey;
   &-wrapper {
     background: url('/onibe-light/images/LLSS.jpg');
     background-size: cover;
@@ -103,6 +104,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 247px;
     height: 209px;
     background-size: cover;
+    background-color: $white;
     -webkit-clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
     clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
   }
