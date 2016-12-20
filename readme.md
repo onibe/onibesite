@@ -16,13 +16,16 @@ gulp default
 Javascript:
 - set your IDE to follow .jshintrc
 - Use es6 syntax
+Design
+- 
 
 Styles 
 - 
--
+
 
 ## Todos
 - Optimize Images
+- Replace Dynamic pages with React
 - Move Images to CDN
 - Add Blogging Capability
 - Server Unit Testing Via mocha
