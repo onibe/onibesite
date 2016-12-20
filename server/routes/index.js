@@ -56,8 +56,8 @@ router.get('/team', function(req, res, next) {
 
 router.get('/team/:username', function(req, res, next) {
 
-    const username = req.params.username || null;
-    const profile = username ? profiles.find(profile => profile.name.toLowerCase() === username) : null;
+    const username = req.params.username ? req.params.username.toLowerCase() : null;
+    const profile = username ? profiles.find(profile => profile.username.toLowerCase() === username) : null;
 
     if(profile) {
         res.render("profile", defaultMenu({

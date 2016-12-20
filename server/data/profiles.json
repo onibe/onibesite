@@ -20,7 +20,7 @@
 	"name": "kay",
 	"username": "kay",
 	"profile": "",
-	"picture": "https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=350",
+	"picture": "",
 	"charm_point": "smollest member",
 	"role": [""],
 	"translations": [":spaghetti:"],
@@ -237,7 +237,7 @@
 	"name": "Yujacha",
 	"username": "Yujacha",
 	"profile": "My best girl is Rin because her SIF Constellation UR is the reason I fell into idol hell. Now, I spaghetti over Shukashuu and use my past experience on scanlation teams to do a bit of QC and TL!",
-	"picture": "",
+	"picture": "/onibe-light/images/profile-pics/yujacha.png",
 	"charm_point": "Being the perfect size to hug (yo idk this is just what my friend told me)",
 	"role": ["Translator", "QC"],
 	"translations": ["Korean"],
@@ -373,9 +373,27 @@
 		"facebook": "",
 		"twitter": ""
 	},
-	"best_girls": ["Riko", "Umi"],
-	"best_seiyuu": [],
+	"best_girls": ["Riko", "Hanamaru", "Umi"],
+	"best_seiyuu": ["Mimorin", "Rikyako", "Nanjolno"],
 	"what_onibe_means": "Oh No I've Been Exposed",
-	"country": "",
-	"hobbies": ""
+	"country": "Singapore",
+	"hobbies": "Listening to anisongs (mostly LL & LLSS), fangirling over Love Live fanart & laughing at Love Live related memes, Kancolle"
+}, {
+	"name": "lakepower",
+	"username": "lakepower",
+	"profile": "Nico Nii",
+	"picture": "/onibe-light/images/profile-pics/lakepower.jpg",
+	"charm_point": "",
+	"role": ["administration"],
+	"translations": [],
+	"personal_website": "",
+	"social_media": {
+		"facebook": "",
+		"twitter": ""
+	},
+	"best_girls": ["Nico", "Nozomi", "Chika", "Ruby", "Dia"],
+	"best_seiyuu": ["Shikaco", "Kussun", "Somaru", "Aiai"],
+	"what_onibe_means": "Onii-chan daisuki",
+	"country": "USA",
+	"hobbies": "Sleeping"
 }]
