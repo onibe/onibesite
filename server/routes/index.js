@@ -28,7 +28,7 @@ const defaultMenu = function(data) {
                 "facebook": "https://www.facebook.com/teamonibe/",
                 "twitter": "https://twitter.com/teamonibe"
             },
-            "copyright": "Copyright © 2016, Team ONIBE | All rights reserved"
+            "copyright": "Team ONIBE ©"
         },data)
     };
 };
@@ -56,10 +56,17 @@ router.get('/team', function(req, res, next) {
 
 router.get('/team/:username', function(req, res, next) {
 
-    console.log(req.params.username);
-    res.render("profile",defaultMenu({
-        "profile": profiles.find(profile => profile.name === req.params.username)
-    }));
+    const username = req.params.username || null;
+    const profile = username ? profiles.find(profile => profile.name.toLowerCase() === username) : null;
+
+    if(profile) {
+        res.render("profile", defaultMenu({
+            "profile": profile
+        }));
+    } else {
+        next();
+    }
+
 });
 
 
