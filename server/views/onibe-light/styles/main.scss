@@ -114,8 +114,21 @@ h1, h2, h3, h4, h5, h6 {
   &-image-link {
     width: 100%;
   }
-  &-title {
-    font-size: 15px;
+  &-profile {
+    font-size: 14px;
+  }
+  &-roles {
+    text-align: right;
+    .label {
+      margin: 2px 0;
+      text-align: left;
+      display: inline-block;
+      font-weight: normal;
+
+      // Fix to media class in label-social media,, #FIX THIS
+      zoom: 0;
+      overflow: inherit;
+    }
   }
 
 }
@@ -259,3 +272,30 @@ html {
 .hiddendiv {
   display: none;
 }
+
+
+.label-translator {
+  background: rgb(136, 227, 250);
+};
+
+.label-admin {
+  background: rgb(228, 58, 146);
+};
+
+.label-typesetter {
+  background: rgb(250, 158, 59);
+};
+
+.label-typesetter {
+  background: rgb(194, 146, 236)
+};
+
+.label-website,
+.label-social,
+.label-manager {
+  background: #737f8d;
+};
+
+.label-qc{
+  background: rgb(241, 196, 15);
+};

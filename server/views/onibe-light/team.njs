@@ -29,10 +29,19 @@
                         <div class="team-member-image-container" style="background-image: url('/onibe-light/images/profile-pics/spaghetti.png')"  href="/team/{{ item.username }}">
                         </div>
                     {% endif %}
+                    {% if item.role.length > 0 %}
+                        <div class="team-member-roles">
+                            <h5>
+                            {% for role in item.role %}
+                                <span class="label label-{{ role | lower }}">{{ role }}</span>
+                            {%  endfor %}
+                            </h5>
+                        </div>
+                    {% endif %}
                     <a class="team-member-image-link" href="/team/{{ item.username }}">
                         <h4 class="team-member-name">{{ item.username }}</h4>
                     </a>
-                    <p class="team-member-title">{{ item.profile }}</p>
+                    <p class="team-member-profile">{{ item.profile | safe }}</p>
                 </div>
                 {% if loop.index % 4 == 0 %}
                     <div class="voffset4 rvoffset4 clearfix visible-md-block visible-lg-block"></div>

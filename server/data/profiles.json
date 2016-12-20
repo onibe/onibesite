@@ -4,7 +4,7 @@
 	"profile": "Just a Shukashuu fan who happened to dive into the sea of translation. Still lost at sea... ( ‾▿‾ )ゞ",
 	"picture": "/onibe-light/images/profile-pics/shukamod.png",
 	"charm_point": "Ikemen voice",
-	"role": ["Translator", "Admin"],
+	"role": [ "Admin", "Translator"],
 	"translations": ["Japanese", "Chinese"],
 	"personal_website": "saitou-shuka.tumblr.com/tl",
 	"social_media": {
@@ -37,7 +37,7 @@
 }, {
 	"name": "Chezz",
 	"username": "Chezz",
-	"profile": "Really lazy translator who does the minimal amount of work to remain on the team. Spends his free time translating content the blasphemous anime series also known as ~~K-On! 3~~ BanG Dream!.",
+	"profile": "Really lazy translator who does the minimal amount of work to remain on the team. Spends his free time translating content the blasphemous anime series also known as <s>K-On! 3</s> BanG Dream!.",
 	"picture": "",
 	"charm_point": "Supposedly high IQ kappa",
 	"role": ["Translator"],
@@ -131,7 +131,7 @@
 	"profile": "Hi! I'm the manager of the team! I help on the website, and also all the social media stuff as well :D",
 	"picture": "/onibe-light/images/profile-pics/link2110.jpg",
 	"charm_point": ":^)",
-	"role": ["Manager", "Admin", "Website/Social Media"],
+	"role": ["Admin", "Manager", "Website", "Social Media"],
 	"translations": [""],
 	"personal_website": "",
 	"social_media": {
@@ -328,7 +328,7 @@
 	"username": "Dyrea",
 	"profile": "I love Love Live!. I love Riko and Umi, and Mimorin is the most physically attractive woman I have ever seen. ",
 	"picture": "/onibe-light/images/profile-pics/dyrea.png",
-	"cover-picture": "/onibe-light/images/profile-pics/dyrea.png",
+	"cover-picture": "/onibe-light/images/profile-pics/dyrea-header.png",
 	"charm_point": "High Energy",
 	"role": ["Translator"],
 	"translations": ["Japanese", "Chinese", "Indonesian"],
@@ -384,7 +384,7 @@
 	"profile": "Nico Nii",
 	"picture": "/onibe-light/images/profile-pics/lakepower.jpg",
 	"charm_point": "",
-	"role": ["administration"],
+	"role": ["Admin", "Website"],
 	"translations": [],
 	"personal_website": "",
 	"social_media": {
