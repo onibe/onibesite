@@ -22,9 +22,11 @@
             <div class="row">
                 {% for item in data.team %}
                     <div class="col-sm-6 col-md-3 team-member">
+                        {% if item.picture %}
                         <a class="team-member-image-link" href="/team/{{ item.username }}">
                             <img src="{{ item.picture }}" class="team-member-image">
                         </a>
+                        {% endif %}
                         <a class="team-member-image-link" href="/team/{{ item.username }}">
                             <h4 class="team-member-name">{{ item.username }}</h4>
                         </a>
@@ -32,6 +34,12 @@
                             <p class="team-member-title">{{ item.profile }}</p>
                         </a>
                     </div>
+                    {% if loop.index % 4 == 0 %}
+                        <div class="clearfix visible-md-block visible-lg-block"></div>
+                    {% endif %}
+                    {% if loop.index % 2 == 0 %}
+                        <div class="clearfix visible-sm-block visible-sm-block"></div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>

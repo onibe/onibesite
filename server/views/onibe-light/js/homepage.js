@@ -8,7 +8,7 @@ require('smoothscroll-polyfill').polyfill();
 $(window).scroll(() => {
     const scroll = $(window).scrollTop();
 
-    if (scroll >= 500) {
+    if (scroll >= 400) {
         $(".navbar").addClass("scrolling");
     } else {
         $(".navbar").removeClass("scrolling");
