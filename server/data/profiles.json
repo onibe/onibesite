@@ -254,21 +254,21 @@
 }, {
 	"name": "astrobunny",
 	"username": "astrobunny",
-	"profile": "Writer of code.",
-	"picture": "",
+	"profile": "Writer of code. Translator of moon.",
+	"picture": "https://cdn.discordapp.com/avatars/122908555178147840/67ca118f64e72c29d9ba56ba0cfddf29.jpg",
 	"charm_point": "Twintails",
 	"role": ["Translator", "Website"],
 	"translations": ["Japanese", "Chinese"],
 	"personal_website": "https://astrobunny.net",
 	"social_media": {
 		"facebook": "",
-		"twitter": ""
+		"twitter": "astrobunny"
 	},
 	"best_girls": ["Ruby", "Nico"],
-	"best_seiyuu": [""],
+	"best_seiyuu": ["Soramaru", "Suwawa"],
 	"what_onibe_means": "ONIgiri BEekon (onigiri bacon）",
 	"country": "",
-	"hobbies": ""
+	"hobbies": "reading manga, listening to music, shitposting"
 }, {
 	"name": "MasterMirage",
 	"username": "MasterMirage",
