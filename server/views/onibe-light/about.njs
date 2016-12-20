@@ -13,7 +13,7 @@
                 </p>
                 <p>
                     Having started with text-based interviews and subtitled niconama excerpts,
-                    the Team has since expanded and diversified its scope to encompass manga translations and typesetting and radio broadcast translations,
+                    the Team has since expanded and diversified its scope to encompass manga translations, typesetting and radio broadcast translations,
                     while maintaining a standardised QC process.
                     Team ONIBE plans to set its sights on being the premier Love Live content provider for the international, English-speaking community.
                 </p>
