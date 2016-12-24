@@ -42,7 +42,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/about', (req, res, next) => {
-    res.render("about", defaultMenu({
+    res.render("about/about", defaultMenu({
 
     }));
 });
@@ -82,6 +82,11 @@ router.get('/team/:username', (req, res, next) => {
         next();
     }
 
+});
+
+/* GET home page. */
+router.get('/article', function(req, res, next) {
+    res.render("article/article", defaultMenu({}));
 });
 
 

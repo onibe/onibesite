@@ -29,6 +29,8 @@ function configure(app, config) {
 
         return jsonString;
     });
+
+    njsViews.addFilter('extractLocalAddress', (subject) => subject.replace(/.*?:\/\//g, ""));
 }
 
 module.exports = configure;

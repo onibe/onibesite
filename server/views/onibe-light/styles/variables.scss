@@ -17,5 +17,10 @@ $color8: #d5dadf;
 
 $gray1: #CCC;
 
-$font-family-primary: 'Open Sans', Helvetica, Arial, sans-serif;
+// Variable Overrides
+
+// Blog Fonts
+$font-family-primary: 'Raleway', Helvetica, Arial, sans-serif;
 $font-family-secondary: 'Dosis', Montserrat, Helvetica, Arial, sans-serif;
+
+$font-size-base:          16px !default;

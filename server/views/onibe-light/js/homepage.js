@@ -9,8 +9,9 @@ smoothscroll.polyfill();
 // Change Menu Background onscroll
 $(window).scroll(() => {
     const scroll = $(window).scrollTop();
+    const threshold = 200;
 
-    if (scroll >= 400) {
+    if (scroll >= threshold) {
         $(".navbar").addClass("scrolling");
     } else {
         $(".navbar").removeClass("scrolling");

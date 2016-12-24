@@ -34,7 +34,7 @@ const settings = {
         loaders: [
             {
                 test: /\.js?$/,
-                exclude: /(node_modules|semantic)/,
+                exclude: /(node_modules)/,
                 loader: 'babel-loader',
                 query: {
                     presets: ['es2015']
@@ -42,7 +42,7 @@ const settings = {
             },
             {
                 test: /\.jsx?$/,
-                exclude: /(node_modules|semantic)/,
+                exclude: /(node_modules)/,
                 loader: 'babel-loader',
                 query: {
                     presets: ['es2015', 'react']

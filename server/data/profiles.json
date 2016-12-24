@@ -6,7 +6,7 @@
 	"charm_point": "Ikemen voice",
 	"role": [ "Admin", "Translator"],
 	"translations": ["Japanese", "Chinese"],
-	"personal_website": "saitou-shuka.tumblr.com/tl",
+	"personal_website": "https://saitou-shuka.tumblr.com/tl",
 	"social_media": {
 		"facebook": "",
 		"twitter": ""
@@ -38,11 +38,11 @@
 	"name": "Chezz",
 	"username": "Chezz",
 	"profile": "Really lazy translator who does the minimal amount of work to remain on the team. Spends his free time translating content the blasphemous anime series also known as <s>K-On! 3</s> BanG Dream!.",
-	"picture": "",
+	"picture": "/onibe-light/images/profile-pics/chezz.jpg",
 	"charm_point": "Supposedly high IQ kappa",
 	"role": ["Translator"],
 	"translations": ["Japanese", "Chinese"],
-	"personal_website": "kankan-mikan.tumblr.com",
+	"personal_website": "https://kankan-mikan.tumblr.com",
 	"social_media": {
 		"facebook": "",
 		"twitter": ""
@@ -61,7 +61,7 @@
 	"charm_point": "My genki attitude",
 	"role": ["QC"],
 	"translations": [""],
-	"personal_website": "https://twitter.com/Mega_Honk",
+	"personal_website": "https://https://twitter.com/Mega_Honk",
 	"social_media": {
 		"facebook": "",
 		"twitter": ""
@@ -76,7 +76,7 @@
 	"username": "KKEHarasho (AKA Eli Ayase)",
 	"profile": "'The visionary and mastermind behind ONIBE, Eli Ayase intends to revolutionise the Love Live fandom, one exposé at a time.' -Fellow ONIBE member Astral",
 	"picture": "/onibe-light/images/profile-pics/KKEHarasho.jpg",
-	"cover-picture": "/onibe-light/images/profile-pics/KKEHarasho-Header.jpg",
+	"cover_picture": "/onibe-light/images/profile-pics/KKEHarasho-Header.jpg",
 	"charm_point": "Kashikoi and kowai",
 	"role": ["Translator"],
 	"translations": ["Japanese"],
@@ -94,7 +94,8 @@
 	"name": "Yunii",
 	"username": "Yunii",
 	"profile": "Soon™",
-	"picture": "",
+	"picture": "/onibe-light/images/profile-pics/yunii.png",
+	"cover_picture": "/onibe-light/images/profile-pics/yuniiheader.png",
 	"charm_point": "NEET",
 	"role": ["Typesetter"],
 	"translations": [""],
@@ -116,7 +117,7 @@
 	"charm_point": "Disappearing during the school ye- playing hard to get",
 	"role": ["Translator"],
 	"translations": ["Chinese"],
-	"personal_website": "twitter.com/yahalloing",
+	"personal_website": "https://twitter.com/yahalloing",
 	"social_media": {
 		"facebook": "",
 		"twitter": ""
@@ -170,7 +171,7 @@
 	"charm_point": "Memes",
 	"role": ["Translator"],
 	"translations": ["Japanese", "Chinese"],
-	"personal_website": "luciahunter6.tumblr.com",
+	"personal_website": "https://luciahunter6.tumblr.com",
 	"social_media": {
 		"facebook": "",
 		"twitter": ""
@@ -242,7 +243,7 @@
 	"charm_point": "Being the perfect size to hug (yo idk this is just what my friend told me)",
 	"role": ["Translator", "QC"],
 	"translations": ["Korean"],
-	"personal_website": "yujachachacha.tumblr.com",
+	"personal_website": "https://yujachachacha.tumblr.com",
 	"social_media": {
 		"facebook": "",
 		"twitter": ""
@@ -278,7 +279,7 @@
 	"charm_point": "",
 	"role": ["Admin"],
 	"translations": [""],
-	"personal_website": "reddit.com/r/LoveLive",
+	"personal_website": "https://reddit.com/r/LoveLive",
 	"social_media": {
 		"facebook": "",
 		"twitter": ""
@@ -329,11 +330,11 @@
 	"username": "Dyrea",
 	"profile": "I love Love Live!. I love Riko and Umi, and Mimorin is the most physically attractive woman I have ever seen. ",
 	"picture": "/onibe-light/images/profile-pics/dyrea.png",
-	"cover-picture": "/onibe-light/images/profile-pics/dyrea-header.png",
+	"cover_picture": "/onibe-light/images/profile-pics/dyrea-header.png",
 	"charm_point": "High Energy",
 	"role": ["Translator"],
 	"translations": ["Japanese", "Chinese", "Indonesian"],
-	"personal_website": "translations.dyreatic.moe",
+	"personal_website": "https://translations.dyreatic.moe",
 	"social_media": {
 		"facebook": "",
 		"twitter": ""

@@ -13,7 +13,7 @@ body {
 }
 
 a {
-  color: $color5;
+  color: $color1;
 }
 
 p {
@@ -28,41 +28,18 @@ h1 {
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-family-secondary;
   color: $color1;
-
+  font-weight: 400;
 }
 
-.font-family-secondary {
-  font-family: $font-family-secondary;
+// Remove Margin on first-child Headers
+div h1:first-child,
+div h2:first-child,
+div h3:first-child,
+div h4:first-child,
+div h5:first-child,
+div h6:first-child {
+  margin-top: 0 !important;
 }
-
-.navbar {
-  margin-bottom: 0px;
-}
-
-.logo {
-  color: $color3;
-}
-
-
-.section {
-  padding: 4em 0 5em;
-}
-
-
-.team {
-  p {
-    text-align: center;
-  }
-
-  img {
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-  }
-}
-
 .navbar-offset {
   margin-top: 70px;
 }
@@ -99,7 +76,6 @@ h1, h2, h3, h4, h5, h6 {
 
   /* Set the fixed height of the footer here */
   height: $footer-height;
-  background: $color3;
 
   .copyright {
     text-align: right;
@@ -107,9 +83,6 @@ h1, h2, h3, h4, h5, h6 {
 
   .copyright span {
     font-size: 16px;
-    //letter-spacing: 0.05em;
-    //font-weight: 300;
-    color: $white;
   }
 
   .copyright span.separator {
@@ -121,18 +94,15 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-2px);
     display: inline-block;
     margin: 0 10px;
-    color: $color1;
   }
 
   .copyright a {
-    color: $white;
-    font-family: 'Open Sans', sans-serif;
+    font-family: $font-family-primary;
     text-transform: uppercase;
     text-decoration: none;
   }
 
   .copyright a:hover {
-    color: $color1;
   }
 
   hr {
@@ -144,27 +114,17 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/**
- * Overrides: this overrides bootstrap's caret properties
- */
-.materialize .select-wrapper span.caret {
-  width: auto;
-  border: 0;
-}
-
-.materialize .input-field label {
-  text-align: left;
-}
-
-// Overrides: scaffolding.scss
-html {
+.label {
+  font-weight: 400;
   font-size: 14px;
+  font-family: $font-family-secondary;
 }
 
-.hiddendiv {
-  display: none;
+// Fix for class "label label-social media"
+.label.media {
+  margin: 0;
+  overflow: inherit;
 }
-
 
 .label-translator {
   background: rgb(136, 227, 250);
@@ -195,4 +155,42 @@ html {
 .btn-hex {
   -webkit-clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0 50%);
   clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0 50%);
+}
+
+.label-hex {
+  -webkit-clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0 50%);
+  clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0 50%);
+  font-weight: 400;
+}
+
+.image-hex {
+  width: 240px;
+  height: 240px;
+  background-position: center;
+  background-color: $white;
+  background-size: 240px, cover;
+
+  /* easeInOutQuart */
+  -webkit-transition: all 400ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+  -moz-transition: all 400ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+  -o-transition: all 400ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+  transition: all 400ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+
+  -webkit-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+  -moz-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+  -o-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+  transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000); /* easeInOutQuart */
+
+  -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+  clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+}
+
+.image-hex:hover {
+  background-size: 270px, cover;
+  -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+}
+
+.wordwrap {
+  word-wrap: break-word;
 }

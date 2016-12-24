@@ -1,3 +1,8 @@
+/**
+  General Guidelines
+  - Classes combined together in a single element must not have overlapping properties
+ */
+
 // Variables
 @import "./variables";
 @import "./bootstrap";
@@ -6,9 +11,15 @@
 
 // Pages
 @import "./main";
+
+// @todo: Find Wildcard solution
+// Or replace with webpack sass integration?
 @import "../page/homepage/homepage";
 @import "../page/about/about";
 @import "../page/team/team";
+@import "../page/article/article";
+@import "../page/profile/profile";
+
 
 // Components
 @import "./navbar-onibe";

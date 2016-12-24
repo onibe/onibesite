@@ -23,20 +23,18 @@
                 <div class="col-sm-6 col-md-3">
                     {% if item.picture %}
                         <a href="/team/{{ item.username }}">
-                            <div class="team-member-image-container" style="background-image: url({{ item.picture }})"  href="/team/{{ item.username }}"></div>
+                            <div class="team-member-image-container image-hex" style="background-image: url({{ item.picture }})"  href="/team/{{ item.username }}"></div>
                         </a>
                     {% else %}
                         <a href="/team/{{ item.username }}">
-                            <div class="team-member-image-container" style="background-image: url('/onibe-light/images/profile-pics/spaghetti.png')"  href="/team/{{ item.username }}"></div>
+                            <div class="team-member-image-container image-hex" style="background-image: url('/onibe-light/images/profile-pics/spaghetti.png')"  href="/team/{{ item.username }}"></div>
                         </a>
                     {% endif %}
                     {% if item.role.length > 0 %}
                         <div class="team-member-roles">
-                            <h5>
                             {% for role in item.role %}
-                                <span class="label label-{{ role | lower }}">{{ role }}</span>
+                                <span class="label label-hex label-{{ role | lower }}">{{ role }}</span>
                             {%  endfor %}
-                            </h5>
                         </div>
                     {% endif %}
                     <a class="team-member-image-link" href="/team/{{ item.username }}">
