@@ -1,23 +1,18 @@
 "use strict";
 
-const express = require('express');
-
-const app = express();
-
 const config = require('../config.json');
-const appInitializer = require('../config/express-config.js');
-appInitializer.preInitialize(app,config);
+const expressInit = require('../config/express-config.js');
 
 // Routing Setup
 const routes = require('./routes/index');
-const users = require('./routes/users');
 const api = require('./routes/api');
 
-app.use('/', routes);
-app.use('/api', api);
-app.use('/users', users);
+const expressApp = new expressInit(config);
 
-// error handlers
-appInitializer.postInitialize(app);
+expressApp.run(app => {
+    app.use('/', routes);
+    app.use('/api', api);
+});
 
-module.exports = app;
+// Return Express App
+module.exports = expressApp.app;

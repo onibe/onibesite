@@ -1,11 +1,11 @@
 "use strict";
-var gulp = require("gulp");
-var gutil = require("gulp-util");
-var webpack = require("webpack");
+const gulp = require("gulp");
+const gutil = require("gulp-util");
+const webpack = require("webpack");
 
-var config = require('../../config.json');
-var themePath = '../../server/views/' + config.theme + '/webpack.config.js';
-var frontEndWebpack = require(themePath);
+const config = require('../../config.json');
+const themePath = '../../server/views/' + config.theme + '/webpack.config.js';
+const frontEndWebpack = require(themePath);
 
 gulp.task("webpack:dev", function(callback) {
     // run webpack

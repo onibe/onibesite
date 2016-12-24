@@ -1,12 +1,14 @@
-var path = require('path');
-var webpack = require('webpack');
+'use strict';
 
-var PATH = {
+const path = require('path');
+const webpack = require('webpack');
+
+const PATH = {
     entry: './js',
     dist: 'public/dist'
 };
 
-var settings = {
+const settings = {
     entry: {
         "homepage": [
             path.resolve(__dirname) + "/js/homepage.js"
@@ -26,6 +28,26 @@ var settings = {
     resolve: {
         root: [
             path.resolve("./node_modules")
+        ]
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.js?$/,
+                exclude: /(node_modules|semantic)/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015']
+                }
+            },
+            {
+                test: /\.jsx?$/,
+                exclude: /(node_modules|semantic)/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015', 'react']
+                }
+            }
         ]
     },
     plugins: [

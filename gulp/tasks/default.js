@@ -1,10 +1,10 @@
 'use strict';
 
-var gulp = require('gulp');
-var del = require('del');
-var runSequence = require('run-sequence');
+const gulp = require('gulp');
+const del = require('del');
+const runSequence = require('run-sequence');
 
-gulp.task('watch', function(){
+gulp.task('watch', () => {
     // Client Side Watcher
     gulp.watch('./server/**/*.scss', ['sass:dev']);
 
@@ -13,18 +13,18 @@ gulp.task('watch', function(){
     gulp.watch('./server/views/**/*.{js,njs}', ['webpack:dev']);
 });
 
-gulp.task('clean:dist', function(){
+gulp.task('clean:dist', () => {
     return del([
         './public/dist'
     ]);
 });
 
 
-gulp.task('dev', function(){
+gulp.task('dev', () => {
     runSequence('clean:dist',['sass:dev','webpack:dev'],['server','watch']);
 });
 
-gulp.task('build', function(){
+gulp.task('build', () => {
     runSequence('clean:dist',['sass:server','webpack:dev']);
 });
 

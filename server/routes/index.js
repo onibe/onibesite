@@ -6,7 +6,7 @@ const uniqBy = require('lodash/uniqBy');
 
 const router = express.Router();
 
-const defaultMenu = function(data) {
+const defaultMenu = (data) => {
     return {
         data: Object.assign({},{
             "title": "ONIBE",
@@ -35,13 +35,13 @@ const defaultMenu = function(data) {
 };
 
 // Render Pages
-router.get('/', function(req, res, next) {
-    res.render("homepage",defaultMenu({
+router.get('/', (req, res, next) => {
+    res.render("homepage/homepage",defaultMenu({
 
     }));
 });
 
-router.get('/about', function(req, res, next) {
+router.get('/about', (req, res, next) => {
     res.render("about", defaultMenu({
 
     }));
@@ -63,19 +63,19 @@ const sortedProfile = uniqBy(roles.map(role =>
 ).reduce((a,b) => a.concat(b)), 'username');
 
 router.get('/team', function(req, res, next) {
-    res.render("team",defaultMenu({
+    res.render("team/team",defaultMenu({
         "team": sortedProfile
     }));
 });
 
 
-router.get('/team/:username', function(req, res, next) {
+router.get('/team/:username', (req, res, next) => {
 
     const username = req.params.username ? req.params.username.toLowerCase() : null;
     const profile = username ? profiles.find(profile => profile.username.toLowerCase() === username) : null;
 
     if(profile) {
-        res.render("profile", defaultMenu({
+        res.render("profile/profile", defaultMenu({
             "profile": profile
         }));
     } else {

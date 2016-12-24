@@ -1,0 +1,89 @@
+
+.team-member {
+  padding: 60px 0;
+  background: $light-grey;
+  &-wrapper {
+    background: url('/onibe-light/images/LLSS.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: $color3;
+  }
+  &-cover {
+    height: 440px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  &-image {
+    //border-radius: 50%;
+    //margin-bottom: 20px;
+    width: 120%;
+    max-width: 180px;
+    height: 100%;
+    box-shadow: 0 5px 9px $gray1;
+    -webkit-clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+    clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+  }
+
+  // Ideal 520x440
+  // 13:11 ratio
+  // Can't be square, make sure the sides have equal length
+  &-image-container {
+    margin: 0 auto;
+    width: 240px;
+    height: 240px;
+    background-position: center;
+    background-color: $white;
+    background-size: 240px, cover;
+
+    /* easeInOutQuart */
+    -webkit-transition: all 400ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    -moz-transition: all 400ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    -o-transition: all 400ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    transition: all 400ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+
+    -webkit-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    -moz-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    -o-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000); /* easeInOutQuart */
+
+    -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+  }
+
+  &-image-container:hover {
+    background-size: 270px, cover;
+    -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  }
+
+
+  &-name {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  &-image-link {
+    width: 100%;
+  }
+  &-profile {
+    font-size: 14px;
+    text-align: center;
+  }
+  &-roles {
+    text-align: right;
+    .label {
+      margin: 2px 0;
+      text-align: left;
+      display: inline-block;
+      font-weight: normal;
+
+      -webkit-clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0 50%);
+      clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0 50%);
+
+      // Fix to media class in label-social media,, #FIX THIS
+      zoom: 0;
+      overflow: inherit;
+    }
+  }
+
+}

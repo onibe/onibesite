@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<div class="team-member-wrapper " >
+<div class="team-member-wrapper" >
     <div class="team-member-cover container">
         <div class="row">
             <div class="col-md-12">

@@ -1,16 +1,19 @@
 'use strict';
 
 // StyleSheet Compilation
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var config = require('../../config.json');
+const path = require('path');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const config = require('../../config.json');
 
-var themePath = '/server/views/' + config.theme;
+const themePath = path.resolve('/server/views/' + config.theme);
+const styleSource = path.resolve(__base + themePath + '/styles/index.scss');
+const styleDestination = path.resolve(__base + '/public/dist/'+ config.theme +'/styles');
 
-var styleDestination = __base + themePath + '/styles/main.scss';
+console.log(styleSource,styleDestination);
 
-gulp.task('sass:dev', function(){
-    return gulp.src(styleDestination)
+gulp.task('sass:dev', () => {
+    return gulp.src(styleSource)
         .pipe(sass({
             outputStyle: 'nested',
             sourceComments: true,
@@ -18,13 +21,13 @@ gulp.task('sass:dev', function(){
             sourceMapContents: true,
             sourceMapEmbed: true
         }).on('error', sass.logError))
-        .pipe(gulp.dest(__base + '/public/dist/'+ config.theme +'/styles'));
+        .pipe(gulp.dest(styleDestination));
 });
 
-gulp.task('sass:server', function () {
-    return gulp.src(styleDestination)
+gulp.task('sass:server', () => {
+    return gulp.src(styleSource)
         .pipe(sass({
             outputStyle: 'compressed'
         }))
-        .pipe(gulp.dest(__base + '/public/dist/'+ config.theme +'/styles'));
+        .pipe(gulp.dest(styleDestination));
 });

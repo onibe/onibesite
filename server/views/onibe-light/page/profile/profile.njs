@@ -9,6 +9,8 @@
         <div class="container">
             <div class="row" style="height: 360px;display: flex; align-items: center">
                 <div class="col-md-12" >
+                    <img class="" src="http://placehold.it/350x350">
+
                     <div class="wrap">
                         <h1 style="color: #FFFFFF;">{{ data.profile.name }}</h1>
                         <div style="color: #FFFFFF">{{ data.profile.profile }}</div>

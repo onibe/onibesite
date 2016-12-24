@@ -1,22 +1,33 @@
+'use strict';
+
 // Enable Nunjucks for templating
-var nunjucks = require('nunjucks');
+const nunjucks = require('nunjucks');
 
 function configure(app, config) {
+
+    // Autosets viewengien to njs
     app.set('view engine', 'njs');
 
-    var njsViews = nunjucks.configure('server/views/' + config.theme, {
+    const njsViews = nunjucks.configure(config.viewDirectory, {
         autoescape: true,
         express: app,
         ext: [ "njs" ]
     });
 
-    njsViews.addFilter('shorten', function(str, count) {
-        return str.slice(0, count || 5);
-    });
+    // Filters
+    njsViews.addFilter('shorten', (str, count) => str.slice(0, count || 5));
 
-    // Alternatively dump filter
-    njsViews.addFilter('json', function(data) {
-        return JSON.stringify(data);
+    // Convert Data to JSON Format
+    njsViews.addFilter('json', data => {
+        let jsonString = null;
+
+        try {
+            jsonString = JSON.stringify(data);
+        } catch(e) {
+            jsonString = null;
+        }
+
+        return jsonString;
     });
 }
 
