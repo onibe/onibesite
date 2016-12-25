@@ -90,13 +90,11 @@ router.get('/team/:username', (req, res, next) => {
 
 });
 
-/* GET home page. */
-router.get('/article', function(req, res, next) {
-    res.render("article/article", defaultMenu({}));
-});
+// router.get('/article', function(req, res, next) {
+//     res.render("article/article", defaultMenu({}));
+// });
 
 
-/* GET home page. */
 router.get('/version', function(req, res, next) {
     res.json({'version':'alpha-0.0.1'});
 });

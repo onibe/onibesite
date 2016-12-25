@@ -1,6 +1,8 @@
 /**
   General Guidelines
   - Classes combined together in a single element must not have overlapping properties
+  - Do not use float or clearfix hacks when using display: flex;
+  - Bootstrap is mobile-first
  */
 
 // Variables

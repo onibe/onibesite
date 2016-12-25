@@ -3,27 +3,70 @@
     background-color: $color3;
     background-size: cover;
     background-position: center;
-    height: 300px;
+    height: 200px;
     position: relative;
+    @include transitionEaseInOutQuart(all);
+
+    @media (min-width: $screen-sm-min) {
+      height: 300px;
+    }
   }
   &-header-image {
+    width: 100px;
+    height: 100px;
+    background-size: 100px, cover;
     position: absolute;
     bottom: 0;
-    margin: 0 0 -120px 0;
+    margin: 0 0 -50px 0;
+    @include transitionEaseInOutQuart(all);
+
+    @media (min-width: $screen-sm-min) {
+      width: 240px;
+      height: 240px;
+      background-size: 240px, cover;
+      margin: 0 0 -120px 0;
+    }
+  }
+  &-header-image:hover {
+    background-size: 110px, cover;
+    @include transitionEaseInOutQuart(all);
+
+    @media (min-width: $screen-sm-min) {
+      background-size: 270px, cover;
+    }
   }
   &-header-roles {
-    padding: 0 0 20px 250px;
+    padding: 0 0 20px 110px;
     position: absolute;
     bottom: 0;
+    @include transitionEaseInOutQuart(all);
+
     .label {
+      margin: 10px 0 0 0;
       font-size: 16px;
       text-align: left;
       display: inline-block;
     }
+
+    @media (min-width: $screen-sm-min) {
+      padding: 0 0 20px 250px;
+    }
   }
-  &-short-info {
-    margin: 20px 0 40px 250px;
+  &-short {
+    margin: 10px 0 20px 110px;
+    @include transitionEaseInOutQuart(all);
+    @media (min-width: $screen-sm-min) {
+      margin: 20px 0 40px 250px;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
   }
+  &-short-info-mobile {
+    margin: 20px 0;
+  }
+
   &-header-img {
 
   }
@@ -33,18 +76,26 @@
 
   &-body-region-top {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+
+    @media (min-width: $screen-sm-min) {
+      flex-direction: row;
+    }
   }
 
   &-body-left {
     width: 240px;
-    padding: 0 15px;
+    padding: 0 15px 0 0;
     flex-shrink: 0;
     flex-grow: 0;
   }
 
   &-body-right {
     width: 100%;
-    margin: 0 10px 0 10px;
+    padding: 0 0 0 0;
+
+    @media (min-width: $screen-sm-min) {
+      padding: 0 10px 0 10px;
+    }
   }
 }

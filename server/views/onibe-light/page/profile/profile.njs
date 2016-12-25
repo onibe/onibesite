@@ -25,11 +25,11 @@
 
     </div>
     <div class="container">
-        <div class="profile-short-info">
-            <h1>{{ data.profile.name }}</h1>
-            <div >{{ data.profile.profile | safe }}</div>
-
+        <div class="profile-short">
+            <h1 class="profile-short-name">{{ data.profile.name }}</h1>
+            <div class="profile-short-info hidden-xs" >{{ data.profile.profile | safe }}</div>
         </div>
+        <div class="profile-short-info-mobile visible-xs" >{{ data.profile.profile | safe }}</div>
     </div>
     <div class="profile-body">
         <div class="container">
@@ -64,8 +64,8 @@
                 <div class="profile-body-right" >
                     <div class="profile-body-right-first">
                         {% if data.profile.what_onibe_means | safe %}
-                        <h4>What Does Onibe mean?</h4>
-                        <blockquote>{{ data.profile.what_onibe_means }}</blockquote>
+                            <h4>What Does Onibe mean?</h4>
+                            <blockquote>{{ data.profile.what_onibe_means }}</blockquote>
                         {%  endif %}
                         {% if data.profile.translations.length > 0 %}
                             <h4>Translations</h4>
@@ -81,21 +81,21 @@
                             <div>{{ data.profile.charm_point }}</div>
                         {%  endif %}
                         {% if data.profile.hobbies %}
-                        <h4>Hobbies</h4>
-                        <div>{{ data.profile.hobbies }}</div>
+                            <h4>Hobbies</h4>
+                            <div>{{ data.profile.hobbies }}</div>
                         {%  endif %}
                         {% if data.profile.country  %}
-                        <h4>Country</h4>
-                        <div>{{ data.profile.country }}</div>
+                            <h4>Country</h4>
+                            <div>{{ data.profile.country }}</div>
                         {% endif %}
                         {% if data.profile.best_girls.length > 0 %}
-                        <h4>Best Girls</h4>
-                        <div>
-                            {% set comma = joiner() %}
-                            {% for girl in data.profile.best_girls -%}
-                                {{ comma() }} {{ girl }}
-                            {%- endfor %}
-                        </div>
+                            <h4>Best Girls</h4>
+                            <div>
+                                {% set comma = joiner() %}
+                                {% for girl in data.profile.best_girls -%}
+                                    {{ comma() }} {{ girl }}
+                                {%- endfor %}
+                            </div>
                         {% endif %}
                         {% if data.profile.best_seiyuu.length > 0 %}
                             <h4>Best Seiyuu</h4>
