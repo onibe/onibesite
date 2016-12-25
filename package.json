@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "complete-start": "npm run build && node ./bin/www",
-    "pm-start": "git pull && pm2 start npm --name \"onibe\" -- start",
-    "pm-restart": "git pull && npm run build && pm2 restart onibe",
+    "pm-start": "git pull origin master && pm2 start npm --name \"onibe\" -- start",
+    "pm-restart": "git pull origin master && npm run build && pm2 restart onibe",
     "build": "gulp build",
     "dev": "gulp default"
   },
