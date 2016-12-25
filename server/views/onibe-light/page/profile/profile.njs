@@ -64,7 +64,7 @@
                 <div class="profile-body-right" >
                     <div class="profile-body-right-first">
                         {% if data.profile.what_onibe_means | safe %}
-                            <h4>What Does Onibe mean?</h4>
+                            <h4>What Does ONIBE mean?</h4>
                             <blockquote>{{ data.profile.what_onibe_means }}</blockquote>
                         {%  endif %}
                         {% if data.profile.translations.length > 0 %}
