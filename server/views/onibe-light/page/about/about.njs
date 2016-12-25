@@ -6,6 +6,7 @@
     <section class="about">
         <div class="about-cover">
             <div class="container">
+                <h2>About</h2>
                 <p>
                     With roots in the reddit Love Live community,
                     Team ONIBE was formed by a group of Love Live content translators in the second half of 2016 as a collaborative
