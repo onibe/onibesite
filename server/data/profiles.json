@@ -22,16 +22,16 @@
 	"profile": "",
 	"picture": "",
 	"charm_point": "smollest member",
-	"role": [""],
+	"role": [],
 	"translations": [":spaghetti:"],
 	"personal_website": "",
 	"social_media": {
-		"facebook": "http://www.facebook.com",
-		"twitter": "http://www.twitter.com"
+		"facebook": "",
+		"twitter": ""
 	},
 	"best_girls": ["Chika", "Maki"],
 	"best_seiyuu": ["All the Seiyuus"],
-	"what_onibe_means": "I started this fkn team yet no mod still bullied banned muted",
+	"what_onibe_means": "",
 	"country": "",
 	"hobbies": ""
 }, {
@@ -48,7 +48,7 @@
 		"twitter": ""
 	},
 	"best_girls": ["Umi", "Kanan"],
-	"best_seiyuu": [""],
+	"best_seiyuu": [],
 	"what_onibe_means": "o no",
 	"country": "",
 	"hobbies": ""
@@ -60,14 +60,14 @@
 	"cover_picture": "/onibe-light/images/profile-pics/megabanner.png",
 	"charm_point": "My genki attitude",
 	"role": ["QC"],
-	"translations": [""],
+	"translations": [],
 	"personal_website": "https://https://twitter.com/Mega_Honk",
 	"social_media": {
 		"facebook": "",
 		"twitter": ""
 	},
 	"best_girls": ["Honoka"],
-	"best_seiyuu": [""],
+	"best_seiyuu": [],
 	"what_onibe_means": "Overly Nice Intelligent Beings Eating ",
 	"country": "",
 	"hobbies": ""
@@ -98,7 +98,7 @@
 	"cover_picture": "/onibe-light/images/profile-pics/yuniiheader.png",
 	"charm_point": "NEET",
 	"role": ["Typesetter"],
-	"translations": [""],
+	"translations": [],
 	"personal_website": "https://twitter.com/Yuniikorn",
 	"social_media": {
 		"facebook": "",
@@ -134,7 +134,7 @@
 	"picture": "/onibe-light/images/profile-pics/link2110.jpg",
 	"charm_point": ":^)",
 	"role": ["Admin", "Manager", "Website", "Social Media"],
-	"translations": [""],
+	"translations": [],
 	"personal_website": "",
 	"social_media": {
 		"facebook": "",
@@ -206,7 +206,7 @@
 	"picture": "/onibe-light/images/profile-pics/eter.jpg",
 	"charm_point": "Turnaround time from an hour to indefinitely",
 	"role": ["Typesetter"],
-	"translations": [""],
+	"translations": [],
 	"personal_website": "https://twitter.com/Eternith",
 	"social_media": {
 		"facebook": "",
@@ -278,7 +278,7 @@
 	"picture": "/onibe-light/images/profile-pics/mmirl.png",
 	"charm_point": "",
 	"role": ["Admin"],
-	"translations": [""],
+	"translations": [],
 	"personal_website": "https://reddit.com/r/LoveLive",
 	"social_media": {
 		"facebook": "",
@@ -320,8 +320,8 @@
 		"facebook": "",
 		"twitter": ""
 	},
-	"best_girls": [""],
-	"best_seiyuu": [""],
+	"best_girls": [],
+	"best_seiyuu": [],
 	"what_onibe_means": "Oh? No? It's... But... EHHH?!!",
 	"country": "",
 	"hobbies": ""
@@ -390,12 +390,12 @@
 	"translations": [],
 	"personal_website": "",
 	"social_media": {
-		"facebook": "",
-		"twitter": ""
+		"facebook": "https://twitter.com/lakepower",
+		"twitter": "https://twitter.com/lakepower"
 	},
 	"best_girls": ["Nico", "Nozomi", "Chika", "Ruby", "Dia"],
 	"best_seiyuu": ["Shikaco", "Kussun", "Somaru", "Aiai"],
-	"what_onibe_means": "Onii-chan daisuki",
+	"what_onibe_means": "Oh No I've Backlogged Everything",
 	"country": "USA",
-	"hobbies": "Sleeping"
+	"hobbies": "Dota2, Playing Games, Sleeping and at lot of things under the sun."
 }]

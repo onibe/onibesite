@@ -47,6 +47,8 @@ router.get('/about', (req, res, next) => {
     }));
 });
 
+
+// @todo: Move this to getProfiles();
 const roles = [
     "admin",
     "translator",
@@ -58,13 +60,17 @@ const roles = [
     ""
 ];
 
-const sortedProfile = uniqBy(roles.map(role =>
+const roledProfiles = uniqBy(roles.map(role =>
      profiles.filter((profile) => profile.role.map(profileRole => profileRole.toLowerCase()).includes(role))
 ).reduce((a,b) => a.concat(b)), 'username');
 
+const nonRoleProfiles = profiles.filter((profile) => profile.role.length === 0);
+
+const sortedProfiles = roledProfiles.concat(nonRoleProfiles);
+
 router.get('/team', function(req, res, next) {
     res.render("team/team",defaultMenu({
-        "team": sortedProfile
+        "team": sortedProfiles
     }));
 });
 

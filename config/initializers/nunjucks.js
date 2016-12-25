@@ -31,6 +31,19 @@ function configure(app, config) {
     });
 
     njsViews.addFilter('extractLocalAddress', (subject) => subject.replace(/.*?:\/\//g, ""));
+
+    // Convert Data to JSON Format
+    njsViews.addFilter('getLengthOfObjectWithValues', data => {
+        let length = 0;
+
+        for(const key in data) {
+            if(data[key]) {
+                length = length + 1;
+            }
+        }
+
+        return length;
+    });
 }
 
 module.exports = configure;
