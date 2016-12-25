@@ -4,9 +4,10 @@
   "description": "",
   "private": true,
   "scripts": {
-    "start": "npm run build && node ./bin/www",
+    "start": "node ./bin/www",
+    "complete-start": "npm run build && node ./bin/www",
     "pm-start": "git pull && pm2 start npm --name \"onibe\" -- start",
-    "pm-restart": "git pull && pm2 restart onibe",
+    "pm-restart": "git pull && npm run build && pm2 restart onibe",
     "build": "gulp build",
     "dev": "gulp default"
   },
