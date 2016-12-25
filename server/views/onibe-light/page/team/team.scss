@@ -1,6 +1,6 @@
 
 .team-member {
-  padding: 60px 0;
+  padding: 0 0;
   background: $light-grey;
   &-wrapper {
     background: url('/onibe-light/images/LLSS.jpg');
@@ -9,10 +9,14 @@
     background-color: $color3;
   }
   &-cover {
-    height: 440px;
+    height: 200px;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
+    @media (min-width: $screen-sm-min) {
+      height: 300px;
+      align-items: center;
+    }
   }
   &-image {
     //border-radius: 50%;

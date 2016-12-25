@@ -10,8 +10,6 @@ const themePath = path.resolve('/server/views/' + config.theme);
 const styleSource = path.resolve(__base + themePath + '/styles/index.scss');
 const styleDestination = path.resolve(__base + '/public/dist/'+ config.theme +'/styles');
 
-console.log(styleSource,styleDestination);
-
 gulp.task('sass:dev', () => {
     return gulp.src(styleSource)
         .pipe(sass({

@@ -6,19 +6,18 @@
 
 <div class="team-member-wrapper" >
     <div class="team-member-cover container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="wrap">
-                    <h1 style="color: #FFFFFF;  text-shadow: 2px 2px 0px rgba(100, 150, 200, 1);">Meet the team</h1>
-                    <div style="color: #FFFFFF;  text-shadow: 2px 2px 0px rgba(100, 150, 200, 1);"></div>
-                </div>
-            </div>
-        </div>
+
     </div>
 </div>
+
 <section class="team-member">
-    <div class="container voffset">
+    <div class="container">
         <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Meet the team</h1>
+            </div>
+        </div>
+        <div class="row voffset2">
             {% for item in data.team %}
                 <div class="col-sm-6 col-md-3">
                     {% if item.picture %}
