@@ -101,7 +101,7 @@
                             <h4>Best Seiyuu</h4>
                             <div>
                                 {% set comma = joiner() %}
-                                {% for girl in data.profile.best_seiyuu %}
+                                {% for girl in data.profile.best_seiyuu -%}
                                     {{ comma() }} {{ girl }}
                                 {%- endfor %}
                             </div>
