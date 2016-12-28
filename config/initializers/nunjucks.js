@@ -5,7 +5,7 @@ const nunjucks = require('nunjucks');
 
 function configure(app, config) {
 
-    // Autosets viewengien to njs
+    // Autosets viewengine to njs
     app.set('view engine', 'njs');
 
     const njsViews = nunjucks.configure(config.viewDirectory, {
