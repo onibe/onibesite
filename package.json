@@ -8,8 +8,10 @@
     "complete-start": "npm run build && node ./bin/www",
     "pm-start": "git pull origin master && pm2 start npm --name \"onibe\" -- start",
     "pm-restart": "git pull origin master && npm run build && pm2 restart onibe",
+    "clean-database": "node server/jobs/clean-database.js",
     "build": "gulp build",
-    "dev": "gulp default"
+    "dev": "gulp default",
+    "test-db": "tap server/tests/*.spec.js"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -51,6 +53,8 @@
     "node-sass": "^3.7.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",
+    "tap": "^8.0.1",
+    "tape": "^4.6.3",
     "webpack": "^1.13.1"
   },
   "engines": {

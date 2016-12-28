@@ -1,18 +1,15 @@
 'use strict';
 
-const moment = require('moment');
-const Sequelize = require('sequelize');
-
+// Additional fields to sanitize or update before an operation
 const create = data => {
     return Object.assign({}, data, {
-        create_date: moment.valueOf(),
-        uuid: Sequelize.Utils.generateUUID()
+
     });
 };
 
 const update = data => {
     return Object.assign({}, data, {
-        update_date: moment.valueOf()
+
     });
 };
 

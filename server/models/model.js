@@ -12,8 +12,10 @@ class Model {
     sync() {
         const { User, Post } = this;
 
-        User.forceSync();
-        Post.forceSync();
+        return Promise.all([
+            User.forceSync(),
+            Post.forceSync()
+        ]);
     }
 }
 

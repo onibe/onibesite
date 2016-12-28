@@ -2,17 +2,25 @@
 
 const Sequelize = require('sequelize');
 const path = require('path');
-const dbConfig = require('../../config.json');
-
-const dbPath = path.resolve(global.__base, 'content/db.sqlite') || dbConfig.sqlite.storage;
 
 class Database {
-    constructor() {
+    constructor(config) {
         this.Sequelize = Sequelize;
-        this.sequelize = new Sequelize(null,null,null,{
-            dialect: dbConfig.dialect,
-            storage: dbPath,
-        });
+
+        let sequelizeConfig = {};
+
+        if(config.dialect === 'sqlite') {
+            const dbPath = path.resolve(config.database.storage) || path.resolve(global.__base, 'content/db.sqlite');
+
+            sequelizeConfig = {
+                dialect: config.dialect,
+                storage: dbPath
+            };
+        } else {
+            sequelizeConfig = Object.assign({}, {dialect: config.dialect}, config.database);
+        }
+
+        this.sequelize = new Sequelize(null,null,null,sequelizeConfig);
     }
 
     authenticate() {
@@ -20,12 +28,12 @@ class Database {
         // Test Database Connection
         return sequelize
             .authenticate()
-            .then(function(err) {
+            .then(function() {
                 console.log('Connection has been established successfully.');
             })
             .catch(function (err) {
                 console.log('Unable to connect to the database:', err);
-                return Promise.reject(err);
+                return Promise.reject();
             });
     }
 }
