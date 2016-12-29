@@ -4,8 +4,6 @@
 const logger = require('morgan');
 
 function configure(app, config) {
-
-    // Autosets viewengien to njs
     app.use(logger('dev'));
 }
 

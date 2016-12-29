@@ -1,12 +1,15 @@
 "use strict";
 
-const UserModel = require('./user');
-const PostModel = require('./post');
+const User = require('./user');
+const Post = require('./post');
+const Schema = require('./schema');
 
 class Model {
-    constructor() {
-        this.User = new UserModel();
-        this.Post = new PostModel();
+    constructor(sequelize) {
+        const schema = new Schema(sequelize);
+
+        this.User = new User(schema.User);
+        this.Post = new Post(schema.Post);
     }
 
     sync() {

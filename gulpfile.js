@@ -1,6 +1,13 @@
-// SET LOCAL require: usage: require(__base + '/path');
-var path = require('path');
-var rootPath = path.normalize(__dirname);
-global.__base = rootPath;
+"use strict";
 
-require('./gulp');
+const path = require('path');
+const config = require('./config.json');
+const rootPath = path.normalize(__dirname);
+
+const gulpInit = require('./gulp');
+
+// Gulp Configuration
+gulpInit({
+    base_path: rootPath,
+    theme: config.theme
+});

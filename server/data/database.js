@@ -10,7 +10,7 @@ class Database {
         let sequelizeConfig = {};
 
         if(config.dialect === 'sqlite') {
-            const dbPath = path.resolve(config.database.storage) || path.resolve(global.__base, 'content/db.sqlite');
+            const dbPath = path.resolve(config.database.storage);
 
             sequelizeConfig = {
                 dialect: config.dialect,

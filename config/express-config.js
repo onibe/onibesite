@@ -5,7 +5,6 @@ const rootPath = path.normalize(__dirname);
 global.__base = path.resolve(rootPath + '/..');
 
 const express = require('express');
-const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const glob = require('glob');
@@ -29,8 +28,7 @@ class expressInit {
     preInitialize() {
         const { app, config } = this;
 
-        // uncomment after placing your favicon in /public
-        //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+        console.log('ENVIRONMENT:', app.get('env'));
         app.use(bodyParser.json());
         app.use(bodyParser.urlencoded({ extended: false }));
         app.use(cookieParser());
@@ -64,7 +62,7 @@ class expressInit {
         if (app.get('env') === 'development') {
             app.use(function(err, req, res, next) {
                 res.status(err.status || 500);
-                res.render('error', {
+                res.render('global/error', {
                     message: err.message,
                     error: err
                 });
@@ -77,7 +75,9 @@ class expressInit {
             res.status(err.status || 500);
             res.render('global/error', {
                 message: err.message,
-                error: {}
+                error: {
+                    status: err.status
+                }
             });
         });
 
