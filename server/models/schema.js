@@ -6,7 +6,7 @@ const Sequelize = require('sequelize');
 
 class Schema {
     constructor(sequelize) {
-        const User = sequelize.define('user', {
+        const user = sequelize.define('users', {
             username: {
                 type: Sequelize.STRING,
                 validation: {
@@ -28,7 +28,7 @@ class Schema {
             youtube: Sequelize.STRING,
         });
 
-        const Post = sequelize.define('post', {
+        const post = sequelize.define('posts', {
             uuid: Sequelize.STRING,
             title: Sequelize.TEXT,
             blurb: Sequelize.TEXT,
@@ -42,9 +42,7 @@ class Schema {
             meta_title: Sequelize.STRING,
             meta_description: Sequelize.STRING,
             publish_date: Sequelize.STRING,
-            published_by_id: {
-                type: Sequelize.INTEGER,
-            },
+            published_by_id: Sequelize.INTEGER,
             create_date: Sequelize.DATE,
             created_by_id: Sequelize.INTEGER,
             update_date: Sequelize.STRING,
@@ -52,11 +50,24 @@ class Schema {
         });
 
         // User.hasMany add getPosts to user instance
-        User.hasMany(Post, { foreignKey: 'published_by_id' });
-        Post.belongsTo(User, { foreignKey: 'published_by_id', constraints: false });
+        user.hasMany(post, { foreignKey: 'published_by_id' });
+        post.belongsTo(user, { foreignKey: 'published_by_id', constraints: false });
 
-        this.User = User;
-        this.Post = Post;
+        const session = sequelize.define('sessions', {
+            sid: {
+                type: Sequelize.STRING,
+                primaryKey: true
+            },
+            user_id: Sequelize.STRING,
+            expires: Sequelize.DATE,
+            data: Sequelize.STRING(50000)
+        }, {
+            freezeTableName: true
+        });
+
+        this.user = user;
+        this.post = post;
+        this.session = session;
     }
 }
 

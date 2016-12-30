@@ -1,9 +1,8 @@
 "use strict";
 
 class Post {
-    constructor(sequelize) {
-        // Refer to http://docs.sequelizejs.com/en/v3/api/model
-        this.db = sequelize;
+    constructor(instance) {
+        this.db = instance;
     }
 
     forceSync() {
@@ -23,8 +22,6 @@ class Post {
     create(post) {
         const { db } = this;
 
-        // Generate Date
-        //
         return db.sync()
             .then(db.create(post));
     }

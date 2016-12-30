@@ -2,22 +2,26 @@
 
 const User = require('./user');
 const Post = require('./post');
+const Session = require('./session');
 const Schema = require('./schema');
 
 class Model {
     constructor(sequelize) {
         const schema = new Schema(sequelize);
 
-        this.User = new User(schema.User);
-        this.Post = new Post(schema.Post);
+        this.user = new User(schema.user);
+        this.post = new Post(schema.post);
+        this.session = new Session(sequelize);
+
     }
 
     sync() {
-        const { User, Post } = this;
+        const { user, post, session } = this;
 
         return Promise.all([
-            User.forceSync(),
-            Post.forceSync()
+            user.forceSync(),
+            post.forceSync(),
+            session.forceSync()
         ]);
     }
 }

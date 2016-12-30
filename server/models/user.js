@@ -3,8 +3,8 @@
 const helper = require('./helper');
 
 class User {
-    constructor(sequelize) {
-        this.db = sequelize;
+    constructor(instance) {
+        this.db = instance;
     }
 
     sync() {

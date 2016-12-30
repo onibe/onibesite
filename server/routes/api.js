@@ -31,7 +31,7 @@ router.post('/contact', function(req, res, next) {
 });
 
 /* GET home page. */
-router.get('/version', function(req, res, next) {
+router.get('/version', (req, res, next) => {
     res.json({'version':'alpha-0.0.1'});
 });
 

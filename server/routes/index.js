@@ -42,9 +42,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/about', (req, res, next) => {
-    res.render("about/about", defaultMenu({
 
-    }));
+    req.session.regenerate(function(err) {
+        res.render("about/about", defaultMenu({
+
+        }));
+    })
+
 });
 
 

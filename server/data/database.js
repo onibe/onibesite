@@ -7,17 +7,22 @@ class Database {
     constructor(config) {
         this.Sequelize = Sequelize;
 
-        let sequelizeConfig = {};
+        let sequelizeConfig = {
+            define: {
+                freezeTableName: true
+            }
+        };
 
         if(config.dialect === 'sqlite') {
             const dbPath = path.resolve(config.database.storage);
 
-            sequelizeConfig = {
+            sequelizeConfig = Object.assign({}, sequelizeConfig, {
+                logging: false,
                 dialect: config.dialect,
                 storage: dbPath
-            };
+            });
         } else {
-            sequelizeConfig = Object.assign({}, {dialect: config.dialect}, config.database);
+            sequelizeConfig = Object.assign({}, sequelizeConfig, {dialect: config.dialect}, config.database);
         }
 
         this.sequelize = new Sequelize(null,null,null,sequelizeConfig);

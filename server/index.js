@@ -7,18 +7,17 @@ const expressInit = require('../config/express-config.js');
 const routes = require('./routes/index');
 const api = require('./routes/api');
 
+const model = require('./models');
+const session = model.session;
+
 const expressApp = new expressInit(config);
 
-const data = require('./data');
+expressApp.run(app => {
+    // Set Session Configuration
+    app.use(session.start());
 
-// Check if there is a database connection
-data.authenticate()
-    .then(() => {
-        expressApp.run(app => {
-            app.use('/', routes);
-            app.use('/api', api);
-        });
-    });
+    app.use('/', routes);
+    app.use('/api', api);
+});
 
-// Return Express App
 module.exports = expressApp.app;
