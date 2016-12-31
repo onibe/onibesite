@@ -16,19 +16,19 @@ const dbInstance = new Database({
 
 const model = new Model(dbInstance.sequelize);
 
-const User = model.User;
-const Post = model.Post;
+const user = model.user;
+const post = model.post;
 
 const testName = 'testuser';
 
-test('User Schema', t => {
-    User.forceSync().then(() => {
+test('user Schema', t => {
+    user.forceSync().then(() => {
         t.end();
     });
 });
 
-test('User Can Be Added', t => {
-    User.create({
+test('user Can Be Added', t => {
+    user.create({
         username: testName
     }).then(() => {
         t.pass('nice');
@@ -36,24 +36,24 @@ test('User Can Be Added', t => {
     });
 });
 
-test('User Can Be Found', t => {
-    User.db.findOne({ where: {username: testName}}).then(user => {
+test('user Can Be Found', t => {
+    user.db.findOne({ where: {username: testName}}).then(user => {
         t.pass(user.username === testName);
         t.end();
     });
 });
 
-test('Post Schema', t => {
-    Post.forceSync().then(() => {
+test('post Schema', t => {
+    post.forceSync().then(() => {
         t.end();
     });
 });
 
-const testPostTitle = 'New Post';
+const testPostTitle = 'New post';
 
-test('Post Can Be Added', t => {
-    Post.create({
-        title: 'New Post',
+test('post Can Be Added', t => {
+    post.create({
+        title: 'New post',
         published_by_id: 1
     }).then(() => {
         t.pass('nice');
@@ -61,8 +61,8 @@ test('Post Can Be Added', t => {
     });
 });
 
-test('Post Can Be Found', t => {
-    Post.db.findOne({ where: {id: 1}})
+test('post Can Be Found', t => {
+    post.db.findOne({ where: {id: 1}})
         .then(post => {
             t.pass(post.title === testPostTitle);
             t.end();
@@ -71,8 +71,8 @@ test('Post Can Be Found', t => {
 
 
 test('Posts can be found by user_id', t => {
-    User.db.findOne({ where: {id: 1}}).then(user => {
-        Post.db.findOne({ where: {published_by_id: user.id}})
+    user.db.findOne({ where: {id: 1}}).then(user => {
+        post.db.findOne({ where: {published_by_id: user.id}})
             .then(post => {
                 t.pass(post.title === testPostTitle);
                 t.end();
@@ -81,8 +81,8 @@ test('Posts can be found by user_id', t => {
 });
 
 // Get Userposts
-test('User Posts Can Found from User', t => {
-    User.db.findOne({ where: {id: 1}}).then(user => {
+test('user Posts Can Found from user', t => {
+    user.db.findOne({ where: {id: 1}}).then(user => {
 
         user.getPosts().then(posts => {
             t.pass(posts.find(post => post.published_by_id === 1));

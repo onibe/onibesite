@@ -4,6 +4,9 @@ const express = require('express');
 const profiles = require('../data/profiles.json');
 const uniqBy = require('lodash/uniqBy');
 
+const model = require('../models');
+const user = model.user;
+
 const router = express.Router();
 
 const defaultMenu = (data) => {
@@ -39,6 +42,53 @@ router.get('/', (req, res, next) => {
     res.render("homepage/homepage",defaultMenu({
 
     }));
+});
+
+router.get('/login', function(req, res, next) {
+    let data = {};
+
+    if(req.query.invalid) {
+        data.invalid = "Invalid Username or Password"
+    }
+
+    res.render('login/login', data);
+});
+
+router.post('/login', function(req, res, next) {
+
+    const form = req.body;
+
+    if(form.username && form.password) {
+        user.validateUser(form)
+            .then(user => {
+                req.session.user = user;
+                req.session.save(err => {
+
+                    res.redirect('/admin');
+                });
+            })
+            .catch(err => {
+                res.redirect('/login?invalid');
+            })
+
+    } else {
+        res.redirect('/login?invalid');
+    }
+
+});
+
+router.get('/logout', function(req, res, next) {
+    let data = {};
+
+    if(req.session) {
+        req.session.destroy(err => {
+            res.render('login/login', data);
+        });
+    } else {
+        res.render('login/login', data);
+    }
+
+
 });
 
 router.get('/about', (req, res, next) => {
