@@ -5,6 +5,8 @@ const expressInit = require('../config/express-config.js');
 
 // Routing Setup
 const routes = require('./routes/index');
+const auth = require('./routes/auth');
+const admin = require('./routes/admin');
 const api = require('./routes/api');
 
 const model = require('./models');
@@ -18,6 +20,8 @@ expressApp.run(app => {
 
     app.use('/', routes);
     app.use('/api', api);
+    app.use('/auth', auth);
+    app.use('/admin', admin);
 });
 
 module.exports = expressApp.app;

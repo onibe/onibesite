@@ -41,7 +41,7 @@ apiconfig.json
 /logs
 
 *.ignore
-*.ignore.md
+*.ignore.*
 
 # Config
 config.json

@@ -10,7 +10,7 @@ module.exports = function(gulp, config) {
 
         // Server Restart
         gulp.watch('./server/**/*.{js,njs}', ['server']);
-        gulp.watch('./server/views/**/*.{js,njs}', ['webpack:dev']);
+        gulp.watch('./server/views/**/*.{js,jsx,njs}', ['webpack:dev']);
     });
 
     gulp.task('clean:dist', () => {

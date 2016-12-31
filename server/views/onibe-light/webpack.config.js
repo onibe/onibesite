@@ -12,7 +12,10 @@ const settings = {
     entry: {
         "homepage": [
             path.resolve(__dirname) + "/js/homepage.js"
-        ]
+        ],
+        "admin": [
+            path.resolve(__dirname) + "/page/admin/index.js"
+        ],
     },
     output: {
         path: PATH.dist + "/onibe-light/js" ,
