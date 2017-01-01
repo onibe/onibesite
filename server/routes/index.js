@@ -10,7 +10,7 @@ const defaultMenu = (data) => {
     return {
         data: Object.assign({},{
             "title": "ONIBE",
-            "header": "Team ONIBE Translations",
+            "header": "ONIBE Translations",
             "meta": {
                 "title": "ONIBE",
                 "description": "Love Live Translators",
