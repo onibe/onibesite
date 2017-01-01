@@ -17,24 +17,6 @@
 	"country": "",
 	"hobbies": "Having Shuka-induced heart attacks, Love Live! karaoke, drawing, collecting seal plushies"
 }, {
-	"name": "kay",
-	"username": "kay",
-	"profile": "",
-	"picture": "",
-	"charm_point": "smollest member",
-	"role": [],
-	"translations": [":spaghetti:"],
-	"personal_website": "",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["Chika", "Maki"],
-	"best_seiyuu": ["All the Seiyuus"],
-	"what_onibe_means": "",
-	"country": "",
-	"hobbies": ""
-}, {
 	"name": "Chezz",
 	"username": "Chezz",
 	"profile": "Really lazy translator who does the minimal amount of work to remain on the team. Spends his free time translating content the blasphemous anime series also known as <s>K-On! 3</s> BanG Dream!.",
@@ -260,7 +242,7 @@
 	"name": "astrobunny",
 	"username": "astrobunny",
 	"profile": "Writer of code. Translator of moon.",
-	"picture": "https://cdn.discordapp.com/avatars/122908555178147840/67ca118f64e72c29d9ba56ba0cfddf29.jpg",
+	"picture": "/onibe-light/images/profile-pics/astrobunny.jpg",
 	"charm_point": "Twintails",
 	"role": ["Translator", "Website"],
 	"translations": ["Japanese", "Chinese"],
