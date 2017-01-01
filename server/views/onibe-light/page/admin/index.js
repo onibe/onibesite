@@ -1,5 +1,5 @@
 'use strict';
 
-const admin = require('./admin.jsx');
+const app = require('./app.jsx');
 
-module.exports = admin;
+module.exports = app;

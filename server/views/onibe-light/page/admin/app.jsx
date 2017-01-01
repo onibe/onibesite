@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import UIRouterReact, {UIView} from 'ui-router-react';
-import Login from './components/login.jsx';
+import Dashboard from './components/dashboard.jsx';
 
 // Create a new instance of the Router
 const router = new UIRouterReact();
@@ -19,13 +19,7 @@ const basePath = function(path) {
 router.stateRegistry.register({
     name: 'home',
     url: basePath('/'),
-    component: App
-});
-
-router.stateRegistry.register({
-    name: 'login',
-    url: basePath('/login'),
-    component: Login
+    component: Dashboard
 });
 
 // Start the router

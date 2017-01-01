@@ -1,6 +1,7 @@
 'use strict';
 
 const session = require('express-session');
+const config = require('../../config.json');
 
 // initialize sequelize with session store
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -31,7 +32,7 @@ class Session {
 
         return session({
             name: 'onibe_sid',
-            secret: 'keyboard cat',
+            secret: config.session_secret,
             store: store,
             saveUninitialized: false,
             resave: true,

@@ -61,9 +61,12 @@ router.post('/login', function(req, res, next) {
     if(form.username && form.password) {
         user.validateUser(form)
             .then(user => {
-                req.session.user = user;
+                req.session.user = {
+                    id: user.id,
+                    username: user.username,
+                    uuid: user.uuid
+                };
                 req.session.save(err => {
-
                     res.redirect('/admin');
                 });
             })
@@ -78,17 +81,13 @@ router.post('/login', function(req, res, next) {
 });
 
 router.get('/logout', function(req, res, next) {
-    let data = {};
-
     if(req.session) {
         req.session.destroy(err => {
-            res.render('login/login', data);
+            res.redirect('/login');
         });
     } else {
-        res.render('login/login', data);
+        res.redirect('/login');
     }
-
-
 });
 
 router.get('/about', (req, res, next) => {
@@ -100,7 +99,6 @@ router.get('/about', (req, res, next) => {
     })
 
 });
-
 
 // @todo: Move this to getProfiles();
 const roles = [
@@ -143,11 +141,6 @@ router.get('/team/:username', (req, res, next) => {
     }
 
 });
-
-// router.get('/article', function(req, res, next) {
-//     res.render("article/article", defaultMenu({}));
-// });
-
 
 router.get('/version', function(req, res, next) {
     res.json({'version':'alpha-0.0.1'});
