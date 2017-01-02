@@ -21,11 +21,12 @@ class Session {
             db: this.db,
             checkExpirationInterval: 15 * 60 * 1000, // The interval at which to cleanup expired sessions in milliseconds.
             expiration: 24 * 60 * 60 * 1000, // The maximum age (in milliseconds) of a valid session.
-            extraDefaultFields: function (defaults, session) {
+            extendDefaultFields: function (defaults, session) {
                 return {
                     data: defaults.data,
                     expires: defaults.expires,
-                    user_id: session.user.id
+                    user_id: session.user.id,
+                    uuid: session.user.uuid
                 };
             }
         });

@@ -59,6 +59,7 @@ class Schema {
                 primaryKey: true
             },
             user_id: Sequelize.STRING,
+            uuid: Sequelize.STRING,
             expires: Sequelize.DATE,
             data: Sequelize.STRING(50000)
         }, {

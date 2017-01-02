@@ -11,12 +11,18 @@ class Post {
         return db.sync({force: true});
     }
 
-    update(post) {
+    find(post) {
         const { db } = this;
 
-        // Generate Update Data
         return db.sync()
-            .then(db.create(post));
+            .then(db.find({where: post}));
+    }
+
+    findOne(post) {
+        const { db } = this;
+
+        return db.sync()
+            .then(db.findOne({where: post}));
     }
 
     create(post) {
@@ -25,6 +31,15 @@ class Post {
         return db.sync()
             .then(db.create(post));
     }
+
+    update(post) {
+        const { db } = this;
+
+        // Generate Update Data
+        return db.sync()
+            .then(db.update(post, {where: { id: post.id }}));
+    }
+
 
     remove(data) {
         const { db } = this;

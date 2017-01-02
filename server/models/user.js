@@ -16,10 +16,6 @@ class User {
         return this.db.sync({force: true});
     }
 
-    get (user) {
-
-    }
-
     update(data) {
         const { db } = this;
 

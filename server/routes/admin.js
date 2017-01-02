@@ -2,12 +2,19 @@
 
 const express = require('express');
 
-const router = express.Router();
+class AdminApp {
+    constructor(middleware) {
 
-// Load Client Side Application
-router.get('/*', function(req,res,next) {
-    res.render('admin/admin');
-});
+        const router = express.Router();
+
+        // Load Client Side Application
+        router.get('/*', function(req,res,next) {
+            res.render('admin/admin');
+        });
+
+        this.router = router;
+    }
+}
 
 
-module.exports = router;
+module.exports = AdminApp;

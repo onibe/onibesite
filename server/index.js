@@ -5,9 +5,11 @@ const expressInit = require('../config/express-config.js');
 
 // Routing Setup
 const routes = require('./routes/index');
-const auth = require('./routes/auth');
-const admin = require('./routes/admin');
-const api = require('./routes/api');
+const Admin = require('./routes/admin');
+const Api = require('./routes/api');
+
+// Middleware
+const middleware = require('./middleware');
 
 const model = require('./models');
 const session = model.session;
@@ -19,9 +21,8 @@ expressApp.run(app => {
     app.use(session.start());
 
     app.use('/', routes);
-    app.use('/api', api);
-    app.use('/auth', auth);
-    app.use('/admin', admin);
+    app.use('/api', new Api(middleware).router);
+    app.use('/admin', new Admin(middleware).router);
 });
 
 module.exports = expressApp.app;
