@@ -7,8 +7,12 @@ class AdminApp {
 
         const router = express.Router();
 
+        const authenticatePrivate = [
+            middleware.authenticateSession
+        ];
+
         // Load Client Side Application
-        router.get('/*', function(req,res,next) {
+        router.get('/*', authenticatePrivate, function(req,res,next) {
             res.render('admin/admin');
         });
 

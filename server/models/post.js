@@ -48,6 +48,7 @@ class Post {
             .then(db.destroy({where: data}));
     }
 
+
 }
 
 module.exports = Post;

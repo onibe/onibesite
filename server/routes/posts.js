@@ -52,7 +52,7 @@ class Post {
         if(basisRequestValidation(req.body)) {
             const reqPost = req.body;
 
-            post.db.find({where: reqPost})
+            post.find({where: reqPost})
                 .then(posts => {
                     res.status(200).json(posts);
                 })
@@ -67,7 +67,7 @@ class Post {
         if(req.params.id) {
             const id = req.params.id;
 
-            post.db.findOne({where: {id: id}})
+            post.findOne({where: {id: id}})
                 .then(posts => {
                     res.status(200).json(posts);
                 })
@@ -78,9 +78,19 @@ class Post {
     }
 
     remove (req, res, next)  {
+        if(req.params.id) {
+            const id = req.params.id;
 
+            post.remove({where: {id: id}})
+                .then(posts => {
+                    res.status(200).json(posts);
+                })
+                .catch(err => next(err))
+        } else {
+            next(err);
+        }
     }
 
 }
 
-module.exports = new Post();
+module.exports = Post;
