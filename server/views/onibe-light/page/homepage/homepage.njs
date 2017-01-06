@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <div class="social-media-container">
-                    <h4>Twiiter</h4>
+                    <h4>Twitter</h4>
                     <div>
                         <i class="fa fa-twitter"></i>
                         <a href="https://twitter.com/teamonibe">@teamonibe</a>
