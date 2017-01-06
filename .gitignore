@@ -50,3 +50,5 @@ nbproject/private/private.xml
 nbproject/
 *.psd
 *.zip
+
+.DS_Store

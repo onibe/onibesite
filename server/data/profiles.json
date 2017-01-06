@@ -205,9 +205,10 @@
 }, {
 	"name": "Astral",
 	"username": "Astral",
-	"profile": "Hi! I'm Astral. Hailing from Vancouver, BC and based in Singapore, I'm the guy that helps to get everything in order behind the scenes. I spend my free time shitposting and playing Civilization VI. I'm the very sporty sort - I keep fit as much as Kanan, and I love archery as much as Umi. I've also been scuba diving since high school. ",
+	"profile": "Hailing from Vancouver, BC and based in Singapore. I spend my free time shitposting and playing Civilization VI.",
 	"picture": "/onibe-light/images/profile-pics/astral.png",
-	"charm_point": "I'd like to think I'm a quiet contributor, yet I'm very passionate with what I do.",
+	"cover_picture": "/onibe-light/images/profile-pics/astralbanner.png",
+	"charm_point": "Memes and my writing style I guess ¯\\_(ツ)_/¯",
 	"role": ["Translator"],
 	"translations": ["Japanese", "Chinese"],
 	"personal_website": "http://astralwinters.tumblr.com",
@@ -217,7 +218,7 @@
 	},
 	"best_girls": ["Kanan", "Umi", "Eli", "Yohane"],
 	"best_seiyuu": ["Suwawa", "Mimorin", "Nanjolno", "Aikyan"],
-	"what_onibe_means": "One Newbie Is Being Eaten",
+	"what_onibe_means": "¯\\_(ツ)_/¯",
 	"country": "British Columbia, Canada",
 	"hobbies": "Archery, scuba diving, video games"
 }, {
