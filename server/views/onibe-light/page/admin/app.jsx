@@ -18,7 +18,7 @@ const basePath = function(path) {
 // Register state
 router.stateRegistry.register({
     name: 'home',
-    url: basePath('/'),
+    url: basePath(''),
     component: Dashboard
 });
 

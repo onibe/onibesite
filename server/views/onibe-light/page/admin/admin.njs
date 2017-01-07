@@ -10,8 +10,8 @@
         <link href="//fonts.googleapis.com/css?family=Raleway:200,300,400,500,600,700,800" rel="stylesheet">
         <title></title>
     </head>
-    <body>
-        <div id="root"></div>
+    <body class="admin">
+        <div id="root" class="admin-root"></div>
         <!-- Scripts -->
         <script src="/dist/onibe-light/js/admin.js"></script>
     </body>

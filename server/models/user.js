@@ -21,8 +21,7 @@ class User {
 
         data = helper.update(data);
 
-        return db.sync()
-            .then(db.update(data));
+        return db.update(data);
     }
 
     hashPassword(password) {

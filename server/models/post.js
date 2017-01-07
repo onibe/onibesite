@@ -11,43 +11,37 @@ class Post {
         return db.sync({force: true});
     }
 
-    find(post) {
+    findAll(options) {
         const { db } = this;
 
-        return db.sync()
-            .then(db.find({where: post}));
+        return db.findAll(options);
     }
 
-    findOne(post) {
+    findOne(options) {
         const { db } = this;
 
-        return db.sync()
-            .then(db.findOne({where: post}));
+        return db.findOne(options);
     }
 
     create(post) {
         const { db } = this;
 
-        return db.sync()
-            .then(db.create(post));
+        return db.create(post);
     }
 
     update(post) {
         const { db } = this;
 
         // Generate Update Data
-        return db.sync()
-            .then(db.update(post, {where: { id: post.id }}));
+        return db.update(post, {where: { id: post.id }});
     }
 
 
     remove(data) {
         const { db } = this;
 
-        return db.sync()
-            .then(db.destroy({where: data}));
+        return db.destroy({where: data});
     }
-
 
 }
 
