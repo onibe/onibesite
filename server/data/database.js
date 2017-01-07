@@ -17,7 +17,7 @@ class Database {
             const dbPath = path.resolve(config.database.storage);
 
             sequelizeConfig = Object.assign({}, sequelizeConfig, {
-                logging: false,
+
                 dialect: config.dialect,
                 storage: dbPath
             });

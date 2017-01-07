@@ -8,7 +8,7 @@ import logger from 'redux-logger';
 import promise from 'redux-promise-middleware';
 import Input from './input.jsx';
 
-import api from '../../../js/api';
+import api from '../api/api';
 
 
 const LOGIN_CHANGE = 'LOGIN_CHANGE';
@@ -22,7 +22,7 @@ const loginCredentials = (form) => {
     return {
         type: LOGIN_CHANGE,
         value: form,
-    }
+    };
 };
 
 const loginReceiveAuth = (form, session) => {
@@ -30,14 +30,14 @@ const loginReceiveAuth = (form, session) => {
         type: LOGIN_RECEIVE_AUTH,
         value: form,
         session: session
-    }
+    };
 };
 
 const loginRequest = (data) => {
     return {
         type: LOGIN_REQUEST,
         payload: api.testRequest(data)
-    }
+    };
 };
 
 const loginReducer = (state = {}, action) => {

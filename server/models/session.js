@@ -12,7 +12,7 @@ class Session {
     }
 
     forceSync () {
-        return this.db.sync();
+        return this.db.sync({force: true});
     }
 
     start() {

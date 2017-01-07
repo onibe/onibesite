@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-import 'whatwg-fetch'
+import 'whatwg-fetch';
 
 const validRequestStatus = (response) => {
     if(response.status >= 200 && response.status < 300) {
@@ -27,9 +27,17 @@ const testRequest = (data) => {
 };
 
 
+// API requests
+const getPosts = (requestOptions) => {
+    return fetch('/api/posts', Object.assign({}, defaultFetchOptions,requestOptions))
+        .then(validRequestStatus);
+};
+
+
 const api = {
     loginRequest,
-    testRequest
+    testRequest,
+    getPosts
 };
 
 export default api;

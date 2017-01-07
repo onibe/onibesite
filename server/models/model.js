@@ -12,7 +12,6 @@ class Model {
         this.user = new User(schema.user);
         this.post = new Post(schema.post);
         this.session = new Session(sequelize);
-
     }
 
     sync() {

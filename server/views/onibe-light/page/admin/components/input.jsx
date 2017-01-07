@@ -3,6 +3,15 @@
 import React, { PropTypes, Component } from 'react';
 
 class Input extends Component {
+
+    static propTypes = {
+        label: React.PropTypes.string,
+        type: React.PropTypes.string,
+        onChange: React.PropTypes.func,
+        reference: React.PropTypes.func,
+        placeholder: React.PropTypes.string
+    };
+
     constructor(props) {
         super(props);
 
@@ -33,12 +42,5 @@ class Input extends Component {
     }
 }
 
-Input.propTypes = {
-    label: React.PropTypes.string,
-    type: React.PropTypes.string,
-    onChange: React.PropTypes.func,
-    reference: React.PropTypes.func,
-    placeholder: React.PropTypes.string
-};
 
 export default Input;

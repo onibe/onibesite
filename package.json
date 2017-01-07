@@ -58,6 +58,8 @@
     "bootstrap-sass": "^3.3.6",
     "chai": "^3.5.0",
     "del": "^2.1.0",
+    "eslint": "^3.12.2",
+    "eslint-plugin-react": "^6.8.0",
     "gulp": "^3.9.0",
     "gulp-sass": "^2.1.0",
     "gulp-util": "^3.0.7",

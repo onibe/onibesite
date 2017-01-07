@@ -1,0 +1,28 @@
+body.admin {
+  height: 100%;
+}
+
+.admin-root{
+  height: 100%;
+}
+
+.dashboard-container {
+  display: flex;
+  height: 100%;
+}
+
+.sidebar {
+  width: 200px;
+}
+
+.post {
+  width: 300px;
+}
+
+.markdown {
+  flex-grow: 1;
+}
+
+.html-preview {
+  flex-grow: 1;
+}

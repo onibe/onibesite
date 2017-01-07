@@ -25,9 +25,9 @@ class Post {
                 })
                 .catch(err => {
                     next(err);
-                })
+                });
         } else {
-            next(err);
+            next();
         }
     }
 
@@ -41,24 +41,24 @@ class Post {
                 .then(post => {
                     res.status(200).json(post);
                 })
-                .catch(err => next(err))
+                .catch(err => next(err));
         } else {
-            next(err);
+            next();
         }
     }
 
 
     browse (req, res, next) {
         if(basisRequestValidation(req.body)) {
-            const reqPost = req.body;
+            const options = req.body;
 
-            post.find({where: reqPost})
+            post.findAll(options)
                 .then(posts => {
                     res.status(200).json(posts);
                 })
-                .catch(err => next(err))
+                .catch(err => next(err));
         } else {
-            next(err)
+            next();
         }
     }
 
@@ -67,13 +67,13 @@ class Post {
         if(req.params.id) {
             const id = req.params.id;
 
-            post.findOne({where: {id: id}})
+            post.findOne()
                 .then(posts => {
                     res.status(200).json(posts);
                 })
-                .catch(err => next(err))
+                .catch(err => next(err));
         } else {
-            next(err);
+            next();
         }
     }
 
@@ -81,13 +81,13 @@ class Post {
         if(req.params.id) {
             const id = req.params.id;
 
-            post.remove({where: {id: id}})
+            post.remove({id: id})
                 .then(posts => {
                     res.status(200).json(posts);
                 })
-                .catch(err => next(err))
+                .catch(err => next(err));
         } else {
-            next(err);
+            next();
         }
     }
 
