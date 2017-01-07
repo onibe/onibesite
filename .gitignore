@@ -53,3 +53,4 @@ nbproject/
 
 # data
 content/*
+.DS_Store
