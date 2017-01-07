@@ -10,12 +10,13 @@ gulp default
 - Open on localhost:3000
 
 ## Requirements 
-- node v6.0.0 and above
+- node v7.4.0 and above
 
 ## Guidelines
 Javascript:
 - set your IDE to follow .jshintrc
 - Use es6 syntax
+
 Design
 - 
 
