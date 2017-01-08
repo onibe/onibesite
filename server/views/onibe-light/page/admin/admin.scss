@@ -1,28 +1,64 @@
 body.admin {
   height: 100%;
+  margin: 0;
 }
 
-.admin-root{
-  height: 100%;
-}
+.admin {
+  .admin-root{
+    height: 100%;
+  }
 
-.dashboard-container {
-  display: flex;
-  height: 100%;
-}
+  .dashboard-container {
+    display: flex;
+    height: 100%;
+  }
 
-.sidebar {
-  width: 200px;
-}
+  .sidebar {
+    width: 200px;
+    padding: 20px;
+  }
 
-.post {
-  width: 300px;
-}
+  .main-body {
+    width: 100%;
+  }
 
-.markdown {
-  flex-grow: 1;
-}
+  .posts-container {
+    display: flex;
+  }
 
-.html-preview {
-  flex-grow: 1;
+  .post-item {
+
+    a {
+      display: block;
+      background: $color1;
+      padding: 20px;
+      color: $white;
+    }
+
+    a.post-item-active {
+      background: $color2;
+    }
+  }
+
+  .post-container {
+    width: 100%;
+    padding: 20px;
+  }
+  .post-list {
+    width: 300px;
+    flex-shrink: 0;
+  }
+
+  .post-preview {
+    flex-grow: 1;
+    padding: 20px;
+  }
+
+  .markdown {
+    flex-grow: 1;
+  }
+
+  .html-preview {
+    flex-grow: 1;
+  }
 }

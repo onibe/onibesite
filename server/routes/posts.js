@@ -67,9 +67,10 @@ class Post {
         if(req.params.id) {
             const id = req.params.id;
 
-            post.findOne()
-                .then(posts => {
-                    res.status(200).json(posts);
+            post.findOne({where: {id: id}})
+                .then(post => {
+                    console.log(post.id,'what');
+                    res.status(200).json(post);
                 })
                 .catch(err => next(err));
         } else {

@@ -4,7 +4,7 @@ import 'whatwg-fetch';
 
 const validRequestStatus = (response) => {
     if(response.status >= 200 && response.status < 300) {
-        return response.text();
+        return response.json();
     }
 
     return Promise.reject(response);
@@ -33,11 +33,17 @@ const getPosts = (requestOptions) => {
         .then(validRequestStatus);
 };
 
+// API requests
+const getPost= (id, requestOptions) => {
+    return fetch('/api/posts/' + id, Object.assign({}, defaultFetchOptions,requestOptions))
+        .then(validRequestStatus);
+};
 
 const api = {
     loginRequest,
     testRequest,
-    getPosts
+    getPosts,
+    getPost
 };
 
 export default api;

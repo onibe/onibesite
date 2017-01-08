@@ -1,15 +1,23 @@
 'use strict';
 
 import React, { PropTypes, Component } from 'react';
-
+import {UISref, UISrefActive} from 'ui-router-react';
 
 const SideBarLinks = (props) => {
     return (
         <div className="sidebar-links">
-            <div>Home</div>
-            <div>Post</div>
-            <div>Channel</div>
-            <div>Users</div>
+            <UISref to="main">
+                <a><div>Home</div></a>
+            </UISref>
+            <UISref to="main.posts">
+                <a><div>Post</div></a>
+            </UISref>
+            <UISref to="main.tags">
+                <a><div>Tags</div></a>
+            </UISref>
+            <UISref to="main.users">
+                <a><div>Users</div></a>
+            </UISref>
         </div>
     );
 };
