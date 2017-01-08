@@ -4,6 +4,7 @@ import React, { PropTypes, Component } from 'react';
 import { connect, Provider } from 'react-redux';
 import {UIView, UISrefActive, UISref} from 'ui-router-react';
 import posts from './posts';
+import Input from '../form/input.jsx';
 
 const PostLink = (data) => (
     <div className="post-item">
@@ -33,10 +34,21 @@ class PostsContainer extends Component {
 
     render() {
         const postLinks = this.props.posts;
+
         return (
             <div className="posts-container">
                 <div className="post-list">
-                    {postLinks.map((post, index) => <PostLink post={post} key={index} />)}
+                    <div className="post-search">
+                        <Input
+                            label="Search"
+                            type="text"
+                            onChange={this.props.fetchWithOptions('search')}
+                            defaultValue={this.props.search['search']}
+                        />
+                    </div>
+                    <div className="post-list-items">
+                        {postLinks.map((post, index) => <PostLink post={post} key={index} />)}
+                    </div>
                 </div>
                 <UIView />
             </div>
@@ -46,15 +58,23 @@ class PostsContainer extends Component {
 
 const PostsMapStateToProps = (state, ownProps) => {
     return {
-        posts: state.posts.payload
+        posts: state.posts.payload,
+        search: state.posts.search
     };
 };
 
 const PostsMapDispatchToProps = (dispatch, ownProps) => {
-    // Return Props;
+    const form = {};
+
     return {
         fetch: () => {
             dispatch(posts.actions.fetchPosts());
+        },
+        fetchWithOptions: (key) => (value) => {
+            form[key] = value;
+
+            dispatch(posts.actions.fetchPostSearch(form));
+            dispatch(posts.actions.fetchPosts(form));
         }
     };
 };

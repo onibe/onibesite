@@ -5,22 +5,30 @@ import api from '../../api/api';
 
 // CONSTANTS
 const FETCH_POSTS = 'FETCH_POSTS';
-const FETCH_POSTS_PENDING = 'FETCH_POSTS';
+const FETCH_POSTS_PENDING = 'FETCH_POSTS_PENDING';
 const FETCH_POSTS_FULFILLED = 'FETCH_POSTS_FULFILLED';
 const FETCH_POSTS_REJECTED = 'FETCH_POSTS_REJECTED';
+const FETCH_POSTS_SEARCH = 'FETCH_POSTS_SEARCH';
 
 // ACTIONS
-const fetchPosts = () => {
+const fetchPosts = (options) => {
     return {
         type: FETCH_POSTS,
-        payload: api.getPosts()
+        payload: api.getPosts(options)
+    };
+};
+
+const fetchPostSearch = (search) => {
+    return {
+        type: FETCH_POSTS,
+        search: search
     };
 };
 
 // REDUCERS
-const fetchPostsReducer = (state = {fetching: false, fetched: true, payload: [], error: null}, action) => {
-    if(action.type === FETCH_POSTS){
-        return Object.assign({}, state, action.value);
+const fetchPostsReducer = (state = {search: {}, fetching: false, fetched: true, payload: [], error: null}, action) => {
+    if(action.type === FETCH_POSTS_SEARCH) {
+        return Object.assign({}, state, {search: action.search});
     } else if(action.type === FETCH_POSTS_PENDING) {
         return Object.assign({}, state, {fetching: true});
     } else if(action.type === FETCH_POSTS_FULFILLED) {
@@ -33,7 +41,8 @@ const fetchPostsReducer = (state = {fetching: false, fetched: true, payload: [],
 };
 
 export const actions = {
-    fetchPosts
+    fetchPosts,
+    fetchPostSearch
 };
 
 export const reducers = {

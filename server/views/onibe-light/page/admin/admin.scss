@@ -16,6 +16,7 @@ body.admin {
   .sidebar {
     width: 200px;
     padding: 20px;
+    //border-right: 1px $gray1 solid;
   }
 
   .main-body {
@@ -24,18 +25,20 @@ body.admin {
 
   .posts-container {
     display: flex;
+    height: 100%;
   }
 
   .post-item {
 
     a {
       display: block;
-      background: $color1;
       padding: 20px;
-      color: $white;
+      color: $color1;
+      text-decoration: none;
     }
 
     a.post-item-active {
+      color: $white;
       background: $color2;
     }
   }
@@ -44,9 +47,14 @@ body.admin {
     width: 100%;
     padding: 20px;
   }
+
   .post-list {
+    //border-right: 1px $gray1 solid;
     width: 300px;
     flex-shrink: 0;
+  }
+  .post-search {
+    padding: 20px 0;
   }
 
   .post-preview {

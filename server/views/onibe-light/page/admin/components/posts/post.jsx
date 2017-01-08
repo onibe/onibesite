@@ -15,6 +15,10 @@ class PostContainer extends Component {
         super(props);
     }
 
+    componentWillUpdate(){
+        const props = this.props;
+    }
+
     render() {
         const post = this.props.post;
 
@@ -36,7 +40,7 @@ const postMapStateToProps = (state, ownProps) => {
 const postMapDispatchToProps = (dispatch, ownProps) => {
     // Return Props;
     return {
-        fetch: () => {
+        fetch: (id) => {
             dispatch(post.actions.fetchPost(ownProps.id));
         }
     };
@@ -46,10 +50,16 @@ const postMapDispatchToProps = (dispatch, ownProps) => {
 PostContainer = connect(postMapStateToProps, postMapDispatchToProps)(PostContainer);
 
 
+let oldId = null;
+
 const Index = (props) => {
     const store = props.resolves.store;
     const postId = props.resolves.$stateParams.postId;
-    store.dispatch(post.actions.fetchPost(postId));
+
+    if(oldId != postId) {
+        oldId = postId;
+        store.dispatch(post.actions.fetchPost(postId));
+    }
 
     return (
         <Provider store={store}>

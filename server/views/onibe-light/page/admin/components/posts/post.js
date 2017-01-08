@@ -18,15 +18,27 @@ const fetchPost = (id) => {
 };
 
 // REDUCERS
-const fetchPostReducer = (state = {fetching: false, fetched: true, payload: [], error: null}, action) => {
-    if(action.type === FETCH_POST){
-        return Object.assign({}, state, action.value);
-    } else if(action.type === FETCH_POST_PENDING) {
-        return Object.assign({}, state, {fetching: true});
+const fetchPostReducer = (state = {fetching: false, fetched: false, payload: [], error: false}, action) => {
+    if(action.type === FETCH_POST_PENDING) {
+        return Object.assign({}, state, {
+            fetching: true,
+            fetched: false,
+            error: false,
+        });
     } else if(action.type === FETCH_POST_FULFILLED) {
-        return Object.assign({}, state, {fetching: false, fetched: true, payload: action.payload});
+        return Object.assign({}, state, {
+            fetching: false,
+            fetched: true,
+            error: false,
+            payload: action.payload
+        });
     } else if(action.type === FETCH_POST_REJECTED) {
-        return Object.assign({}, state, {fetching: false, fetched: true, error: action.payload});
+        return Object.assign({}, state, {
+            fetching: false,
+            fetched: true,
+            error: true,
+            payload: action.payload
+        });
     }
 
     return state;

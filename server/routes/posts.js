@@ -69,7 +69,6 @@ class Post {
 
             post.findOne({where: {id: id}})
                 .then(post => {
-                    console.log(post.id,'what');
                     res.status(200).json(post);
                 })
                 .catch(err => next(err));
