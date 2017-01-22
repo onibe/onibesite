@@ -16,6 +16,9 @@
     "plugins": [
         "react"
     ],
+    "globals": {
+        "fetch": true
+    },
     "rules": {
         "indent": [
             "error",

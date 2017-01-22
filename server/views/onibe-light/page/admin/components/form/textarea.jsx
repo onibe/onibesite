@@ -2,7 +2,7 @@
 
 import React, { PropTypes, Component } from 'react';
 
-class Input extends Component {
+class Textarea extends Component {
 
     constructor(props) {
         super(props);
@@ -20,12 +20,10 @@ class Input extends Component {
         const props = this.props;
         return (
             <div className="form-group">
-                <label htmlFor={props.label}>{props.label}</label>
-                <input
+                <textarea
                     className="form-control"
                     placeholder={props.placeholder}
                     ref={props.reference}
-                    type={props.type}
                     onChange={this.handleChange}
                     defaultValue={props.defaultValue}
                 />
@@ -34,13 +32,12 @@ class Input extends Component {
     }
 }
 
-Input.propTypes = {
+Textarea.propTypes = {
     label: React.PropTypes.string,
-    type: React.PropTypes.string,
     onChange: React.PropTypes.func,
     reference: React.PropTypes.func,
     placeholder: React.PropTypes.string,
-    defaultValue: React.PropTypes.any
+    defaultValue: React.PropTypes.string
 };
 
-export default Input;
+export default Textarea;

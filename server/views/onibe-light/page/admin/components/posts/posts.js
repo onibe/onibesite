@@ -10,6 +10,8 @@ const FETCH_POSTS_FULFILLED = 'FETCH_POSTS_FULFILLED';
 const FETCH_POSTS_REJECTED = 'FETCH_POSTS_REJECTED';
 const FETCH_POSTS_SEARCH = 'FETCH_POSTS_SEARCH';
 
+const EDIT_POST = 'EDIT_POST';
+
 // ACTIONS
 const fetchPosts = (options) => {
     return {
@@ -25,16 +27,49 @@ const fetchPostSearch = (search) => {
     };
 };
 
+const editPost = (post) => {
+    return {
+        type: EDIT_POST,
+        post: post
+    }
+};
+
+const initialState =  {
+    search: {},
+    fetching: false,
+    fetched: true,
+    payload: {},
+    error: null
+};
+
 // REDUCERS
-const fetchPostsReducer = (state = {search: {}, fetching: false, fetched: true, payload: [], error: null}, action) => {
+const fetchPostsReducer = (state = initialState, action) => {
     if(action.type === FETCH_POSTS_SEARCH) {
-        return Object.assign({}, state, {search: action.search});
+        return Object.assign({}, state, {
+            search: action.search
+        });
     } else if(action.type === FETCH_POSTS_PENDING) {
-        return Object.assign({}, state, {fetching: true});
+        return Object.assign({}, state, {
+            fetching: true
+        });
     } else if(action.type === FETCH_POSTS_FULFILLED) {
-        return Object.assign({}, state, {fetching: false, fetched: true, payload: action.payload});
+        return Object.assign({}, state, {
+            fetching: false,
+            fetched: true,
+            payload: action.payload
+        });
     } else if(action.type === FETCH_POSTS_REJECTED) {
-        return Object.assign({}, state, {fetching: false, fetched: true, error: action.payload});
+        return Object.assign({}, state, {
+            fetching: false,
+            fetched: true,
+            error: action.payload
+        });
+    } else if (action.type === EDIT_POST) {
+        return Object.assign({}, state, {
+            payload: Object.assign({}, state.payload,{
+                [action.post.id]:  Object.assign({}, state.payload[action.post.id], action.post, {modified: true})
+            })
+        })
     }
 
     return state;
@@ -42,7 +77,8 @@ const fetchPostsReducer = (state = {search: {}, fetching: false, fetched: true, 
 
 export const actions = {
     fetchPosts,
-    fetchPostSearch
+    fetchPostSearch,
+    editPost
 };
 
 export const reducers = {

@@ -3,21 +3,43 @@
 import React, { PropTypes, Component } from 'react';
 import {UISref, UISrefActive} from 'ui-router-react';
 
+const SidebarLink = (props) => {
+    return (
+        <UISrefActive class="sidebar-active">
+            <UISref to={props.state}>
+                <a><div>{props.label}</div></a>
+            </UISref>
+        </UISrefActive>
+    )
+};
+
 const SideBarLinks = (props) => {
+    const links = [
+        {
+            state: 'main',
+            label: 'Home'
+        },
+        {
+            state: 'main.posts',
+            label: 'Post'
+        },
+        {
+            state: 'main.tags',
+            label: 'Tags'
+        },
+        {
+            state: 'main.users',
+            label: 'Users'
+        },
+        {
+            state: 'main.files',
+            label: 'Files'
+        },
+    ];
+
     return (
         <div className="sidebar-links">
-            <UISref to="main">
-                <a><div>Home</div></a>
-            </UISref>
-            <UISref to="main.posts">
-                <a><div>Post</div></a>
-            </UISref>
-            <UISref to="main.tags">
-                <a><div>Tags</div></a>
-            </UISref>
-            <UISref to="main.users">
-                <a><div>Users</div></a>
-            </UISref>
+            {links.map((link, index) => <SidebarLink {...link} key={index} />)}
         </div>
     );
 };

@@ -28,11 +28,17 @@ body.admin {
     height: 100%;
   }
 
+
+
   .post-item {
+
+    .post-item-modified {
+      color: $color1
+    }
 
     a {
       display: block;
-      padding: 20px;
+      padding: 10px 10px;
       color: $color1;
       text-decoration: none;
     }
@@ -40,25 +46,86 @@ body.admin {
     a.post-item-active {
       color: $white;
       background: $color2;
+
+      .post-item-modified {
+        color: $white
+      }
+    }
+
+    &-title {
+
+    }
+
+    &-info {
+      font-size: 12px;
+      color: $gray;
     }
   }
 
   .post-container {
     width: 100%;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
   }
 
   .post-list {
     //border-right: 1px $gray1 solid;
-    width: 300px;
+    margin: 20px 0 0 0;
+    width: 240px;
     flex-shrink: 0;
   }
+
   .post-search {
     padding: 20px 0;
   }
 
+  .post-options-wrapper {
+
+  }
+
+  .post-title-edit {
+    border: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+  .post-title-edit:focus {
+    background: $light-grey;
+  }
+
+
+  .post-control {
+    display:flex;
+    height: 100%;
+    textarea{
+      resize: none;
+      padding: 20px;
+      border: none;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+    }
+    textarea:focus {
+      background: $light-grey;
+      outline-color: transparent;
+      outline-style: none;
+    }
+  }
+
+  .post-options {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .post-control-edit {
+    width: 50%;
+  }
+
   .post-preview {
-    flex-grow: 1;
+    width: 50%;
+    border-left: 1px solid $light-grey;
+    background: #fefefe;
     padding: 20px;
   }
 

@@ -1,6 +1,7 @@
 'use strict';
 
 import 'whatwg-fetch';
+import keyBy from 'lodash/keyBy';
 
 const validRequestStatus = (response) => {
     if(response.status >= 200 && response.status < 300) {
@@ -20,21 +21,23 @@ const loginRequest = (data) => {
         .then(validRequestStatus);
 };
 
-// API requests
 const testRequest = (data) => {
     return fetch('/api/test', defaultFetchOptions)
         .then(validRequestStatus);
 };
 
-
-// API requests
 const getPosts = (requestOptions) => {
     return fetch('/api/posts', Object.assign({}, defaultFetchOptions,requestOptions))
+        .then(validRequestStatus)
+        .then(data => keyBy(data,'id'))
+};
+
+const getPost = (id, requestOptions) => {
+    return fetch('/api/posts/' + id, Object.assign({}, defaultFetchOptions,requestOptions))
         .then(validRequestStatus);
 };
 
-// API requests
-const getPost= (id, requestOptions) => {
+const updatePost = (post, requestOptions) => {
     return fetch('/api/posts/' + id, Object.assign({}, defaultFetchOptions,requestOptions))
         .then(validRequestStatus);
 };
