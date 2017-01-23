@@ -25,8 +25,8 @@ class Session {
                 return {
                     data: defaults.data,
                     expires: defaults.expires,
-                    user_id: session.user.id,
-                    uuid: session.user.uuid
+                    user_id: session.user ? session.user.id : null,
+                    uuid: session.user ? session.user.uuid : null
                 };
             }
         });
@@ -42,7 +42,7 @@ class Session {
                 httpOnly: true
             },
             proxy: true // if you do SSL outside of node.
-        })
+        });
     }
 
 }

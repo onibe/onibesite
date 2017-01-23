@@ -1,11 +1,11 @@
 'use strict';
 
-import React, { PropTypes, Component } from 'react';
+import React from 'react';
 import moment from 'moment';
 
 import { connect, Provider } from 'react-redux';
 import {UIView, UISrefActive, UISref} from 'ui-router-react';
-import posts from './posts';
+import posts from './posts-reducer';
 
 const PostLink = (prop) => {
     const date = moment(new Date(prop.post.createdAt)).fromNow();
@@ -13,7 +13,7 @@ const PostLink = (prop) => {
     return (
         <div className="post-item">
             <UISrefActive class="post-item-active">
-                <UISref to=".post" params={{postId:prop.post.id}}>
+                <UISref params={{postId:prop.post.id}} to=".post" >
                     <a>
                         <div className="post-item-title">
                             {prop.post.modified ? <span className="post-item-modified">* </span> : null}
@@ -28,15 +28,18 @@ const PostLink = (prop) => {
     );
 };
 
-class PostsContainer extends Component {
-
-    componentWillMount() {
-        const props = this.props;
-        props.fetch();
-    }
+class PostsContainer extends React.Component {
 
     constructor(props) {
         super(props);
+    }
+
+    componentWillMount() {
+        const props = this.props;
+
+        if(!props.fetched){
+            props.fetch();
+        }
     }
 
     render() {
@@ -63,14 +66,14 @@ class PostsContainer extends Component {
     }
 }
 
-const PostsMapStateToProps = (state, ownProps) => {
+const PostsMapStateToProps = (state) => {
     return {
         posts: state.posts.payload,
-        search: state.posts.search
+        fetched: state.posts.fetched
     };
 };
 
-const PostsMapDispatchToProps = (dispatch, ownProps) => {
+const PostsMapDispatchToProps = (dispatch) => {
     const form = {};
 
     return {
@@ -89,6 +92,12 @@ const PostsMapDispatchToProps = (dispatch, ownProps) => {
 
 PostsContainer = connect(PostsMapStateToProps, PostsMapDispatchToProps)(PostsContainer);
 
+PostsContainer.propTypes = {
+    posts: React.PropTypes.object,
+    fetched: React.PropTypes.bool,
+    fetch: React.PropTypes.func
+};
+
 const Index = (props) => {
     const store = props.resolves.store;
 
@@ -97,6 +106,10 @@ const Index = (props) => {
             <PostsContainer />
         </Provider>
     );
+};
+
+Index.propTypes = {
+    resolves: React.PropTypes.object
 };
 
 export default Index;

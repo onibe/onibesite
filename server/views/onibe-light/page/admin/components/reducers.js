@@ -6,17 +6,17 @@ import logger from 'redux-logger';
 import promise from 'redux-promise-middleware';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import posts from './posts/posts';
-import post from './posts/post';
+import posts from './posts/posts-reducer';
+import post from './posts/post-reducer';
 
 const middleware = composeWithDevTools(applyMiddleware(promise(), thunk, logger()));
 
-const reducers = combineReducers({
+const rootReducer = combineReducers({
     posts: posts.reducers.fetchPostsReducer,
-    post: post.reducers.fetchPostReducer
+    post: post.reducers.postReducer
 });
 
-const store = createStore(reducers, middleware);
+const store = createStore(rootReducer, middleware);
 
 
 export default store;

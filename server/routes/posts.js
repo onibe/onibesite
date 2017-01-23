@@ -2,20 +2,17 @@
 
 const _ = require('lodash');
 const model = require('../models');
-
+const validator = require('./validator');
 const post = model.post;
 
-const basisRequestValidation = (post, callback) => {
-    return post && _.isObject(post);
-};
-
 class Post {
+
     constructor() {
 
     }
 
     add (req, res, next) {
-        if(basisRequestValidation(req.body)) {
+        if(validator.isObject(req.body)) {
             // Add Validation
             const reqPost = req.body;
 
@@ -33,13 +30,13 @@ class Post {
 
 
     update (req, res, next) {
-        if(basisRequestValidation(req.body)) {
+        if(validator.isObject(req.body)) {
             // Add Validation
             const reqPost = req.body;
 
             post.update(reqPost)
-                .then(post => {
-                    res.status(200).json(post);
+                .then(data => {
+                    res.status(200).json(data);
                 })
                 .catch(err => next(err));
         } else {
@@ -47,9 +44,8 @@ class Post {
         }
     }
 
-
     browse (req, res, next) {
-        if(basisRequestValidation(req.body)) {
+        if(validator.isObject(req.body)) {
             const options = req.body;
 
             post.findAll(options)

@@ -1,6 +1,6 @@
 'use strict';
 
-import React, { PropTypes, Component } from 'react';
+import React  from 'react';
 import {UISref, UISrefActive} from 'ui-router-react';
 
 const SidebarLink = (props) => {
@@ -44,18 +44,9 @@ const SideBarLinks = (props) => {
     );
 };
 
-class Sidebar extends Component {
+class Sidebar extends React.Component {
     constructor(props) {
         super(props);
-
-        // Necessary for handleChange to see this.props;
-        this.handleChange = this.handleChange.bind(this);
-    }
-    handleChange(e) {
-        const props = this.props;
-        const value = e.target.value;
-
-        props.onChange(value);
     }
     render() {
         const props = this.props;

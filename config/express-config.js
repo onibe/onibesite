@@ -1,14 +1,15 @@
 "use strict";
 
 const path = require('path');
-const rootPath = path.normalize(__dirname);
-global.__base = path.resolve(rootPath + '/..');
-
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const glob = require('glob');
 const compression = require('compression');
+
+// Pathing
+const rootPath = path.normalize(__dirname);
+const basePath = path.resolve(rootPath + '/..');
 
 class expressInit {
 
@@ -33,14 +34,14 @@ class expressInit {
         app.use(bodyParser.urlencoded({ extended: false }));
         app.use(cookieParser());
         app.use(compression());
-        app.use(express.static(path.join(__base, 'public')));
+        app.use(express.static(path.join(basePath, 'public')));
 
         // Modify Config
         // Nunjucks viewDirectory
-        config.viewDirectory = path.resolve(__base + '/server/views/' + config.theme + '/page');
+        config.viewDirectory = path.resolve(basePath + '/server/views/' + config.theme + '/page');
 
         // Autoloaded Initializers
-        const initializers = glob.sync(path.resolve(__base + '/config/initializers/*.js'));
+        const initializers = glob.sync(path.resolve(basePath + '/config/initializers/*.js'));
         initializers.forEach(function (initializer) {
             const initilizerFile = require(initializer);
             initilizerFile(app,config);
@@ -48,7 +49,7 @@ class expressInit {
     }
 
     postInitialize() {
-        const { app, config } = this;
+        const { app } = this;
 
         // catch 404 and forward to error handler
         app.use(function(req, res, next) {

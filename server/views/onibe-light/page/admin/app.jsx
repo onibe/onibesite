@@ -37,9 +37,30 @@ const states = [
         component: Posts
     },
     {
+        name: 'main.posts.create',
+        url: '/create',
+        component: Post,
+        resolve: [
+            {
+                token: 'mode',
+                resolveFn: () => ({
+                    create: true
+                })
+            },
+        ]
+    },
+    {
         name: 'main.posts.post',
         url: '/:postId',
-        component: Post
+        component: Post,
+        resolve: [
+            {
+                token: 'mode',
+                resolveFn: () => ({
+                    create: false
+                })
+            },
+        ]
     }
 ];
 

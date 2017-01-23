@@ -2,12 +2,9 @@
 
 const _ = require('lodash');
 const model = require('../models');
+const validator = require('./validator');
 
-const user = model.post;
-
-const basisRequestValidation = (body, callback) => {
-    return body && _.isObject(body);
-};
+const user = model.data;
 
 class User {
     constructor() {
@@ -15,43 +12,43 @@ class User {
     }
 
     add (req, res, next) {
-        if(basisRequestValidation(req.body)) {
+        if(validator.isObject(req.body)) {
             user.create(req.body)
-                .then(post => {
-                    res.status(200).json(post);
+                .then(data => {
+                    res.status(200).json(data);
                 })
                 .catch(err => {
                     next(err);
-                })
+                });
         } else {
-            next(err);
+            next();
         }
     }
 
 
     update (req, res, next) {
-        if(basisRequestValidation(req.body)) {
+        if(validator.isObject(req.body)) {
             // Add Validation
             user.update(req.body)
-                .then(post => {
-                    res.status(200).json(post);
+                .then(data => {
+                    res.status(200).json(data);
                 })
-                .catch(err => next(err))
+                .catch(err => next(err));
         } else {
-            next(err);
+            next();
         }
     }
 
 
     browse (req, res, next) {
-        if(basisRequestValidation(req.body)) {
+        if(validator.isObject(req.body)) {
             user.find({where: req.body})
-                .then(posts => {
-                    res.status(200).json(posts);
+                .then(data => {
+                    res.status(200).json(data);
                 })
-                .catch(err => next(err))
+                .catch(err => next(err));
         } else {
-            next(err)
+            next();
         }
     }
 
@@ -61,12 +58,12 @@ class User {
             const id = req.params.id;
 
             user.findOne({where: {id: id}})
-                .then(posts => {
-                    res.status(200).json(posts);
+                .then(data => {
+                    res.status(200).json(data);
                 })
-                .catch(err => next(err))
+                .catch(err => next(err));
         } else {
-            next(err);
+            next();
         }
     }
 
@@ -75,12 +72,12 @@ class User {
             const id = req.params.id;
 
             user.remove({where: {id: id}})
-                .then(posts => {
-                    res.status(200).json(posts);
+                .then(data => {
+                    res.status(200).json(data);
                 })
-                .catch(err => next(err))
+                .catch(err => next(err));
         } else {
-            next(err);
+            next();
         }
     }
 

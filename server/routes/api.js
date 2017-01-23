@@ -17,24 +17,19 @@ class ApiRoutes {
             middleware.authenticateSession
         ];
 
-        router.get('/test', (req,res,next) => {
-            console.log(req.session,'session');
-        });
-
         // Posts
         router.get('/posts', authenticatePrivate, posts.browse);
         router.get('/posts/:id', authenticatePrivate, posts.read);
         router.post('/posts', authenticatePrivate, posts.add);
-        router.put('/posts/:id', authenticatePrivate, posts.update);
+        router.post('/posts/:id', authenticatePrivate, posts.update);
         router.delete('/posts/:id', authenticatePrivate, posts.remove);
 
         // Users
         router.get('/users', authenticatePrivate, users.browse);
         router.get('/users/:id', authenticatePrivate, users.read);
         router.post('/users', authenticatePrivate, users.add);
-        router.put('/users/:id', authenticatePrivate, users.update);
+        router.post('/users/:id', authenticatePrivate, users.update);
         router.delete('/users/:id', authenticatePrivate, users.remove);
-
     }
 }
 

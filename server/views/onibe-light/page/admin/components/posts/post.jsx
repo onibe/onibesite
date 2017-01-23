@@ -1,27 +1,49 @@
 'use strict';
 
-import React, { PropTypes, Component } from 'react';
+import React from 'react';
 import { connect, Provider } from 'react-redux';
 import Remarkable from 'remarkable';
+import {UISref, UISrefActive} from 'ui-router-react';
 
-import posts from './posts';
+import post from './post-reducer';
+import posts from './posts-reducer';
 
-class PostContainer extends Component {
+
+// PostContainer has two modes
+// Create Mode
+// Update Mode
+class PostContainer extends React.Component {
 
     constructor(props) {
         super(props);
         this.md = new Remarkable();
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleDiscard = this.handleDiscard.bind(this);
+        this.handleSave = this.handleSave.bind(this);
+    }
+
+    componentWillMount() {
+        const props = this.props;
+
+        if(props.mode.create){
+
+        } else {
+            props.fetch();
+        }
     }
 
     handleChange(e) {
+        const post = this.props.post;
+
         const markdown = this.refs.markdown.value;
         const title = this.refs.title.value;
+        const draft = !post.draft;
 
         this.props.onMarkdownChange(Object.assign({}, this.props.post, {
             title: title,
-            markdown: markdown
+            markdown: markdown,
+            draft: draft
         }));
     }
 
@@ -33,8 +55,17 @@ class PostContainer extends Component {
         return { __html: md.render(post) };
     }
 
+    handleDiscard() {
+        this.props.discard(this.props.post.id);
+    }
+
+    handleSave() {
+        this.props.onSave(this.props.post);
+    }
+
     render() {
         const post = this.props.post;
+        console.log(post,'post');
         if(post) {
             return (
                 <div className="post-container">
@@ -57,63 +88,110 @@ class PostContainer extends Component {
                         />
                     </div>
                     <div className="post-meta">
-                        Meta Options
+                        <div className="form-group">
+                            <label>
+                                <input checked={!!post.draft}
+                                    onChange={this.handleChange}
+                                    ref="draft"
+                                    type="checkbox" />
+                                <span>Draft</span>
+                            </label>
+                        </div>
+                        <div>Create Date: {post.createdAt}</div>
+                        <div>Update Date: {post.updatedAt}</div>
                     </div>
                     <div className="post-options">
+                        <div>
+                            <UISrefActive class="sidebar-active">
+                                <UISref to="main.posts.create">
+                                    <button className="btn btn-default"
+                                            type="button">
+                                        New Post
+                                    </button>
+                                </UISref>
+                            </UISrefActive>
+                        </div>
                         <div className="post-options-wrapper">
-                            <button className="btn btn-default">Discard Changes</button>
-                            <button className="btn btn-primary">Save</button>
+                            <button className="btn btn-default"
+                                    disabled={!post.modified}
+                                    onClick={this.handleDiscard}
+                                    type="button">
+                                Discard Changes
+                            </button>
+                            <button
+                                    className="btn btn-primary"
+                                    disabled={!post.modified}
+                                    onClick={this.handleSave}>Save</button>
                         </div>
                     </div>
                 </div>
             );
         } else {
-            return (<div></div>)
+            return (<div></div>);
         }
 
     }
 }
 
 const postMapStateToProps = (state, ownProps) => {
+    const post = ownProps.mode.create ? state.post.payload : state.posts.payload[ownProps.id];
+
     return {
-        post: state.posts.payload[ownProps.id]
+        post: post,
+        mode: ownProps.mode
     };
 };
 
 const postMapDispatchToProps = (dispatch, ownProps) => {
     // Return Props;
     return {
-        select: (id) => {
-
+        onMarkdownChange: (data) => {
+            if(ownProps.mode.create){
+                dispatch(post.actions.editNewPost(data));
+            } else {
+                dispatch(posts.actions.editPost(data));
+            }
         },
-        fetch: (id) => {
-            dispatch(post.actions.fetchPost(ownProps.id));
-        },
-        onMarkdownChange: (post) => {
-            dispatch(posts.actions.editPost(post));
+        fetch: () => {
+            dispatch(posts.actions.fetchPost(ownProps.id));
         },
         discard: (id) => {
-            dispatch(posts.actions.editPost(post));
+            dispatch(posts.actions.fetchPost(id));
+        },
+        onSave: (data) => {
+            if(ownProps.mode.create){
+                dispatch(posts.actions.createPost(data));
+            } else if(data.id) {
+                dispatch(posts.actions.updatePost(data));
+            }
         }
     };
 };
 
-
 PostContainer = connect(postMapStateToProps, postMapDispatchToProps)(PostContainer);
+
+PostContainer.propTypes = {
+    id: React.PropTypes.string,
+    post: React.PropTypes.object,
+    onMarkdownChange: React.PropTypes.func,
+    discard: React.PropTypes.func,
+    onSave: React.PropTypes.func
+};
 
 const Index = (props) => {
     const store = props.resolves.store;
     const postId = props.resolves.$stateParams.postId;
-
-    // store.dispatch(post.actions.fetchPost(postId));
+    const mode = props.resolves.mode;
 
     return (
         <Provider store={store}>
-            <PostContainer id={postId} />
+            <PostContainer id={postId} mode={mode} />
         </Provider>
     );
-
 };
 
+Index.propTypes = {
+    resolves: React.PropTypes.object
+};
 
 export default Index;

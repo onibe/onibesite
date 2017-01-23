@@ -4,6 +4,7 @@ const http = require('http');
 
 const authenticateSession = (req, res, next) => {
     if(req.session && req.session.user) {
+        console.log(req.body,'req');
         next();
     } else {
         res.status(401).json({status: 401, error: http.STATUS_CODES[401]});

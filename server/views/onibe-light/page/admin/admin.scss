@@ -86,7 +86,10 @@ body.admin {
 
   .post-title-edit {
     border: 0;
+    padding: 6px 20px;
     box-shadow: none;
+    font-weight: 600;
+    color: $color1;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
   }
@@ -115,18 +118,25 @@ body.admin {
 
   .post-options {
     display: flex;
-    flex-direction: row-reverse;
+    justify-content: space-between;
   }
 
   .post-control-edit {
     width: 50%;
   }
 
+  .post-meta {
+    padding: 20px;
+    border-top: 1px solid $light-grey;
+  }
   .post-preview {
+    overflow-y: auto;
+    overflow-x: hidden;
     width: 50%;
-    border-left: 1px solid $light-grey;
+    border-left: 1px solid #F3F3F3;
     background: #fefefe;
     padding: 20px;
+    word-break: break-word;
   }
 
   .markdown {

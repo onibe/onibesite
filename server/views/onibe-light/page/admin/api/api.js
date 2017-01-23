@@ -6,13 +6,18 @@ import keyBy from 'lodash/keyBy';
 const validRequestStatus = (response) => {
     if(response.status >= 200 && response.status < 300) {
         return response.json();
+    } else {
+        const error = new Error(response.statusText);
+        error.response = response;
+        throw error;
     }
-
-    return Promise.reject(response);
 };
 
 const defaultFetchOptions = {
-    credentials: 'include'
+    credentials: 'include',
+    headers: {
+        'Content-Type': 'application/json'
+    }
 };
 
 // API requests
@@ -29,7 +34,7 @@ const testRequest = (data) => {
 const getPosts = (requestOptions) => {
     return fetch('/api/posts', Object.assign({}, defaultFetchOptions,requestOptions))
         .then(validRequestStatus)
-        .then(data => keyBy(data,'id'))
+        .then(data => keyBy(data,'id'));
 };
 
 const getPost = (id, requestOptions) => {
@@ -38,7 +43,10 @@ const getPost = (id, requestOptions) => {
 };
 
 const updatePost = (post, requestOptions) => {
-    return fetch('/api/posts/' + id, Object.assign({}, defaultFetchOptions,requestOptions))
+    return fetch('/api/posts/' + post.id, Object.assign({
+        method: 'POST',
+        body: JSON.stringify(post)
+    }, defaultFetchOptions,requestOptions))
         .then(validRequestStatus);
 };
 
@@ -46,7 +54,8 @@ const api = {
     loginRequest,
     testRequest,
     getPosts,
-    getPost
+    getPost,
+    updatePost
 };
 
 export default api;
