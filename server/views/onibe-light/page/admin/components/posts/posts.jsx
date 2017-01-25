@@ -2,6 +2,7 @@
 
 import React from 'react';
 import moment from 'moment';
+import { sortBy } from 'lodash';
 
 import { connect, Provider } from 'react-redux';
 import {UIView, UISrefActive, UISref} from 'ui-router-react';
@@ -19,8 +20,7 @@ const PostLink = (prop) => {
                             {prop.post.modified ? <span className="post-item-modified">* </span> : null}
                             {prop.post.title}
                         </div>
-                        <div className="post-item-info">{date}</div>
-
+                        <div className="post-item-info">{date} {prop.post.draft ? '- draft': ''}</div>
                     </a>
                 </UISref>
             </UISrefActive>
@@ -45,6 +45,8 @@ class PostsContainer extends React.Component {
     render() {
         const postLinks = this.props.posts;
 
+        const mapPosts = sortBy(Object.keys(postLinks).map(key => postLinks[key]), 'createdAt');
+
         return (
             <div className="posts-container">
                 <div className="post-list">
@@ -57,7 +59,7 @@ class PostsContainer extends React.Component {
                         {/*/>*/}
                     {/*</div>*/}
                     <div className="post-list-items">
-                        {Object.keys(postLinks).map(key => <PostLink post={postLinks[key]} key={key} />)}
+                        {mapPosts.map(post => <PostLink key={post.id} post={post} />)}
                     </div>
                 </div>
                 <UIView />

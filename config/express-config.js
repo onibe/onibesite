@@ -62,29 +62,29 @@ class expressInit {
         // will print stacktrace
         if (app.get('env') === 'development') {
             app.use(function(err, req, res, next) {
-                res.status(err.status || 500);
-                res.render('global/error', {
-                    message: err.message,
-                    error: err
-                });
+                res.status(err.status || 500)
+                    .render('global/error', {
+                        message: err.message,
+                        error: err
+                    });
+            });
+        } else {
+            // production error handler
+            // no stacktraces leaked to user
+            app.use(function(err, req, res, next) {
+                res.status(err.status || 500)
+                    .render('global/error', {
+                        message: err.message,
+                        error: {
+                            status: err.status
+                        }
+                    });
             });
         }
 
-        // production error handler
-        // no stacktraces leaked to user
-        app.use(function(err, req, res, next) {
-            res.status(err.status || 500);
-            res.render('global/error', {
-                message: err.message,
-                error: {
-                    status: err.status
-                }
-            });
-        });
-
+        // Application Specific Loggin
         process.on('unhandledRejection', function(reason, p){
             console.log("Possibly Unhandled Rejection at: Promise ", p, " reason: ", reason);
-            // application specific logging here
         });
     }
 }

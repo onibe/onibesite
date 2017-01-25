@@ -47,7 +47,7 @@
     "sequelize": "^3.28.0",
     "smoothscroll-polyfill": "^0.3.4",
     "sqlite3": "^3.1.8",
-    "ui-router-react": "^0.3.0",
+    "ui-router-react": "^0.4.0",
     "webpack": "^1.13.1",
     "whatwg-fetch": "^2.0.1",
     "winston": "^2.1.1"

@@ -3,17 +3,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import UIRouterReact, {UIView} from 'ui-router-react';
+import {UIRouter, UIView, pushStateLocationPlugin} from 'ui-router-react';
 import Dashboard from './components/dashboard.jsx';
 import Posts from './components/posts/posts.jsx';
 import Post from './components/posts/post.jsx';
+import PostWelcome from './components/posts/post-welcome.jsx';
 
 import store from './components/reducers';
-
-// Create a new instance of the Router
-const Router = new UIRouterReact();
-
-Router.html5Mode(true);
 
 const basePath = function(path) {
     return '/admin' + path;
@@ -29,12 +25,24 @@ const states = [
                 token: 'store',
                 resolveFn: () => store
             }
-        ]
+        ],
+        redirectTo: 'main.welcome'
+    },
+    {
+        name: 'main.welcome',
+        url: '/welcome',
+        component: PostWelcome
     },
     {
         name: 'main.posts',
         url: '/posts',
-        component: Posts
+        component: Posts,
+        redirectTo: 'main.posts.start'
+    },
+    {
+        name: 'main.posts.start',
+        url: '/welcome',
+        component: PostWelcome
     },
     {
         name: 'main.posts.create',
@@ -64,15 +72,13 @@ const states = [
     }
 ];
 
-// Add States to Router
-states.forEach(state => Router.stateRegistry.register(state));
-
-// Start the router
-Router.start();
-
-// Router.transitionService.onBefore(log => console.log(log));
+const configRouter = (router) => {
+    router.urlRouter.otherwise('/admin/posts');
+};
 
 ReactDOM.render(
-    <UIView/>,
+    <UIRouter config={configRouter} plugins={[pushStateLocationPlugin]} states={states} >
+        <UIView />
+    </UIRouter>,
     document.getElementById('root')
 );

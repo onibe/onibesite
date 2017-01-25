@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // Refer to http://docs.sequelizejs.com/en/v3/api/model
 

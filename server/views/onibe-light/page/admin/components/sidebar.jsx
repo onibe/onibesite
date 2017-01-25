@@ -10,10 +10,15 @@ const SidebarLink = (props) => {
                 <a><div>{props.label}</div></a>
             </UISref>
         </UISrefActive>
-    )
+    );
 };
 
-const SideBarLinks = (props) => {
+SidebarLink.propTypes = {
+    state: React.PropTypes.string,
+    label: React.PropTypes.string
+};
+
+const SideBarLinks = () => {
     const links = [
         {
             state: 'main',
@@ -49,7 +54,6 @@ class Sidebar extends React.Component {
         super(props);
     }
     render() {
-        const props = this.props;
         return (
             <div className="">
                 <SideBarLinks />

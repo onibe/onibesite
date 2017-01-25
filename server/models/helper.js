@@ -17,8 +17,20 @@ const remove = data => {
     return data;
 };
 
+const findOneErrorHandler = data => {
+    if(!data){
+        const err = new Error('No Data');
+        err.status = 404;
+
+        return Promise.reject(err);
+    }
+
+    return data;
+};
+
 module.exports = {
     create: create,
     update: update,
-    remove: remove
+    remove: remove,
+    findOneErrorHandler: findOneErrorHandler
 };

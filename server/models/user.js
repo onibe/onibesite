@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const bcrypt = require('bcrypt');
 const helper = require('./helper');

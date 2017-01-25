@@ -30,6 +30,19 @@ class ApiRoutes {
         router.post('/users', authenticatePrivate, users.add);
         router.post('/users/:id', authenticatePrivate, users.update);
         router.delete('/users/:id', authenticatePrivate, users.remove);
+
+        // API Error Handling
+        router.use(function(err, req, res, next) {
+            if(err){
+                res.status(err.status || 500).json({
+                    message: err.message,
+                    status: err.status
+                });
+            } else {
+                next();
+            }
+        });
+
     }
 }
 

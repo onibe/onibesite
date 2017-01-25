@@ -1,6 +1,7 @@
 'use strict';
 
 import api from '../../api/api';
+import omit from 'lodash/omit';
 
 // CONSTANTS
 const FETCH_POSTS = 'FETCH_POSTS';
@@ -20,6 +21,11 @@ const UPDATE_POST = 'UPDATE_POST';
 const UPDATE_POST_PENDING = 'UPDATE_POST_PENDING';
 const UPDATE_POST_FULFILLED = 'UPDATE_POST_FULFILLED';
 const UPDATE_POST_REJECTED = 'UPDATE_POST_REJECTED';
+
+const DELETE_POST = 'DELETE_POST';
+const DELETE_POST_PENDING = 'DELETE_POST_PENDING';
+const DELETE_POST_FULFILLED = 'DELETE_POST_FULFILLED';
+const DELETE_POST_REJECTED = 'DELETE_POST_REJECTED';
 
 // ACTIONS
 // Using Promise Middleware: payload is required for async http requests
@@ -56,6 +62,16 @@ const editPost = (post) => {
     return {
         type: EDIT_POST,
         post: post
+    };
+};
+
+const deletePost = (id) => {
+    return {
+        type: DELETE_POST,
+        meta: {
+            id: id
+        },
+        payload: api.deletePost(id)
     };
 };
 
@@ -142,6 +158,23 @@ const fetchPostsReducer = (state = initialState, action) => {
                 fetched: true,
                 error: action.payload
             });
+        case DELETE_POST_PENDING:
+            return Object.assign({}, state, {
+                fetching: false,
+                fetched: true
+            });
+        case DELETE_POST_FULFILLED:
+            return Object.assign({}, state, {
+                fetching: false,
+                fetched: true,
+                payload: omit(state.payload, action.meta.id)
+            });
+        case DELETE_POST_REJECTED:
+            return Object.assign({}, state, {
+                fetching: false,
+                fetched: true,
+                error: action.payload
+            });
         default:
             return state;
     }
@@ -152,7 +185,8 @@ export const actions = {
     fetchPost,
     fetchPostSearch,
     editPost,
-    updatePost
+    updatePost,
+    deletePost
 };
 
 export const reducers = {

@@ -1,4 +1,6 @@
-"use strict";
+'use strict';
+
+const { findOneErrorHandler } = require('./helper');
 
 class Post {
     constructor(instance) {
@@ -20,7 +22,8 @@ class Post {
     findOne(options) {
         const { db } = this;
 
-        return db.findOne(options);
+        return db.findOne(options)
+            .then(findOneErrorHandler);
     }
 
     create(post) {
@@ -36,9 +39,9 @@ class Post {
             .then(data => {
                 if(data[0]) {
                     return db.findOne({where: { id: post.id }});
-                } else {
-                    return Promise.reject('Failed to update');
                 }
+
+                return Promise.reject('Failed to update');
             });
     }
 

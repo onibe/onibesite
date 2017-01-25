@@ -70,9 +70,9 @@ body.admin {
   }
 
   .post-list {
-    //border-right: 1px $gray1 solid;
-    margin: 20px 0 0 0;
+    padding: 20px 0 20px 0;
     width: 240px;
+    overflow-y: auto;
     flex-shrink: 0;
   }
 

@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const User = require('./user');
+const User = require("./user");
 const Post = require('./post');
 const Session = require('./session');
 const Schema = require('./schema');

@@ -19,8 +19,10 @@ class PostContainer extends React.Component {
         this.md = new Remarkable();
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleDraftClick = this.handleDraftClick.bind(this);
         this.handleDiscard = this.handleDiscard.bind(this);
         this.handleSave = this.handleSave.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentWillMount() {
@@ -34,15 +36,23 @@ class PostContainer extends React.Component {
     }
 
     handleChange(e) {
-        const post = this.props.post;
+        const { post, onPostChange } = this.props;
 
         const markdown = this.refs.markdown.value;
         const title = this.refs.title.value;
+
+
+        onPostChange(Object.assign({}, post, {
+            title: title,
+            markdown: markdown
+        }));
+    }
+
+    handleDraftClick(e) {
+        const { post, onPostChange } = this.props;
         const draft = !post.draft;
 
-        this.props.onMarkdownChange(Object.assign({}, this.props.post, {
-            title: title,
-            markdown: markdown,
+        onPostChange(Object.assign({}, post, {
             draft: draft
         }));
     }
@@ -63,72 +73,87 @@ class PostContainer extends React.Component {
         this.props.onSave(this.props.post);
     }
 
+    handleDelete() {
+        this.props.onDelete(this.props.post.id);
+    }
+
     render() {
-        const post = this.props.post;
-        console.log(post,'post');
-        if(post) {
-            return (
-                <div className="post-container">
-                    <div className="post-title">
-                        <input
-                            className="post-title-edit form-control"
-                            onChange={this.handleChange}
-                            ref="title"
-                            value={post.title} />
-                    </div>
-                    <div className="post-control">
+        const {post, mode} = this.props;
+
+        if(!post) {
+            return <div className="post-container">No Post</div>;
+        }
+
+        return (
+            <div className="post-container">
+                <div className="post-title">
+                    <input
+                        className="post-title-edit form-control"
+                        onChange={this.handleChange}
+                        placeholder="Title"
+                        ref="title"
+                        value={post.title} />
+                </div>
+                <div className="post-control">
                         <textarea
                             className="post-control-edit form-control"
                             onChange={this.handleChange}
+                            placeholder="Insert Markdown Text"
                             ref="markdown"
                             value={post.markdown} />
-                        <div
-                            className="post-preview"
-                            dangerouslySetInnerHTML={this.getRawMarkup()}
-                        />
+                    <div
+                        className="post-preview"
+                        dangerouslySetInnerHTML={this.getRawMarkup()}
+                    />
+                </div>
+                <div className="post-meta">
+                    <div className="form-group">
+                        <label>
+                            <input checked={!!post.draft}
+                                   onChange={this.handleDraftClick}
+                                   ref="draft"
+                                   type="checkbox" />
+                            <span>Draft</span>
+                        </label>
                     </div>
-                    <div className="post-meta">
-                        <div className="form-group">
-                            <label>
-                                <input checked={!!post.draft}
-                                    onChange={this.handleChange}
-                                    ref="draft"
-                                    type="checkbox" />
-                                <span>Draft</span>
-                            </label>
-                        </div>
-                        <div>Create Date: {post.createdAt}</div>
-                        <div>Update Date: {post.updatedAt}</div>
-                    </div>
-                    <div className="post-options">
-                        <div>
-                            <UISrefActive class="sidebar-active">
-                                <UISref to="main.posts.create">
-                                    <button className="btn btn-default"
-                                            type="button">
-                                        New Post
-                                    </button>
-                                </UISref>
-                            </UISrefActive>
-                        </div>
-                        <div className="post-options-wrapper">
+                    <div>Create Date: {post.createdAt}</div>
+                    <div>Update Date: {post.updatedAt}</div>
+                </div>
+                <div className="post-options">
+                    <div>
+                        <UISrefActive class="sidebar-active">
+                            <UISref to="main.posts.create">
+                                <button className="btn btn-default"
+                                        type="button">
+                                    New Post
+                                </button>
+                            </UISref>
+                        </UISrefActive>
+                        {mode.create ? '' :
                             <button className="btn btn-default"
                                     disabled={!post.modified}
                                     onClick={this.handleDiscard}
                                     type="button">
                                 Discard Changes
                             </button>
-                            <button
-                                    className="btn btn-primary"
-                                    disabled={!post.modified}
-                                    onClick={this.handleSave}>Save</button>
-                        </div>
+                        }
+                        {mode.create ? '' :
+                            <button className="btn btn-danger"
+                                    onClick={this.handleDelete}
+                                    type="button">
+                                Delete
+                            </button>
+                        }
+                    </div>
+                    <div className="post-options-wrapper">
+                        <button
+                            className="btn btn-primary"
+                            disabled={!post.modified}
+                            onClick={this.handleSave}>Save</button>
                     </div>
                 </div>
-            );
-        } else {
-            return (<div></div>);
-        }
+            </div>
+        );
 
     }
 }
@@ -144,8 +169,9 @@ const postMapStateToProps = (state, ownProps) => {
 
 const postMapDispatchToProps = (dispatch, ownProps) => {
     // Return Props;
+
     return {
-        onMarkdownChange: (data) => {
+        onPostChange: (data) => {
             if(ownProps.mode.create){
                 dispatch(post.actions.editNewPost(data));
             } else {
@@ -160,10 +186,17 @@ const postMapDispatchToProps = (dispatch, ownProps) => {
         },
         onSave: (data) => {
             if(ownProps.mode.create){
-                dispatch(posts.actions.createPost(data));
+                dispatch(post.actions.createPost(data))
+                    .then(data => dispatch(posts.actions.fetchPost(data.value.id)))
+                    .then(data => ownProps.router.stateService.go('main.posts.post', {postId: data.value.id} ))
+                    .then(dispatch(post.actions.clearNewPost()));
             } else if(data.id) {
                 dispatch(posts.actions.updatePost(data));
             }
+        },
+        onDelete: (id) => {
+            dispatch(posts.actions.deletePost(id))
+                .then(() => ownProps.router.stateService.go('main.posts.start'));
         }
     };
 };
@@ -173,19 +206,26 @@ PostContainer = connect(postMapStateToProps, postMapDispatchToProps)(PostContain
 PostContainer.propTypes = {
     id: React.PropTypes.string,
     post: React.PropTypes.object,
-    onMarkdownChange: React.PropTypes.func,
+    mode: React.PropTypes.object,
+    onPostChange: React.PropTypes.func,
     discard: React.PropTypes.func,
-    onSave: React.PropTypes.func
+    onSave: React.PropTypes.func,
+    onDelete: React.PropTypes.func
 };
 
 const Index = (props) => {
     const store = props.resolves.store;
     const postId = props.resolves.$stateParams.postId;
     const mode = props.resolves.mode;
+    const router = props.transition.router;
 
     return (
         <Provider store={store}>
-            <PostContainer id={postId} mode={mode} />
+            <PostContainer
+                id={postId}
+                mode={mode}
+                router={router}
+            />
         </Provider>
     );
 };

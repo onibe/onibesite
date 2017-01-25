@@ -50,12 +50,30 @@ const updatePost = (post, requestOptions) => {
         .then(validRequestStatus);
 };
 
+const createPost = (post, requestOptions) => {
+    return fetch('/api/posts/', Object.assign({
+        method: 'POST',
+        body: JSON.stringify(post)
+    }, defaultFetchOptions,requestOptions))
+        .then(validRequestStatus);
+};
+
+const deletePost = (id, requestOptions) => {
+    return fetch('/api/posts/' + id, Object.assign({
+        method: 'DELETE'
+    }, defaultFetchOptions,requestOptions))
+        .then(validRequestStatus);
+};
+
+
 const api = {
     loginRequest,
     testRequest,
     getPosts,
     getPost,
-    updatePost
+    updatePost,
+    createPost,
+    deletePost
 };
 
 export default api;
