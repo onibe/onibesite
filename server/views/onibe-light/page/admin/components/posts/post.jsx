@@ -202,11 +202,19 @@ const postMapDispatchToProps = (dispatch, ownProps) => {
         discard: (id) => {
             dispatch(posts.actions.fetchPost(id));
         },
-        onTagSubmit: (tag) => {
-
+        onTagSubmit: (postEntity, tag) => {
+            if(ownProps.mode.create){
+                dispatch(post.actions.addTagToNewPost(tag));
+            } else {
+                dispatch(posts.actions.addTagToPost(postEntity, tag));
+            }
         },
-        onTagDelete: (post, tag) => {
-            dispatch(posts.actions.deleteTagFromPost(post, tag));
+        onTagDelete: (postEntity, tag) => {
+            if(ownProps.mode.create){
+                dispatch(post.actions.deleteTagFromNewPost(tag));
+            } else {
+                dispatch(posts.actions.deleteTagFromPost(postEntity, tag));
+            }
         },
         onSave: (data) => {
             if(ownProps.mode.create){

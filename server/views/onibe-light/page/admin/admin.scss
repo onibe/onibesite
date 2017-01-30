@@ -126,7 +126,7 @@ body.admin {
   }
 
   .post-meta {
-    padding: 20px;
+    padding: 20px 0;
     border-top: 1px solid $light-grey;
   }
   .post-preview {
@@ -149,5 +149,21 @@ body.admin {
 
   .tags-container {
     padding: 20px;
+  }
+
+  .tag-search-list {
+    margin: 20px 0;
+  }
+
+  .tag-search-input {
+    border: 0;
+    border-bottom: 1px solid $light-grey;
+    margin: 0 4px;
+  }
+
+  .tag-button {
+    margin-right: 4px;
+    border: 0;
+    border-bottom: 1px solid $light-grey;
   }
 }

@@ -19,7 +19,7 @@ class TagItemButton extends React.Component {
         const tag = this.props.tag;
 
         return (
-            <button className="btn btn-default btn-xs"
+            <button className="tag-button btn btn-default btn-xs"
                     onClick={this.handleClick}
                     type="button">
                 <span>{tag.name}</span>
@@ -58,27 +58,37 @@ class TagSearch extends React.Component {
     }
 
     handleSubmit(e) {
+        const { tags } = this.props;
         e.preventDefault();
 
-        this.props.onSubmit(this.refs.tag.value);
+        const newTag = { name: this.refs.tag.value };
+
+        if(!tags.find(tag => tag.name === newTag.name)) {
+            this.props.onSubmit(newTag);
+            this.refs.tag.value = '';
+        }
+
+        // Clear Selection
+        this.refs.tag.value = '';
     }
 
     render() {
         const { tags } = this.props;
-        const mapTags = sortBy(Object.keys(tags || []).map(key => tags[key]), 'createdAt');
+        const mapTags = sortBy(Object.keys(tags || []).map(key => tags[key]), 'name');
 
         return (
             <form onSubmit={this.handleSubmit}>
-                <div className="tag-list rvoffset2">
-                {mapTags.map(tag => <TagItemButton key={tag.id}
+                <div className="tag-search-list">
+                {mapTags.map(tag => <TagItemButton key={tag.name}
                                         onClick={this.removeTag}
                                         tag={tag}  />)}
+                    <input className="tag-search-input"
+                           placeholder="Add Tags"
+                           onChange={this.handleChange}
+                           ref="tag"
+                    />
                 </div>
-                <input className="form-control"
-                     placeholder="tags"
-                     onChange={this.handleChange}
-                     ref="tag"
-                />
+
             </form>
         );
     }

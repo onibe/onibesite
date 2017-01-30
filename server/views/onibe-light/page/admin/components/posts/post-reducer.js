@@ -4,6 +4,8 @@ import api from '../../api/api';
 
 // CONSTANTS
 const EDIT_NEW_POST = 'EDIT_NEW_POST';
+const ADD_TAG_TO_NEW_POST = 'ADD_TAG_TO_NEW_POST';
+const DELETE_TAG_FROM_NEW_POST = 'DELETE_TAG_FROM_NEW_POST';
 const CLEAR_NEW_POST = 'CLEAR_NEW_POST';
 
 const CREATE_POST = 'CREATE_POST';
@@ -26,6 +28,20 @@ const editNewPost = (post) => {
     };
 };
 
+const addTagToNewPost = (tag) => {
+    return {
+        type: ADD_TAG_TO_NEW_POST,
+        tag: tag
+    };
+};
+
+const deleteTagFromNewPost = (tag) => {
+    return {
+        type: DELETE_TAG_FROM_NEW_POST,
+        tag: tag
+    };
+};
+
 const clearNewPost = (post) => {
     return {
         type: CLEAR_NEW_POST,
@@ -44,7 +60,8 @@ const newPost = () => {
             draft: false,
             createdAt: (new Date()).toISOString(),
             updatedAt: (new Date()).toISOString(),
-            modified: true
+            modified: true,
+            tags: []
         },
         error: false
     };
@@ -52,31 +69,38 @@ const newPost = () => {
 
 // REDUCERS
 const postReducer = (state = newPost(), action) => {
-    if(action.type === EDIT_NEW_POST) {
-        return Object.assign({}, state, {
-            payload: mergePost(state.payload, action.post)
-        });
+
+    switch (action.type) {
+        case EDIT_NEW_POST:
+            return Object.assign({}, state, {
+                payload: mergePost(state.payload, action.post)
+            });
+        case CLEAR_NEW_POST:
+            return Object.assign({}, state, {
+                payload: newPost().payload
+            });
+        case ADD_TAG_TO_NEW_POST:
+            return Object.assign({}, state, {
+                payload: mergePost(state.payload, { tags: state.payload.tags.concat(action.tag) })
+            });
+        case DELETE_TAG_FROM_NEW_POST:
+            return Object.assign({}, state, {
+                payload: mergePost(state.payload, { tags: state.payload.tags.filter(tag => tag.name !== action.tag.name) })
+            });
+        default:
+            return state;
     }
 
-    else if(action.type === CLEAR_NEW_POST) {
-        return Object.assign({}, state, {
-            payload: newPost().payload
-        });
-    }
-
-    return state;
 };
 
 export const mergePost = (post, newPost, modified = true) => {
     return Object.assign({},post, newPost, {modified: modified});
 };
 
-export const addTag = (post, tag) => {
-    return post.tag.concat(tag);
-};
-
 export const actions = {
     editNewPost,
+    addTagToNewPost,
+    deleteTagFromNewPost,
     createPost,
     clearNewPost
 };

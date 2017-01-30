@@ -11,10 +11,14 @@ export const TagItem = (props) => {
     const tag = props.tag;
     const onDelete = props.onDelete;
 
-    return <label className="label label-default">
-        <span>{tag.name}</span>
-        {onDelete ? <span onClick={onDelete}>x</span> : ''}
-    </label>;
+    return (
+        <div>
+            <label className="tag-label label label-default">
+                <span>{tag.name}</span>
+                {onDelete ? <span onClick={onDelete}>x</span> : ''}
+            </label>
+        </div>
+    );
 };
 
 

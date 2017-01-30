@@ -1,6 +1,7 @@
 'use strict';
 
 const CRUD = require('./crud');
+const differenceBy = require('lodash/differenceBy');
 
 const { findOneErrorHandler, updateFindOneHandler } = require('./helper');
 
@@ -32,18 +33,13 @@ class Post extends CRUD {
         return db.post.update(entity, mergedOptions)
             .then(data => updateFindOneHandler(db.post, data, entity))
             .then(post => {
-                const newTags = entity.tags ? entity.tags.filter(tag => !tag.id) : [];
-                const existingTags = entity.tags ? entity.tags.filter(tag => tag.id) : [];
-
-                const newTagInstances = db.tag.bulkCreate(newTags, {individualHooks: true});
-                const existingTagInstances = db.tag.findAll({ where: { id: existingTags.map(tag => tag.id) } });
-
-                return Promise.all([newTagInstances,existingTagInstances])
-                    .then(data => {
-                        const newTags = data[0];
-                        const existingTags = data[1];
-
-                        return post.setTags(newTags.concat(existingTags));
+                return db.tag.findAll({ where: { name: entity.tags.map(tag => tag.name) } })
+                    .then(existingTags => {
+                        const newTags = differenceBy(entity.tags, existingTags, 'name');
+                        return db.tag.bulkCreate(newTags, {individualHooks: true})
+                            .then(newTags => {
+                                return post.setTags(existingTags.concat(newTags));
+                            });
                     });
             })
             .then(() => super.findOneById(entity.id).then(findOneErrorHandler))

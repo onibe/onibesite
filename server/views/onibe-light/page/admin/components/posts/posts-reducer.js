@@ -140,7 +140,7 @@ const fetchPostsReducer = (state = initialState, action) => {
                 fetching: false,
                 fetched: true,
                 payload: Object.assign({}, state.payload, {
-                    [action.payload.id]: mergePost(state.payload[action.payload.id], action.post, false)
+                    [action.payload.id]: mergePost(state.payload[action.payload.id], action.payload, false)
                 })
             });
         case FETCH_POST_REJECTED:
@@ -181,7 +181,7 @@ const fetchPostsReducer = (state = initialState, action) => {
                 fetching: false,
                 fetched: true,
                 payload: Object.assign({}, state.payload, {
-                    [action.payload.id]: mergePost(state.payload[action.payload.id], action.post, false)
+                    [action.payload.id]: mergePost(state.payload[action.payload.id], action.payload, false)
                 })
             });
         case UPDATE_POST_REJECTED:

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import moment from 'moment';
-import { sortBy } from 'lodash';
+import { orderBy } from 'lodash';
 
 import { connect, Provider } from 'react-redux';
 import {UIView, UISrefActive, UISref} from 'ui-router-react';
@@ -45,7 +45,7 @@ class PostsContainer extends React.Component {
     render() {
         const postLinks = this.props.posts;
 
-        const mapPosts = sortBy(Object.keys(postLinks).map(key => postLinks[key]), 'createdAt');
+        const mapPosts = orderBy(Object.keys(postLinks).map(key => postLinks[key]), ['createdAt'], ['desc']);
 
         return (
             <div className="posts-container">
