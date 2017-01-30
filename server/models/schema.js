@@ -70,8 +70,6 @@ class Schema {
             created_by_id: Sequelize.INTEGER,
             update_date: Sequelize.STRING,
             updated_by_id: Sequelize.INTEGER,
-        }, {
-            underscore: true
         });
 
         const postTags = sequelize.define('post_tags');
