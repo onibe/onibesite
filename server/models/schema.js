@@ -78,7 +78,7 @@ class Schema {
 
         // User.hasMany add getPosts to user instance
         user.hasMany(post, { foreignKey: 'published_by_id' });
-        post.belongsTo(user, { foreignKey: 'published_by_id', constraints: false, as: 'publised_user' });
+        post.belongsTo(user, { foreignKey: 'published_by_id', constraints: false, as: 'published_user' });
 
         post.belongsToMany(tag, {through: postTags});
         tag.belongsToMany(post, {through: postTags});
