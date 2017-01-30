@@ -3,6 +3,7 @@
 const express = require('express');
 const Post = require('./posts');
 const User = require('./users');
+const Tag = require('./tags');
 
 class ApiRoutes {
     constructor(middleware) {
@@ -12,6 +13,7 @@ class ApiRoutes {
 
         const posts = new Post();
         const users = new User();
+        const tags = new Tag();
 
         const authenticatePrivate = [
             middleware.authenticateSession
@@ -23,6 +25,13 @@ class ApiRoutes {
         router.post('/posts', authenticatePrivate, posts.add);
         router.post('/posts/:id', authenticatePrivate, posts.update);
         router.delete('/posts/:id', authenticatePrivate, posts.remove);
+
+        // Tags
+        router.get('/tags', authenticatePrivate, tags.browse);
+        router.get('/tag/:id', authenticatePrivate, tags.read);
+        router.post('/tags', authenticatePrivate, tags.add);
+        router.post('/tags/:id', authenticatePrivate, tags.update);
+        router.delete('/tags/:id', authenticatePrivate, tags.remove);
 
         // Users
         router.get('/users', authenticatePrivate, users.browse);

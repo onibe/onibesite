@@ -8,6 +8,8 @@ import {UISref, UISrefActive} from 'ui-router-react';
 import post from './post-reducer';
 import posts from './posts-reducer';
 
+import TagSearch from '../tags/tag-search.jsx';
+
 
 // PostContainer has two modes
 // Create Mode
@@ -23,6 +25,8 @@ class PostContainer extends React.Component {
         this.handleDiscard = this.handleDiscard.bind(this);
         this.handleSave = this.handleSave.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.handleTagDelete = this.handleTagDelete.bind(this);
+        this.handleTagAdd = this.handleTagAdd.bind(this);
     }
 
     componentWillMount() {
@@ -77,6 +81,14 @@ class PostContainer extends React.Component {
         this.props.onDelete(this.props.post.id);
     }
 
+    handleTagAdd(tag) {
+        this.props.onTagSubmit(this.props.post,tag);
+    }
+
+    handleTagDelete(tag) {
+        this.props.onTagDelete(this.props.post,tag);
+    }
+
     render() {
         const {post, mode} = this.props;
 
@@ -118,6 +130,12 @@ class PostContainer extends React.Component {
                     </div>
                     <div>Create Date: {post.createdAt}</div>
                     <div>Update Date: {post.updatedAt}</div>
+                    <div>
+                        <TagSearch
+                            onDelete={this.handleTagDelete}
+                            onSubmit={this.handleTagAdd}
+                            tags={post.tags} />
+                    </div>
                 </div>
                 <div className="post-options">
                     <div>
@@ -183,6 +201,12 @@ const postMapDispatchToProps = (dispatch, ownProps) => {
         },
         discard: (id) => {
             dispatch(posts.actions.fetchPost(id));
+        },
+        onTagSubmit: (tag) => {
+
+        },
+        onTagDelete: (post, tag) => {
+            dispatch(posts.actions.deleteTagFromPost(post, tag));
         },
         onSave: (data) => {
             if(ownProps.mode.create){

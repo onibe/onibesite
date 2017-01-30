@@ -1,7 +1,7 @@
 'use strict';
 
-const { findOneErrorHandler } = require('./helper');
 const CRUD = require('./crud');
+const omit = require('lodash/omit');
 
 class Tag extends CRUD{
     constructor(schema) {

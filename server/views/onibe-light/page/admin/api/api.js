@@ -65,6 +65,11 @@ const deletePost = (id, requestOptions) => {
         .then(validRequestStatus);
 };
 
+const getTags = (id, requestOptions) => {
+    return fetch('/api/tags', Object.assign({}, defaultFetchOptions,requestOptions))
+        .then(validRequestStatus)
+        .then(data => keyBy(data,'id'));
+};
 
 const api = {
     loginRequest,
@@ -73,7 +78,8 @@ const api = {
     getPost,
     updatePost,
     createPost,
-    deletePost
+    deletePost,
+    getTags
 };
 
 export default api;

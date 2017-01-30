@@ -8,6 +8,7 @@ import Dashboard from './components/dashboard.jsx';
 import Posts from './components/posts/posts.jsx';
 import Post from './components/posts/post.jsx';
 import PostWelcome from './components/posts/post-welcome.jsx';
+import Tags from './components/tags/tags.jsx';
 
 import store from './components/reducers';
 
@@ -69,6 +70,11 @@ const states = [
                 })
             },
         ]
+    },
+    {
+        name: 'main.tags',
+        url: '/tags',
+        component: Tags
     }
 ];
 

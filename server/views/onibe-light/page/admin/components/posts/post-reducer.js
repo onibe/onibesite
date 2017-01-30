@@ -54,7 +54,7 @@ const newPost = () => {
 const postReducer = (state = newPost(), action) => {
     if(action.type === EDIT_NEW_POST) {
         return Object.assign({}, state, {
-            payload: Object.assign({},state.payload, action.post)
+            payload: mergePost(state.payload, action.post)
         });
     }
 
@@ -67,6 +67,13 @@ const postReducer = (state = newPost(), action) => {
     return state;
 };
 
+export const mergePost = (post, newPost, modified = true) => {
+    return Object.assign({},post, newPost, {modified: modified});
+};
+
+export const addTag = (post, tag) => {
+    return post.tag.concat(tag);
+};
 
 export const actions = {
     editNewPost,

@@ -2,6 +2,7 @@
 
 import api from '../../api/api';
 import omit from 'lodash/omit';
+import { mergePost } from './post-reducer';
 
 // CONSTANTS
 const FETCH_POSTS = 'FETCH_POSTS';
@@ -10,7 +11,10 @@ const FETCH_POSTS_FULFILLED = 'FETCH_POSTS_FULFILLED';
 const FETCH_POSTS_REJECTED = 'FETCH_POSTS_REJECTED';
 const FETCH_POSTS_SEARCH = 'FETCH_POSTS_SEARCH';
 
+// EDIT ACTIONS
 const EDIT_POST = 'EDIT_POST';
+const ADD_TAG_TO_POST = 'ADD_TAG_TO_POST';
+const DELETE_TAG_FROM_POST = 'DELETE_TAG_FROM_POST';
 
 const FETCH_POST = 'FETCH_POST';
 const FETCH_POST_PENDING = 'FETCH_POST_PENDING';
@@ -61,6 +65,22 @@ const fetchPostSearch = (search) => {
 const editPost = (post) => {
     return {
         type: EDIT_POST,
+        post: post
+    };
+};
+
+const addTagToPost = (post, tag) => {
+    return {
+        type: ADD_TAG_TO_POST,
+        tag: tag,
+        post: post
+    };
+};
+
+const deleteTagFromPost = (post, tag) => {
+    return {
+        type: DELETE_TAG_FROM_POST,
+        tag: tag,
         post: post
     };
 };
@@ -120,9 +140,7 @@ const fetchPostsReducer = (state = initialState, action) => {
                 fetching: false,
                 fetched: true,
                 payload: Object.assign({}, state.payload, {
-                    [action.payload.id]: Object.assign({}, state.payload[action.payload.id], action.payload, {
-                        modified: false
-                    })
+                    [action.payload.id]: mergePost(state.payload[action.payload.id], action.post, false)
                 })
             });
         case FETCH_POST_REJECTED:
@@ -134,7 +152,23 @@ const fetchPostsReducer = (state = initialState, action) => {
         case EDIT_POST:
             return Object.assign({}, state, {
                 payload: Object.assign({}, state.payload,{
-                    [action.post.id]:  Object.assign({}, state.payload[action.post.id], action.post, {modified: true})
+                    [action.post.id]: mergePost(state.payload[action.post.id], action.post, true)
+                })
+            });
+        case ADD_TAG_TO_POST:
+            return Object.assign({}, state, {
+                payload: Object.assign({}, state.payload,{
+                    [action.post.id]: mergePost(state.payload[action.post.id], {
+                        tags: state.payload[action.post.id].tags.concat(action.tag)
+                    }, true)
+                })
+            });
+        case DELETE_TAG_FROM_POST:
+            return Object.assign({}, state, {
+                payload: Object.assign({}, state.payload,{
+                    [action.post.id]: mergePost(state.payload[action.post.id], {
+                        tags: state.payload[action.post.id].tags.filter(tag => tag.name !== action.tag.name)
+                    }, true)
                 })
             });
         case UPDATE_POST_PENDING:
@@ -147,9 +181,7 @@ const fetchPostsReducer = (state = initialState, action) => {
                 fetching: false,
                 fetched: true,
                 payload: Object.assign({}, state.payload, {
-                    [action.payload.id]: Object.assign({}, state.payload[action.payload.id], action.payload, {
-                        modified: false
-                    })
+                    [action.payload.id]: mergePost(state.payload[action.payload.id], action.post, false)
                 })
             });
         case UPDATE_POST_REJECTED:
@@ -186,7 +218,9 @@ export const actions = {
     fetchPostSearch,
     editPost,
     updatePost,
-    deletePost
+    deletePost,
+    addTagToPost,
+    deleteTagFromPost
 };
 
 export const reducers = {
