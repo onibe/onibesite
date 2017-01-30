@@ -46,12 +46,40 @@ class Schema {
             create_date: Sequelize.DATE,
             created_by_id: Sequelize.INTEGER,
             update_date: Sequelize.STRING,
+            updated_by_id: Sequelize.INTEGER
+        });
+
+        const tag = sequelize.define('tags', {
+            name: {
+                type: Sequelize.STRING,
+                validation: {
+                    isAlphanumeric: true
+                },
+                unique: true
+            },
+            status: {
+                type: Sequelize.STRING,
+                validation: {
+                    isAlphanumeric: true
+                },
+                unique: true
+            },
+            publish_date: Sequelize.STRING,
+            published_by_id: Sequelize.INTEGER,
+            create_date: Sequelize.DATE,
+            created_by_id: Sequelize.INTEGER,
+            update_date: Sequelize.STRING,
             updated_by_id: Sequelize.INTEGER,
         });
 
+        const postTags = sequelize.define('post_tags');
+
         // User.hasMany add getPosts to user instance
         user.hasMany(post, { foreignKey: 'published_by_id' });
-        post.belongsTo(user, { foreignKey: 'published_by_id', constraints: false });
+        post.belongsTo(user, { foreignKey: 'published_by_id', constraints: false, as: 'publised_user' });
+
+        post.belongsToMany(tag, {through: postTags});
+        tag.belongsToMany(post, {through: postTags});
 
         const session = sequelize.define('sessions', {
             sid: {
@@ -68,6 +96,8 @@ class Schema {
 
         this.user = user;
         this.post = post;
+        this.postTags = postTags;
+        this.tag = tag;
         this.session = session;
     }
 }

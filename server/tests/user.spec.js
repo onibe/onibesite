@@ -81,7 +81,7 @@ test('Posts can be found by user_id', t => {
 });
 
 // Get Userposts
-test('user Posts Can Found from user', t => {
+test('user Posts Can Found from user instance', t => {
     user.db.findOne({ where: {id: 1}}).then(user => {
 
         user.getPosts().then(posts => {

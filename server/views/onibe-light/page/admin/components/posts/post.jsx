@@ -107,7 +107,7 @@ class PostContainer extends React.Component {
                     />
                 </div>
                 <div className="post-meta">
-                    <div className="form-group">
+                    <div className="form-group checkbox-inline">
                         <label>
                             <input checked={!!post.draft}
                                    onChange={this.handleDraftClick}

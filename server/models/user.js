@@ -4,8 +4,9 @@ const bcrypt = require('bcrypt');
 const helper = require('./helper');
 
 class User {
-    constructor(instance) {
-        this.db = instance;
+    constructor(schema) {
+        this.db = schema.user;
+        this.post = schema.post;
     }
 
     sync() {
@@ -51,7 +52,7 @@ class User {
                             return Promise.reject("No User Found");
                         }
                     });
-            })
+            });
 
     }
 
@@ -64,7 +65,7 @@ class User {
             data.password = hash;
             return db.sync()
                 .then(db.create(data));
-        })
+        });
     }
 
     remove(data) {

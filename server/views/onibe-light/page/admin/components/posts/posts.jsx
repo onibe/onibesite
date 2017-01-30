@@ -12,7 +12,7 @@ const PostLink = (prop) => {
     const date = moment(new Date(prop.post.createdAt)).fromNow();
 
     return (
-        <div className="post-item">
+        <div className="post-item no-select">
             <UISrefActive class="post-item-active">
                 <UISref params={{postId:prop.post.id}} to=".post" >
                     <a>

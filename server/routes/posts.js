@@ -12,79 +12,69 @@ class Post {
     }
 
     add (req, res, next) {
-        if(validator.isObject(req.body)) {
-            // Add Validation
-            const reqPost = req.body;
+        const err = validator.isUpdateValid(req);
 
-            post.create(reqPost)
-                .then(post => {
-                    res.status(200).json(post);
-                })
-                .catch(err => {
-                    next(err);
-                });
-        } else {
-            next();
+        if(err !== true) {
+            return next(err);
         }
+
+        // Add Validation
+        const reqPost = req.body;
+
+        post.create(reqPost)
+            .then(data => res.status(200).json(data))
+            .catch(err => {
+                next(err);
+            });
     }
 
-
     update (req, res, next) {
-        if(validator.isObject(req.body)) {
-            // Add Validation
-            const reqPost = req.body;
+        const err = validator.isUpdateValid(req);
 
-            post.update(reqPost)
-                .then(data => {
-                    res.status(200).json(data);
-                })
-                .catch(err => next(err));
-        } else {
-            next();
+        if(err !== true) {
+            return next(err);
         }
+
+        // Add Validation
+        const reqPost = req.body;
+
+        return post.update(reqPost)
+            .then(data => res.status(200).json(data))
+            .catch(err => next(err));
     }
 
     browse (req, res, next) {
-        if(validator.isObject(req.body)) {
-            const options = req.body;
+        const err = validator.isBodyJSON(req.body);
 
-            post.findAll(options)
-                .then(posts => {
-                    res.status(200).json(posts);
-                })
-                .catch(err => next(err));
-        } else {
-            next();
+        if(err !== true) {
+            return next(err);
         }
+
+
+        return post.findAll(req.body)
+            .then(data => res.status(200).json(data))
+            .catch(err => next(err));
     }
 
 
     read (req, res, next) {
-        if(req.params.id) {
-            const id = req.params.id;
-
-            post.findOne({where: {id: id}})
-                .then(post => {
-                    res.status(200).json(post);
-                })
-                .catch(err => next(err));
-        } else {
+        if(!req.params.id) {
             next();
         }
+
+        return post.findOneById(req.params.id)
+            .then(data => res.status(200).json(data))
+            .catch(err => next(err));
     }
 
     remove (req, res, next)  {
-        if(req.params.id) {
-            const id = req.params.id;
-
-            post.remove({id: id})
-                .then(posts => {
-                    res.status(200).json(posts);
-                })
-                .catch(err => next(err));
-        } else {
-            next();
+        if(!req.params.id) {
+            return next();
         }
+
+        return post.removeById(req.params.id)
+            .then(data => res.status(200).json(data))
+            .catch(err => next(err));
     }
 
 }

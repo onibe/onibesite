@@ -17,6 +17,7 @@ const remove = data => {
     return data;
 };
 
+// Handlers
 const findOneErrorHandler = data => {
     if(!data){
         const err = new Error('No Data');
@@ -28,9 +29,19 @@ const findOneErrorHandler = data => {
     return data;
 };
 
+const updateFindOneHandler = (db, data, entity) => {
+    if(data[0] === 1) {
+        return db.findOne({where: { id: entity.id }})
+            .then(findOneErrorHandler);
+    }
+
+    return Promise.reject('Failed to update');
+};
+
 module.exports = {
     create: create,
     update: update,
     remove: remove,
-    findOneErrorHandler: findOneErrorHandler
+    findOneErrorHandler: findOneErrorHandler,
+    updateFindOneHandler: updateFindOneHandler
 };

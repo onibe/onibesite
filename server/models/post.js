@@ -1,56 +1,65 @@
 'use strict';
 
-const { findOneErrorHandler } = require('./helper');
+const CRUD = require('./crud');
 
-class Post {
-    constructor(instance) {
-        this.db = instance;
-    }
+const { findOneErrorHandler, updateFindOneHandler } = require('./helper');
 
-    forceSync() {
-        const { db } = this;
-
-        return db.sync({force: true});
+class Post extends CRUD {
+    constructor(schema) {
+        super(schema.post);
+        this.db = schema;
     }
 
     findAll(options) {
         const { db } = this;
 
-        return db.findAll(options);
+        const mergedOptions = Object.assign({}, {
+            include: [
+                { model: db.tag }
+            ]
+        }, options);
+
+        return db.post.findAll(mergedOptions);
     }
 
-    findOne(options) {
+    update(entity, options) {
         const { db } = this;
 
-        return db.findOne(options)
-            .then(findOneErrorHandler);
+        const mergedOptions = Object.assign({}, {
+            where: {id: entity.id}
+        }, options);
+
+        return db.post.update(entity, mergedOptions)
+            .then(data => updateFindOneHandler(db.post, data, entity))
+            .then(post => {
+                const newTags = entity.tags ? entity.tags.filter(tag => !tag.id) : [];
+                const existingTags = entity.tags ? entity.tags.filter(tag => tag.id) : [];
+
+                const newTagInstances = db.tag.bulkCreate(newTags, {individualHooks: true});
+                const existingTagInstances = db.tag.findAll({ where: { id: existingTags.map(tag => tag.id) } });
+
+                return Promise.all([newTagInstances,existingTagInstances])
+                    .then(data => {
+                        const newTags = data[0];
+                        const existingTags = data[1];
+
+                        return post.setTags(newTags.concat(existingTags));
+                    });
+            })
+            .then(() => super.findOneById(entity.id).then(findOneErrorHandler))
+            .then(post => Post.sanitize(post.get({ plain: true })));
     }
 
-    create(post) {
-        const { db } = this;
-
-        return db.create(post);
+    findOneById(id, options) {
+        return super.findOneById(id, options)
+            .then(post => Post.sanitize(post.get({ plain: true })));
     }
 
-    update(post) {
-        const { db } = this;
-
-        return db.update(post, {where: { id: post.id }})
-            .then(data => {
-                if(data[0]) {
-                    return db.findOne({where: { id: post.id }});
-                }
-
-                return Promise.reject('Failed to update');
-            });
+    static sanitize(post) {
+        return Object.assign({}, post, {
+            tags: post.tags.map(tag => ({id: tag.id, name: tag.name}))
+        });
     }
-
-    remove(data) {
-        const { db } = this;
-
-        return db.destroy({where: data});
-    }
-
 }
 
 module.exports = Post;
