@@ -4,7 +4,7 @@ const config = require('../config.json');
 const expressInit = require('../config/express-config.js');
 
 // Routing Setup
-const routes = require('./routes/index');
+const Route = require('./routes/index');
 const Admin = require('./routes/admin');
 const Api = require('./routes/api');
 
@@ -20,7 +20,7 @@ expressApp.run(app => {
     // Set Session Configuration
     app.use(session.start());
 
-    app.use('/', routes);
+    app.use('/', new Route(middleware).router);
     app.use('/api', new Api(middleware).router);
     app.use('/admin', new Admin(middleware).router);
 });

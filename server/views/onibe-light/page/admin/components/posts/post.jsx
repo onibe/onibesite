@@ -22,11 +22,13 @@ class PostContainer extends React.Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleDraftClick = this.handleDraftClick.bind(this);
+        this.handleHTMLModeClick = this.handleHTMLModeClick.bind(this);
         this.handleDiscard = this.handleDiscard.bind(this);
         this.handleSave = this.handleSave.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleTagDelete = this.handleTagDelete.bind(this);
         this.handleTagAdd = this.handleTagAdd.bind(this);
+        this.handleKeyDown = this.handleKeyDown.bind(this);
     }
 
     componentWillMount() {
@@ -54,10 +56,16 @@ class PostContainer extends React.Component {
 
     handleDraftClick(e) {
         const { post, onPostChange } = this.props;
-        const draft = !post.draft;
+        onPostChange(Object.assign({}, post, {
+            _draft: !post._draft
+        }));
+    }
+
+    handleHTMLModeClick(e) {
+        const { post, onPostChange } = this.props;
 
         onPostChange(Object.assign({}, post, {
-            draft: draft
+            _HTMLMode: !post._HTMLMode
         }));
     }
 
@@ -71,6 +79,12 @@ class PostContainer extends React.Component {
 
     handleDiscard() {
         this.props.discard(this.props.post.id);
+    }
+
+    handleKeyDown(event) {
+        if(event.ctrlKey && event.key && event.key.toLowerCase() == 's'){
+            this.props.onSave(this.props.post);
+        }
     }
 
     handleSave() {
@@ -97,7 +111,7 @@ class PostContainer extends React.Component {
         }
 
         return (
-            <div className="post-container">
+            <div className="post-container" onKeyDown={this.handleKeyDown}>
                 <div className="post-title">
                     <input
                         className="post-title-edit form-control"
@@ -121,13 +135,22 @@ class PostContainer extends React.Component {
                 <div className="post-meta">
                     <div className="form-group checkbox-inline">
                         <label>
-                            <input checked={!!post.draft}
+                            <input checked={!!post._draft}
                                    onChange={this.handleDraftClick}
                                    ref="draft"
                                    type="checkbox" />
                             <span>Draft</span>
                         </label>
                     </div>
+                    {/*<div className="form-group checkbox-inline">*/}
+                        {/*<label>*/}
+                            {/*<input checked={!!post._HTMLMode}*/}
+                                   {/*onChange={this.handleHTMLModeClick}*/}
+                                   {/*ref="HTMLMode"*/}
+                                   {/*type="checkbox" />*/}
+                            {/*<span>Html Mode</span>*/}
+                        {/*</label>*/}
+                    {/*</div>*/}
                     <div>Create Date: {post.createdAt}</div>
                     <div>Update Date: {post.updatedAt}</div>
                     <div>

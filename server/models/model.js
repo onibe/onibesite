@@ -23,7 +23,7 @@ class Model {
 
         return Promise.all([
             user.forceSync(),
-            post.forceSync(),
+            post.sync(),
             session.forceSync(),
             tag.forceSync(),
             postTag.forceSync()

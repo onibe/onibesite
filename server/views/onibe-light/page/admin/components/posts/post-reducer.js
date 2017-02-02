@@ -61,7 +61,8 @@ const newPost = () => {
             createdAt: (new Date()).toISOString(),
             updatedAt: (new Date()).toISOString(),
             modified: true,
-            tags: []
+            tags: [],
+            _HTMLMode: false
         },
         error: false
     };

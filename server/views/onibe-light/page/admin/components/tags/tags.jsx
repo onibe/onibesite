@@ -13,10 +13,10 @@ export const TagItem = (props) => {
 
     return (
         <div>
-            <label className="tag-label label label-default">
+            <span className="label label-hex label-admin">
                 <span>{tag.name}</span>
                 {onDelete ? <span onClick={onDelete}>x</span> : ''}
-            </label>
+            </span>
         </div>
     );
 };

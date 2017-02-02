@@ -32,6 +32,8 @@ class PostsContainer extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.handleKeyDown = this.handleKeyDown.bind(this);
     }
 
     componentWillMount() {
@@ -42,6 +44,12 @@ class PostsContainer extends React.Component {
         }
     }
 
+    handleKeyDown(event){
+        if(event.key) {
+
+        }
+    }
+
     render() {
         const postLinks = this.props.posts;
 
@@ -49,7 +57,7 @@ class PostsContainer extends React.Component {
 
         return (
             <div className="posts-container">
-                <div className="post-list">
+                <div className="post-list" onKeyDown={this.handleKeyDown}>
                     {/*<div className="post-search">*/}
                         {/*<Input*/}
                             {/*label="Search"*/}
