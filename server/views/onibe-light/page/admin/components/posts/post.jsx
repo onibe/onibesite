@@ -14,13 +14,77 @@ import TagSearch from '../tags/tag-search.jsx';
 // PostContainer has two modes
 // Create Mode
 // Update Mode
+
+class SettingsButton extends  React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false
+        };
+        this.handleClick = this.handleClick.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
+    }
+
+    componentDidMount() {
+        // document.body.addEventListener('click', this.outsideClick, true);
+    }
+
+    componentWillReceiveProps() {
+        this.state = {
+            open: false
+        };
+
+        this.setState(this.state);
+    }
+
+    handleClick() {
+        this.state.open = !this.state.open;
+
+        this.setState(this.state);
+    }
+
+    handleDelete() {
+        this.props.onDelete();
+    }
+
+    render() {
+        const { disabled } = this.props;
+
+        return (
+            <span ref="settingMenu">
+                {this.state.open ?
+                    <div className="clearfix" style={{position: 'absolute', display: 'inline', marginTop: -36}}>
+                        <button className="btn btn-danger"
+                                disabled={disabled}
+                                onClick={this.handleDelete}
+                                type="button">
+                            DELETE
+                        </button>
+                    </div>
+                    : ''}
+                <button className="btn btn-default"
+                        disabled={disabled}
+                        onClick={this.handleClick}
+                        type="button">
+                    <i className="glyphicon glyphicon-option-vertical"></i>
+                </button>
+            </span>
+        );
+    }
+}
+
 class PostContainer extends React.Component {
 
     constructor(props) {
         super(props);
-        this.md = new Remarkable();
+        this.md = new Remarkable({
+            html: true
+        });
 
-        this.handleChange = this.handleChange.bind(this);
+        this.handleTitleChange = this.handleTitleChange.bind(this);
+        this.handleMarkdownChange = this.handleMarkdownChange.bind(this);
+        this.handleHTMLChange = this.handleHTMLChange.bind(this);
         this.handleDraftClick = this.handleDraftClick.bind(this);
         this.handleHTMLModeClick = this.handleHTMLModeClick.bind(this);
         this.handleDiscard = this.handleDiscard.bind(this);
@@ -32,49 +96,67 @@ class PostContainer extends React.Component {
     }
 
     componentWillMount() {
-        const props = this.props;
+        const { mode, fetch } = this.props;
 
-        if(props.mode.create){
-
-        } else {
-            props.fetch();
+        if(!mode.create){
+            fetch();
         }
     }
 
-    handleChange(e) {
+    componentWillReceiveProps() {
+
+    }
+
+    handleTitleChange(e) {
+        const { post, onPostChange } = this.props;
+        const title = this.refs.title.value;
+
+        onPostChange(Object.assign({}, post, {
+            title: title
+        }));
+    }
+
+    handleHTMLChange(e) {
+        const { post, onPostChange } = this.props;
+
+        const html = this.refs.html.value;
+
+        onPostChange(Object.assign({}, post, {
+            html: html
+        }));
+    }
+
+    handleMarkdownChange(e) {
+        const md = this.md;
         const { post, onPostChange } = this.props;
 
         const markdown = this.refs.markdown.value;
-        const title = this.refs.title.value;
-
 
         onPostChange(Object.assign({}, post, {
-            title: title,
-            markdown: markdown
+            markdown: markdown,
+            html: md.render(markdown)
         }));
     }
 
     handleDraftClick(e) {
         const { post, onPostChange } = this.props;
         onPostChange(Object.assign({}, post, {
-            _draft: !post._draft
+            draft: !post.draft
         }));
     }
 
     handleHTMLModeClick(e) {
+        const md = this.md;
         const { post, onPostChange } = this.props;
 
         onPostChange(Object.assign({}, post, {
-            _HTMLMode: !post._HTMLMode
+            format: post.format === 'MARKDOWN' ? 'HTML' : 'MARKDOWN',
+            html: post.format === 'MARKDOWN' ? md.render(post.markdown) : post.html
         }));
     }
 
-    getRawMarkup() {
-        const md = this.md;
-
-        const post = this.props.post ? this.props.post.markdown : '';
-
-        return { __html: md.render(post) };
+    getRawHTML() {
+        return { __html: this.props.post ? this.props.post.html : '' };
     }
 
     handleDiscard() {
@@ -115,42 +197,50 @@ class PostContainer extends React.Component {
                 <div className="post-title">
                     <input
                         className="post-title-edit form-control"
-                        onChange={this.handleChange}
+                        onChange={this.handleTitleChange}
                         placeholder="Title"
                         ref="title"
                         value={post.title} />
                 </div>
                 <div className="post-control">
+                    {post.format === 'HTML' ?
+                        <textarea
+                            className="post-control-edit-html form-control"
+                            onChange={this.handleHTMLChange}
+                            placeholder="Insert HTML"
+                            ref="html"
+                            value={post.html} /> :
                         <textarea
                             className="post-control-edit form-control"
-                            onChange={this.handleChange}
-                            placeholder="Insert Markdown Text"
+                            onChange={this.handleMarkdownChange}
+                            placeholder="Insert Markdown"
                             ref="markdown"
                             value={post.markdown} />
+                    }
                     <div
                         className="post-preview"
-                        dangerouslySetInnerHTML={this.getRawMarkup()}
+                        dangerouslySetInnerHTML={this.getRawHTML()}
                     />
                 </div>
                 <div className="post-meta">
                     <div className="form-group checkbox-inline">
                         <label>
-                            <input checked={!!post._draft}
+                            <input checked={!!post.draft}
                                    onChange={this.handleDraftClick}
                                    ref="draft"
                                    type="checkbox" />
                             <span>Draft</span>
                         </label>
                     </div>
-                    {/*<div className="form-group checkbox-inline">*/}
-                        {/*<label>*/}
-                            {/*<input checked={!!post._HTMLMode}*/}
-                                   {/*onChange={this.handleHTMLModeClick}*/}
-                                   {/*ref="HTMLMode"*/}
-                                   {/*type="checkbox" />*/}
-                            {/*<span>Html Mode</span>*/}
-                        {/*</label>*/}
-                    {/*</div>*/}
+                    <div className="form-group checkbox-inline">
+                        <label>
+                            <input checked={post.format === 'HTML'}
+                                   onChange={this.handleHTMLModeClick}
+                                   ref="HTMLMode"
+                                   type="checkbox" />
+                            <span>HTML Format</span>
+                        </label>
+                    </div>
                     <div>Create Date: {post.createdAt}</div>
                     <div>Update Date: {post.updatedAt}</div>
                     <div>
@@ -179,12 +269,14 @@ class PostContainer extends React.Component {
                             </button>
                         }
                         {mode.create ? '' :
-                            <button className="btn btn-danger"
-                                    onClick={this.handleDelete}
-                                    type="button">
-                                Delete
-                            </button>
+                            <SettingsButton
+                                onDelete={this.handleDelete} />
                         }
+                        {/*<button className="btn btn-danger"*/}
+                                {/*onClick={this.handleDelete}*/}
+                                {/*type="button">*/}
+                            {/*Delete*/}
+                        {/*</button>*/}
                     </div>
                     <div className="post-options-wrapper">
                         <button
@@ -286,7 +378,8 @@ const Index = (props) => {
 };
 
 Index.propTypes = {
-    resolves: React.PropTypes.object
+    resolves: React.PropTypes.object,
+    transition: React.PropTypes.object
 };
 
 export default Index;

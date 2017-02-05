@@ -2,30 +2,12 @@
 
 const Sequelize = require('sequelize');
 const path = require('path');
+const db = require('../../models');
 
 class Database {
     constructor(config) {
-        this.Sequelize = Sequelize;
-
-        let sequelizeConfig = {
-            define: {
-                freezeTableName: true
-            }
-        };
-
-        if(config.dialect === 'sqlite') {
-            const dbPath = path.resolve(config.database.storage);
-
-            sequelizeConfig = Object.assign({}, sequelizeConfig, {
-
-                dialect: config.dialect,
-                storage: dbPath
-            });
-        } else {
-            sequelizeConfig = Object.assign({}, sequelizeConfig, {dialect: config.dialect}, config.database);
-        }
-
-        this.sequelize = new Sequelize(null,null,null,sequelizeConfig);
+        this.Sequelize = db.Sequelize;
+        this.sequelize = db.sequelize;
     }
 
     authenticate() {

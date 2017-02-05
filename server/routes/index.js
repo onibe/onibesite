@@ -5,6 +5,8 @@ const profiles = require('../data/profiles.json');
 const uniqBy = require('lodash/uniqBy');
 
 const model = require('../models');
+const menu = require('./menu');
+
 const user = model.user;
 
 class Route {
@@ -13,38 +15,9 @@ class Route {
         const router = express.Router();
         this.router = router;
 
-        const defaultMenu = (data) => {
-            return {
-                data: Object.assign({},{
-                    "title": "ONIBE",
-                    "header": "ONIBE Translations",
-                    "meta": {
-                        "title": "ONIBE",
-                        "description": "Love Live Translators",
-                        "facebook": {
-                            "type": "blog",
-                            "title": "onibe" || data.title,
-                            "site_name": "onibe",
-                        }
-                    },
-                    "slogan": "",
-                    "nav": {
-                        "team": "/team",
-                        "posts": "/posts",
-                        "about": "/about",
-                    },
-                    "social_media": {
-                        "facebook": "https://www.facebook.com/teamonibe/",
-                        "twitter": "https://twitter.com/teamonibe"
-                    },
-                    "copyright": "Team ONIBE ©"
-                },data)
-            };
-        };
-
         // Render Pages
         router.get('/', (req, res, next) => {
-            res.render("homepage/homepage",defaultMenu({
+            res.render("homepage/homepage",menu.defaultMenu({
 
             }));
         });
@@ -94,7 +67,7 @@ class Route {
 
         router.get('/about', (req, res, next) => {
             req.session.regenerate(function(err) {
-                res.render("about/about", defaultMenu({}));
+                res.render("about/about", menu.defaultMenu({}));
             });
         });
 
@@ -119,7 +92,7 @@ class Route {
         const sortedProfiles = roledProfiles.concat(nonRoleProfiles);
 
         router.get('/team', function(req, res, next) {
-            res.render("team/team",defaultMenu({
+            res.render("team/team",menu.defaultMenu({
                 "team": sortedProfiles
             }));
         });
@@ -129,7 +102,7 @@ class Route {
             const profile = username ? profiles.find(profile => profile.username.toLowerCase() === username) : null;
 
             if(profile) {
-                res.render("profile/profile", defaultMenu({
+                res.render("profile/profile", menu.defaultMenu({
                     "profile": profile
                 }));
             } else {
@@ -142,7 +115,6 @@ class Route {
             res.json({'version':'alpha-0.0.1'});
         });
 
-        // Post Idrouter.get('/posts/
         const postsRoute = (req, res, next) => {
             const post = model.post;
             const count = 10;
@@ -152,19 +124,20 @@ class Route {
             post.findAndCountAll({
                 offset: offset,
                 limit: count,
-                order: 'createdAt'
+                order: 'createdAt DESC',
+                where: { draft: 0 }
             }).then(results => {
                 const total = results.count;
                 const posts = results.data.map(post => {
                     return Object.assign({}, {link: '/post/' + post.id}, post);
                 });
 
-                res.render("posts/posts", defaultMenu({
+                res.render("posts/posts", menu.defaultMenu({
                     "data": posts,
                     "offset": offset,
                     "total": total,
                     "next":  (pageNumber * count < total - count) ? "/posts/" + (pageNumber + 1) : null,
-                    "previous": pageNumber > 1 ?  "/posts/" + pageNumber - 1 : null
+                    "previous": pageNumber > 1 ? "/posts/" + (pageNumber - 1) : null
                 }));
             });
 
@@ -172,16 +145,18 @@ class Route {
 
         router.get('/posts/', postsRoute);
         router.get('/posts/:page', postsRoute);
-
         router.get('/post/:id', (req, res, next) => {
             const post = model.post;
             const id = req.params.id;
 
-            post.findOneById(id)
+            post.findOne({where: { id: id, draft: 0}})
                 .then(post => {
-                    res.render("posts/post", defaultMenu({
+                    res.render("posts/post", menu.defaultMenu({
                         "post": post
                     }));
+                })
+                .catch(() => {
+                    next();
                 });
 
         });

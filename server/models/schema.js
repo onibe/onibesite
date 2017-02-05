@@ -36,9 +36,13 @@ class Schema {
             html: Sequelize.TEXT,
             image: Sequelize.TEXT,
             is_page: Sequelize.BOOLEAN,
-            format: Sequelize.TEXT,
             status: Sequelize.STRING,
             draft: Sequelize.BOOLEAN,
+            format:    {
+                type: Sequelize.STRING,
+                defaultValue: 'HTML',
+                allowNull: false
+            },
             visibility: Sequelize.STRING,
             meta_title: Sequelize.STRING,
             meta_description: Sequelize.STRING,

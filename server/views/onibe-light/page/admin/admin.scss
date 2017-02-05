@@ -101,19 +101,6 @@ body.admin {
   .post-control {
     display:flex;
     height: 100%;
-    textarea{
-      resize: none;
-      padding: 20px;
-      border: none;
-      box-shadow: none;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none;
-    }
-    textarea:focus {
-      background: $light-grey;
-      outline-color: transparent;
-      outline-style: none;
-    }
   }
 
   .post-options {
@@ -123,6 +110,34 @@ body.admin {
 
   .post-control-edit {
     width: 50%;
+    resize: none;
+    padding: 20px;
+    border: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+
+  .post-control-edit:focus {
+    background: $light-grey;
+    outline-color: transparent;
+    outline-style: none;
+  }
+
+  .post-control-edit-html {
+    width: 50%;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 14px;
+    resize: none;
+    padding: 10px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+
+  .post-control-edit-html:focus {
+    outline-color: transparent;
+    outline-style: none;
   }
 
   .post-meta {

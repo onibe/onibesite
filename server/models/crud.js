@@ -47,7 +47,6 @@ class CRUD {
             .then(findOneErrorHandler);
     }
 
-
     create(entity, options) {
         const { dbInstance } = this;
 

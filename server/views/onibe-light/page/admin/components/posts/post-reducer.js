@@ -95,7 +95,12 @@ const postReducer = (state = newPost(), action) => {
 };
 
 export const mergePost = (post, newPost, modified = true) => {
-    return Object.assign({},post, newPost, {modified: modified});
+
+    const modifications = {
+        modified: modified
+    };
+
+    return Object.assign({},post, newPost, modifications);
 };
 
 export const actions = {

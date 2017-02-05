@@ -3,8 +3,9 @@
 - Copy config.sample.json to config.json
 
 ```
-npm install -g gulp
-npm install
+npm install --save-dev
+npm link gulp
+npm link sequelize-cli
 gulp default
 ```
 - Open on localhost:3000

@@ -2,6 +2,15 @@
 
 const CRUD = require('./crud');
 const { differenceBy, pick } = require('lodash');
+const createDOMPurify = require('dompurify');
+const jsdom = require('jsdom');
+const window = jsdom.jsdom('', {
+    features: {
+        FetchExternalResources: false, // disables resource loading over HTTP / filesystem
+        ProcessExternalResources: false // do not execute JS within script blocks
+    }
+}).defaultView;
+const DOMPurify = createDOMPurify(window);
 
 class Post extends CRUD {
     constructor(schema) {
@@ -20,7 +29,7 @@ class Post extends CRUD {
         }, options);
 
         return db.post.findAll(mergedOptions)
-            .then(posts => posts.map(post => Post.sanitize(post.get({ plain: true }))));
+            .then(posts => posts.map(post => Post.escape(post.get({ plain: true }))));
     }
 
     findAndCountAll(options) {
@@ -37,7 +46,7 @@ class Post extends CRUD {
             .then(results => {
                 return {
                     count: results.count,
-                    data: results.rows.map(post => Post.sanitize(post.get({ plain: true })))
+                    data: results.rows.map(post => Post.escape(post.get({ plain: true })))
                 };
             });
     }
@@ -51,7 +60,7 @@ class Post extends CRUD {
         }, options);
 
         return db.post.findOne(mergedOptions)
-            .then(post => post.update(entity))
+            .then(post => post.update(Post.sanitize(entity)))
             .then(post => Post.updateAssociations(db, post, entity));
     }
 
@@ -66,7 +75,7 @@ class Post extends CRUD {
             ]
         }, options);
 
-        return db.post.create(entity, mergedOptions)
+        return db.post.create(Post.sanitize(entity), mergedOptions)
             .then(post => Post.updateAssociations(db, post, entity));
     }
 
@@ -81,13 +90,19 @@ class Post extends CRUD {
                 where: {id:post.id},
                 include: { all: true }
             }))
-            .then(post => Post.sanitize(post.get({ plain: true })));
+            .then(post => Post.escape(post.get({ plain: true })));
+    }
+
+    static escape(post) {
+        return Object.assign({}, post, {
+            tags: post.tags.map(tag => ({id: tag.id, name: tag.name})),
+            published_user: pick(post.published_user,['username','id'])
+        });
     }
 
     static sanitize(post) {
         return Object.assign({}, post, {
-            tags: post.tags.map(tag => ({id: tag.id, name: tag.name})),
-            published_user: pick(post.published_user,['username','id'])
+            html: DOMPurify.sanitize(post.html)
         });
     }
 }
