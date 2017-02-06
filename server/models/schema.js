@@ -40,7 +40,7 @@ class Schema {
             draft: Sequelize.BOOLEAN,
             format:    {
                 type: Sequelize.STRING,
-                defaultValue: 'HTML',
+                defaultValue: 'MARKDOWN',
                 allowNull: false
             },
             visibility: Sequelize.STRING,
