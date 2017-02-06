@@ -3,11 +3,14 @@
 {% set data = data %}
 
 {% block content %}
-    <div class="" style="background: #000;">
-        <div class="container" style="height: 300px; ">
+    <div class="cover-image" style="background-color: #000;
+        height: 300px;
+        background-image: url('/onibe-light/images/profile-pics/megabanner.png')">
+        <div class="container">
 
         </div>
     </div>
+
     <div class="container">
 
         <div class="row">
@@ -25,12 +28,12 @@
                 {% endfor %}
             </div>
 
-            <div class="col-md-4">
-                <h3>Tags</h3>
-                <div class="well">
+            {#<div class="col-md-4">#}
+                {#<h3>Tags</h3>#}
+                {#<div class="well">#}
 
-                </div>
-            </div>
+                {#</div>#}
+            {#</div>#}
         </div>
 
         <div class="row">

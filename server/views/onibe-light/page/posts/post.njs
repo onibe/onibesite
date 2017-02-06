@@ -3,8 +3,8 @@
 {% set data = data %}
 
 {% block content %}
-    <div class="" style="background: #000;">
-        <div class="container" style="height: 300px; ">
+    <div class="cover-image" style="background-image: url('/onibe-light/images/profile-pics/megabanner.png')">
+        <div class="container">
 
         </div>
     </div>
