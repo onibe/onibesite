@@ -32,14 +32,14 @@ const SideBarLinks = () => {
             state: 'main.tags',
             label: 'Tags'
         },
-        {
-            state: 'main.users',
-            label: 'Users'
-        },
-        {
-            state: 'main.files',
-            label: 'Files'
-        },
+        // {
+        //     state: 'main.users',
+        //     label: 'Users'
+        // },
+        // {
+        //     state: 'main.files',
+        //     label: 'Files'
+        // },
     ];
 
     return (

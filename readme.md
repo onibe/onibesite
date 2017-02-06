@@ -29,11 +29,9 @@ Styles
 - Optimize Images
 - Replace Dynamic pages with React
 - Move Images to CDN
-- Add Blogging Capability
-- Server Unit Testing Via mocha
-- Client Unit Testing via karma
 - Deployment scripts
 - Dockerfile
+- Prettify Urls
 
 Resources
 ```

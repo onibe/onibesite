@@ -2,15 +2,7 @@
 
 const CRUD = require('./crud');
 const { differenceBy, pick } = require('lodash');
-const createDOMPurify = require('dompurify');
-const jsdom = require('jsdom');
-const window = jsdom.jsdom('', {
-    features: {
-        FetchExternalResources: false, // disables resource loading over HTTP / filesystem
-        ProcessExternalResources: false // do not execute JS within script blocks
-    }
-}).defaultView;
-const DOMPurify = createDOMPurify(window);
+const DOMPurify = require('../utils/dompurify');
 
 class Post extends CRUD {
     constructor(schema) {
@@ -105,6 +97,16 @@ class Post extends CRUD {
             html: DOMPurify.sanitize(post.html)
         });
     }
+
+    static escapeAndTrim(post,trimLength) {
+        const postTrimmed = post.html.substring(0,trimLength);
+        const ellipsis = postTrimmed.length > trimLength ? '...' : '' ;
+
+        return Object.assign({}, post, {
+            html: DOMPurify.sanitize(postTrimmed + ellipsis)
+        });
+    }
+
 }
 
 module.exports = Post;

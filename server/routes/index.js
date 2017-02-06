@@ -3,6 +3,7 @@
 const express = require('express');
 const profiles = require('../data/profiles.json');
 const uniqBy = require('lodash/uniqBy');
+const DOMPurify = require('../utils/dompurify');
 
 const model = require('../models');
 const menu = require('./menu');
@@ -117,6 +118,7 @@ class Route {
 
         const postsRoute = (req, res, next) => {
             const post = model.post;
+            const postTrimLength = 200;
             const count = 10;
             const pageNumber = (parseInt(req.params.page) > 0 ? parseInt(req.params.page) : 1);
             const offset = (pageNumber - 1) * count;
@@ -130,6 +132,8 @@ class Route {
                 const total = results.count;
                 const posts = results.data.map(post => {
                     return Object.assign({}, {link: '/post/' + post.id}, post);
+                }).map(post => {
+                    return escapeAndTrim(post,postTrimLength);
                 });
 
                 res.render("posts/posts", menu.defaultMenu({
@@ -161,6 +165,16 @@ class Route {
 
         });
     }
+}
+
+// Move this else where
+function escapeAndTrim(post,trimLength) {
+    const postTrimmed = post.html.substring(0,trimLength);
+    const ellipsis = postTrimmed.length < post.html.length ? '...' : '' ;
+
+    return Object.assign({}, post, {
+        html: DOMPurify.sanitize(postTrimmed + ellipsis)
+    });
 }
 
 module.exports = Route;
