@@ -3,19 +3,21 @@
 - Copy config.sample.json to config.json
 
 ```
-npm install -g gulp
-npm install
+npm install --save-dev
+npm link gulp
+npm link sequelize-cli
 gulp default
 ```
 - Open on localhost:3000
 
 ## Requirements 
-- node v6.0.0 and above
+- node v7.4.0 and above
 
 ## Guidelines
 Javascript:
 - set your IDE to follow .jshintrc
 - Use es6 syntax
+
 Design
 - 
 
@@ -27,11 +29,9 @@ Styles
 - Optimize Images
 - Replace Dynamic pages with React
 - Move Images to CDN
-- Add Blogging Capability
-- Server Unit Testing Via mocha
-- Client Unit Testing via karma
 - Deployment scripts
 - Dockerfile
+- Prettify Urls
 
 Resources
 ```

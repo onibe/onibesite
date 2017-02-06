@@ -1,73 +1,58 @@
 "use strict";
 
 const express = require('express');
-const smtp = require('../services/smtp-mailer');
+const Post = require('./posts');
+const User = require('./users');
+const Tag = require('./tags');
 
-const router = express.Router();
+class ApiRoutes {
+    constructor(middleware) {
+        const router = express.Router();
 
-/* GET Main Page */
-router.get('/contact', function(req, res, next) {
-    res.json({'message':'Use Post Method to send information'});
-});
+        this.router = router;
 
-/* GET Home Page */
-router.post('/contact', function(req, res, next) {
+        const posts = new Post();
+        const users = new User();
+        const tags = new Tag();
 
-    const adminMessage = adminMessageFormatter(req.body);
-    const customerMessage = customerMessageFormatter(req.body);
+        const authenticatePrivate = [
+            middleware.authenticateSession
+        ];
 
-    if(messageValidator(adminMessage)){
-        smtp.sendMailToAdmin(adminMessage)
-            .then(function() {
-                return smtp.sendMail(customerMessage);
-            })
-            .then(function(data) {
-                res.send(data);
-            });
-    } else {
-        res.status(400).send({message: "invalid request"});
+        // Posts
+        router.get('/posts', authenticatePrivate, posts.browse);
+        router.get('/posts/:id', authenticatePrivate, posts.read);
+        router.post('/posts', authenticatePrivate, posts.add);
+        router.post('/posts/:id', authenticatePrivate, posts.update);
+        router.delete('/posts/:id', authenticatePrivate, posts.remove);
+
+        // Tags
+        router.get('/tags', authenticatePrivate, tags.browse);
+        router.get('/tag/:id', authenticatePrivate, tags.read);
+        router.post('/tags', authenticatePrivate, tags.add);
+        router.post('/tags/:id', authenticatePrivate, tags.update);
+        router.delete('/tags/:id', authenticatePrivate, tags.remove);
+
+        // Users
+        router.get('/users', authenticatePrivate, users.browse);
+        router.get('/users/:id', authenticatePrivate, users.read);
+        router.post('/users', authenticatePrivate, users.add);
+        router.post('/users/:id', authenticatePrivate, users.update);
+        router.delete('/users/:id', authenticatePrivate, users.remove);
+
+        // API Error Handling
+        router.use(function(err, req, res, next) {
+            if(err){
+                res.status(err.status || 500).json({
+                    message: err.message,
+                    status: err.status
+                });
+            } else {
+                next();
+            }
+        });
+
     }
-
-});
-
-/* GET home page. */
-router.get('/version', function(req, res, next) {
-    res.json({'version':'alpha-0.0.1'});
-});
-
-// Replace this with an actual Validator
-function messageValidator(obj) {
-    let valid = true;
-    Object.keys(obj).forEach(function(key) {
-        if(obj[key] === null){
-            valid = false;
-        }
-    });
-
-    return valid;
 }
 
-function adminMessageFormatter(form) {
-    const text = `Name: ${form.name} <br />
-    Email: ${form.email}  <br />
-    Project: ${form.projects.join(", ")}  <br />
-    Budget: ${form.budget}  <br />
-    Phone: ${form.phone}  <br />
-    Location: ${form.location}  <br />
-    Message: ${form.message}`;
-
-    return {
-        subject: "Contact Form: " + form.name,
-        message: text
-    };
-}
-
-function customerMessageFormatter(form) {
-    return {
-        email: form.email,
-        subject: "Contact Form: " + form.name,
-        message: "Thank you for your message. We will respond as soon as we get hold of your message"
-    };
-}
-
-module.exports = router;
+module.exports = ApiRoutes;

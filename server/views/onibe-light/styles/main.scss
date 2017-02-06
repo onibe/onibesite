@@ -1,6 +1,6 @@
 html {
   position: relative;
-  min-height: 100%;
+  height: 100%;
 }
 
 $footer-height: 150px;
@@ -10,10 +10,6 @@ body {
   color: $gray;
   font-weight: 400;
   margin: 0 0 $footer-height 0;
-}
-
-a {
-  color: $color5;
 }
 
 p {
@@ -60,7 +56,6 @@ h1, h2, h3, h4, h5, h6 {
 // Sticky Footer
 #footer {
   position: absolute;
-  bottom: 0;
   width: 100%;
 
   /* Set the fixed height of the footer here */
@@ -190,4 +185,24 @@ h1, h2, h3, h4, h5, h6 {
 
 .wordwrap {
   word-wrap: break-word;
+}
+
+.no-select {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */
+}
+
+.cover-image {
+  height: 300px;
+  background-color: $color3;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  @include transitionEaseInOutQuart(all);
+
+  @media (min-width: $screen-sm-min) {
+    height: 300px;
+  }
 }

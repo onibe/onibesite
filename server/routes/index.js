@@ -3,100 +3,178 @@
 const express = require('express');
 const profiles = require('../data/profiles.json');
 const uniqBy = require('lodash/uniqBy');
+const DOMPurify = require('../utils/dompurify');
 
-const router = express.Router();
+const model = require('../models');
+const menu = require('./menu');
 
-const defaultMenu = (data) => {
-    return {
-        data: Object.assign({},{
-            "title": "ONIBE",
-            "header": "ONIBE Translations",
-            "meta": {
-                "title": "ONIBE",
-                "description": "Love Live Translators",
-                "facebook": {
-                    "type": "blog",
-                    "title": "onibe" || data.title,
-                    "site_name": "onibe",
-                }
-            },
-            "slogan": "",
-            "nav": {
-                "team": "/team",
-                "about": "/about",
-            },
-            "social_media": {
-                "facebook": "https://www.facebook.com/teamonibe/",
-                "twitter": "https://twitter.com/teamonibe"
-            },
-            "copyright": "Team ONIBE ©"
-        },data)
-    };
-};
+const user = model.user;
 
-// Render Pages
-router.get('/', (req, res, next) => {
-    res.render("homepage/homepage",defaultMenu({
+class Route {
+    constructor(middleware) {
 
-    }));
-});
+        const router = express.Router();
+        this.router = router;
 
-router.get('/about', (req, res, next) => {
-    res.render("about/about", defaultMenu({
+        // Render Pages
+        router.get('/', (req, res, next) => {
+            res.render("homepage/homepage",menu.defaultMenu({
 
-    }));
-});
+            }));
+        });
 
+        router.get('/login', function(req, res, next) {
+            let data = {};
 
-// @todo: Move this to getProfiles();
-const roles = [
-    "admin",
-    "translator",
-    "typesetter",
-    "qc",
-    "website",
-    "manager",
-    "social_media",
-    ""
-];
+            if(req.query.invalid) {
+                data.invalid = "Invalid Username or Password";
+            }
 
-const roledProfiles = uniqBy(roles.map(role =>
-     profiles.filter((profile) => profile.role.map(profileRole => profileRole.toLowerCase()).includes(role))
-).reduce((a,b) => a.concat(b)), 'username');
+            res.render('login/login', data);
+        });
 
-const nonRoleProfiles = profiles.filter((profile) => profile.role.length === 0);
+        router.post('/login', function(req, res, next) {
+            const form = req.body;
 
-const sortedProfiles = roledProfiles.concat(nonRoleProfiles);
+            if(form.username && form.password) {
+                user.validateUser(form)
+                    .then(user => {
+                        req.session.user = {
+                            id: user.id,
+                            username: user.username,
+                            uuid: user.uuid
+                        };
+                        req.session.save(err => {
+                            res.redirect('/admin');
+                        });
+                    })
+                    .catch(err => {
+                        res.redirect('/login?invalid');
+                    });
+            } else {
+                res.redirect('/login?invalid');
+            }
+        });
 
-router.get('/team', function(req, res, next) {
-    res.render("team/team",defaultMenu({
-        "team": sortedProfiles
-    }));
-});
+        router.get('/logout', function(req, res, next) {
+            if(req.session) {
+                req.session.destroy(err => {
+                    res.redirect('/login');
+                });
+            } else {
+                res.redirect('/login');
+            }
+        });
 
+        router.get('/about', (req, res, next) => {
+            req.session.regenerate(function(err) {
+                res.render("about/about", menu.defaultMenu({}));
+            });
+        });
 
-router.get('/team/:username', (req, res, next) => {
+        // @todo: Move this to getProfiles();
+        const roles = [
+            "admin",
+            "translator",
+            "typesetter",
+            "qc",
+            "website",
+            "manager",
+            "social_media",
+            ""
+        ];
 
-    const username = req.params.username ? req.params.username.toLowerCase() : null;
-    const profile = username ? profiles.find(profile => profile.username.toLowerCase() === username) : null;
+        const roledProfiles = uniqBy(roles.map(role =>
+            profiles.filter((profile) => profile.role.map(profileRole => profileRole.toLowerCase()).includes(role))
+        ).reduce((a,b) => a.concat(b)), 'username');
 
-    if(profile) {
-        res.render("profile/profile", defaultMenu({
-            "profile": profile
-        }));
-    } else {
-        next();
+        const nonRoleProfiles = profiles.filter((profile) => profile.role.length === 0);
+
+        const sortedProfiles = roledProfiles.concat(nonRoleProfiles);
+
+        router.get('/team', function(req, res, next) {
+            res.render("team/team",menu.defaultMenu({
+                "team": sortedProfiles
+            }));
+        });
+
+        router.get('/team/:username', (req, res, next) => {
+            const username = req.params.username ? req.params.username.toLowerCase() : null;
+            const profile = username ? profiles.find(profile => profile.username.toLowerCase() === username) : null;
+
+            if(profile) {
+                res.render("profile/profile", menu.defaultMenu({
+                    "profile": profile
+                }));
+            } else {
+                next();
+            }
+
+        });
+
+        router.get('/version', function(req, res, next) {
+            res.json({'version':'alpha-0.0.1'});
+        });
+
+        const postsRoute = (req, res, next) => {
+            const post = model.post;
+            const postTrimLength = 200;
+            const count = 10;
+            const pageNumber = (parseInt(req.params.page) > 0 ? parseInt(req.params.page) : 1);
+            const offset = (pageNumber - 1) * count;
+
+            post.findAndCountAll({
+                offset: offset,
+                limit: count,
+                order: 'createdAt DESC',
+                where: { draft: 0 }
+            }).then(results => {
+                const total = results.count;
+                const posts = results.data.map(post => {
+                    return Object.assign({}, {link: '/post/' + post.id}, post);
+                }).map(post => {
+                    return escapeAndTrim(post,postTrimLength);
+                });
+
+                res.render("posts/posts", menu.defaultMenu({
+                    "data": posts,
+                    "offset": offset,
+                    "total": total,
+                    "next":  (pageNumber * count < total - count) ? "/posts/" + (pageNumber + 1) : null,
+                    "previous": pageNumber > 1 ? "/posts/" + (pageNumber - 1) : null
+                }));
+            });
+
+        };
+
+        router.get('/posts/', postsRoute);
+        router.get('/posts/:page', postsRoute);
+        router.get('/post/:id', (req, res, next) => {
+            const post = model.post;
+            const id = req.params.id;
+
+            post.findOne({where: { id: id, draft: 0}})
+                .then(post => {
+                    res.render("posts/post", menu.defaultMenu({
+                        "post": post
+                    }));
+                })
+                .catch(() => {
+                    next();
+                });
+
+        });
     }
+}
 
-});
+// Move this else where
+function escapeAndTrim(post,trimLength) {
+    const postTrimmed = post.html.substring(0,trimLength);
+    const ellipsis = postTrimmed.length < post.html.length ? '...' : '' ;
 
-// router.get('/article', function(req, res, next) {
-//     res.render("article/article", defaultMenu({}));
-// });
+    return Object.assign({}, post, {
+        html: DOMPurify.sanitize(postTrimmed + ellipsis)
+    });
+}
 
-
-router.get('/version', function(req, res, next) {
-    res.json({'version':'alpha-0.0.1'});
-});
-
-module.exports = router;
+module.exports = Route;

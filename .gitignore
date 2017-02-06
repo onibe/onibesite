@@ -41,7 +41,7 @@ apiconfig.json
 /logs
 
 *.ignore
-*.ignore.md
+*.ignore.*
 
 # Config
 config.json
@@ -51,4 +51,7 @@ nbproject/
 *.psd
 *.zip
 
+# data
+content/*
 .DS_Store
+/ignore/*

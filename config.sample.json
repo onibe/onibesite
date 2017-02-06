@@ -7,5 +7,10 @@
   "sendgrid_password": "",
   "smtp_server": "",
   "smtp_sender_email": "",
-  "smtp_sender_name": ""
+  "smtp_sender_name": "",
+  "dialect": "sqlite",
+  "session_secret": "",
+  "database": {
+    "storage": "content/db.sqlite"
+  }
 }

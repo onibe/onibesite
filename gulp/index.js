@@ -1,3 +1,5 @@
+"use strict";
+
 /*
  gulpfile.js
  ===========
@@ -10,7 +12,16 @@
  when you run `gulp`.
  */
 
-var requireDir = require('require-dir');
+const gulp = require('gulp');
 
-// Require all tasks in gulpfile.js/tasks, including subfolders
-requireDir('./tasks', { recurse: true });
+const gulpDefault = require('./tasks/default');
+const gulpSASS = require('./tasks/sass');
+const gulpServer = require('./tasks/server');
+const gulpWebpack = require('./tasks/webpack');
+
+module.exports = function(config) {
+    gulpDefault(gulp,config);
+    gulpSASS(gulp,config);
+    gulpServer(gulp,config);
+    gulpWebpack(gulp,config);
+};
