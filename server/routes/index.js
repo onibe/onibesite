@@ -118,7 +118,7 @@ class Route {
 
         const postsRoute = (req, res, next) => {
             const post = model.post;
-            const postTrimLength = 200;
+            const postTrimLength = 400;
             const count = 10;
             const pageNumber = (parseInt(req.params.page) > 0 ? parseInt(req.params.page) : 1);
             const offset = (pageNumber - 1) * count;
