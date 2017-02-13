@@ -94,7 +94,7 @@ class Post extends CRUD {
 
     static sanitize(post) {
         return Object.assign({}, post, {
-            html: sanitize(post.html, { ADD_TAGS: ['iframe'] })
+            html: sanitize(post.html)
         });
     }
 
@@ -103,7 +103,7 @@ class Post extends CRUD {
         const ellipsis = postTrimmed.length > trimLength ? '...' : '' ;
 
         return Object.assign({}, post, {
-            html: sanitize(postTrimmed + ellipsis, { ADD_TAGS: ['iframe'] })
+            html: sanitize(postTrimmed + ellipsis)
         });
     }
 
