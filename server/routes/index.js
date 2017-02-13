@@ -3,7 +3,7 @@
 const express = require('express');
 const profiles = require('../data/profiles.json');
 const uniqBy = require('lodash/uniqBy');
-const DOMPurify = require('../utils/dompurify');
+const { sanitize } = require('../utils/dompurify');
 
 const model = require('../models');
 const menu = require('./menu');
@@ -173,7 +173,7 @@ function escapeAndTrim(post,trimLength) {
     const ellipsis = postTrimmed.length < post.html.length ? '...' : '' ;
 
     return Object.assign({}, post, {
-        html: DOMPurify.sanitize(postTrimmed + ellipsis)
+        html: sanitize(postTrimmed + ellipsis, {ADD_TAGS: ['iframe']})
     });
 }
 

@@ -2,7 +2,7 @@
 
 const CRUD = require('./crud');
 const { differenceBy, pick } = require('lodash');
-const DOMPurify = require('../utils/dompurify');
+const { sanitize } = require('../utils/dompurify');
 
 class Post extends CRUD {
     constructor(schema) {
@@ -94,7 +94,7 @@ class Post extends CRUD {
 
     static sanitize(post) {
         return Object.assign({}, post, {
-            html: DOMPurify.sanitize(post.html)
+            html: sanitize(post.html, { ADD_TAGS: ['iframe'] })
         });
     }
 
@@ -103,7 +103,7 @@ class Post extends CRUD {
         const ellipsis = postTrimmed.length > trimLength ? '...' : '' ;
 
         return Object.assign({}, post, {
-            html: DOMPurify.sanitize(postTrimmed + ellipsis)
+            html: sanitize(postTrimmed + ellipsis, { ADD_TAGS: ['iframe'] })
         });
     }
 

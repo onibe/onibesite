@@ -1,3 +1,5 @@
+'use strict';
+
 const createDOMPurify = require('dompurify');
 const jsdom = require('jsdom');
 const window = jsdom.jsdom('', {
@@ -8,4 +10,11 @@ const window = jsdom.jsdom('', {
 }).defaultView;
 const DOMPurify = createDOMPurify(window);
 
-module.exports = DOMPurify;
+const sanitize = (html) => {
+    return DOMPurify.sanitize(html, { ADD_TAGS: ['iframe'] });
+};
+
+module.exports = {
+    DOMPurify: DOMPurify,
+    sanitize: sanitize
+};
