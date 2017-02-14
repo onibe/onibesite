@@ -164,6 +164,22 @@ class Route {
                 });
 
         });
+
+        // !IMPORTANT @TODO: HARD CODED LINK PLS FIX
+        router.get('/callguide', (req, res, next) => {
+            const post = model.post;
+
+            post.findOne({where: { id: 4, draft: 0}})
+                .then(post => {
+                    res.render("posts/post", menu.defaultMenu({
+                        "post": post
+                    }));
+                })
+                .catch(() => {
+                    next();
+                });
+
+        });
     }
 }
 
