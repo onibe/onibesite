@@ -25,6 +25,7 @@
                     <div class="body">{{ post.html | safe }}</div>
                     <div class="tags">
                     </div>
+                    <hr />
                 {% endfor %}
             </div>
 
