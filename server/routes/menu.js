@@ -18,6 +18,8 @@ const defaultMenu = (data) => {
             "nav": {
                 "team": "/team",
                 "posts": "/posts",
+                "call guide": "/callguide",
+                "concert guide": "/concertguide",
                 "about": "/about",
             },
             "social_media": {
