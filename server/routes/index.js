@@ -177,7 +177,26 @@ class Route {
                     res.render("posts/post", menu.defaultMenu({
                         "post": post,
                         "meta": {
-                            title: 'ONIBE - Posts'
+                            title: post.title
+                        }
+                    }));
+                })
+                .catch(() => {
+                    next();
+                });
+
+        });
+
+        // !IMPORTANT @TODO: HARD CODED LINK PLS FIX
+        router.get('/concertguide', (req, res, next) => {
+            const post = model.post;
+
+            post.findOne({where: { id: 5, draft: 0}})
+                .then(post => {
+                    res.render("posts/post", menu.defaultMenu({
+                        "post": post,
+                        "meta": {
+                            title: post.title
                         }
                     }));
                 })
