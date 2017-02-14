@@ -156,7 +156,10 @@ class Route {
             post.findOne({where: { id: id, draft: 0}})
                 .then(post => {
                     res.render("posts/post", menu.defaultMenu({
-                        "post": post
+                        "post": post,
+                        "meta": {
+                            title: post.title
+                        }
                     }));
                 })
                 .catch(() => {
@@ -172,7 +175,10 @@ class Route {
             post.findOne({where: { id: 4, draft: 0}})
                 .then(post => {
                     res.render("posts/post", menu.defaultMenu({
-                        "post": post
+                        "post": post,
+                        "meta": {
+                            title: 'ONIBE - Posts'
+                        }
                     }));
                 })
                 .catch(() => {
