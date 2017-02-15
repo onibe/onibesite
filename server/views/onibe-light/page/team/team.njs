@@ -37,7 +37,7 @@
                         </div>
                     {% endif %}
                     <a class="team-member-image-link" href="/team/{{ item.username }}">
-                        <h4 class="team-member-name">{{ item.username }}</h4>
+                        <h4 class="team-member-name">{{ item.name }}</h4>
                     </a>
                     <p class="team-member-profile">{{ item.profile | safe }}</p>
                 </div>
