@@ -33,6 +33,7 @@ npm-debug.log
 .idea/
 
 public/dist/
+public/pdf/
 
 # API credentials
 apiconfig.json
