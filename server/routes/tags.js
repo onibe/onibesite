@@ -75,4 +75,4 @@ class Tag {
 
 }
 
-module.exports = Tag;
+module.exports = new Tag();

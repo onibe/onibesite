@@ -1,7 +1,5 @@
 'use strict';
 
-const http = require('http');
-
 const authenticateSession = (req, res, next) => {
     if(req.session && req.session.user) {
         next();

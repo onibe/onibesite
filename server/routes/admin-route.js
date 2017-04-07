@@ -2,11 +2,17 @@
 
 const express = require('express');
 
-class AdminApp {
-    constructor(middleware) {
+// Middleware
+const middleware = require('../middleware');
 
-        const router = express.Router();
+class AdminRoute {
+    constructor() {
+        this.router = express.Router();
+        this.setRoutes();
+    }
 
+    setRoutes() {
+        const router = this.router;
         const authenticatePrivate = [
             middleware.authenticateSession
         ];
@@ -16,9 +22,8 @@ class AdminApp {
             res.render('admin/admin');
         });
 
-        this.router = router;
     }
 }
 
 
-module.exports = AdminApp;
+module.exports = new AdminRoute();

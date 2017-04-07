@@ -1,7 +1,6 @@
 'use strict';
 
-const Sequelize = require('sequelize');
-const path = require('path');
+// THIS IS SEQUELIZE MODEL
 const db = require('../../models');
 
 class Database {
@@ -25,4 +24,4 @@ class Database {
     }
 }
 
-module.exports = Database;
+module.exports = new Database();
