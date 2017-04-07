@@ -8,10 +8,10 @@ class TeamProfileRoute {
 
     constructor() {
 
-        this.getProfiles = this.getProfiles.bind(this);
+
     }
 
-    getProfiles() {
+    static getProfiles() {
         const roles = [
             "admin",
             "translator",
@@ -33,7 +33,7 @@ class TeamProfileRoute {
     }
 
     getTeam(req, res, next) {
-        const getProfiles = this.getProfiles;
+        const getProfiles = TeamProfileRoute.getProfiles;
 
         res.render("team/team", menu.defaultMenu({
             "team": getProfiles()
