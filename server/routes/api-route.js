@@ -5,15 +5,20 @@ const Post = require('./posts');
 const User = require('./users');
 const Tag = require('./tags');
 
+// Middleware
+const middleware = require('../middleware');
+
 class ApiRoutes {
-    constructor(middleware) {
-        const router = express.Router();
+    constructor() {
+        this.router =  express.Router();
+        this.setRoutes();
+    }
 
-        this.router = router;
-
-        const posts = new Post();
-        const users = new User();
-        const tags = new Tag();
+    setRoutes() {
+        const router = this.router;
+        const posts = Post;
+        const users = User;
+        const tags = Tag;
 
         const authenticatePrivate = [
             middleware.authenticateSession
@@ -51,8 +56,7 @@ class ApiRoutes {
                 next();
             }
         });
-
     }
 }
 
-module.exports = ApiRoutes;
+module.exports = new ApiRoutes();

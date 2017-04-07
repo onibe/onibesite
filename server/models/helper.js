@@ -1,5 +1,7 @@
 'use strict';
 
+const bcrypt = require('bcrypt');
+
 // Additional fields to sanitize or update before an operation
 const create = data => {
     return Object.assign({}, data, {
@@ -38,10 +40,28 @@ const updateFindOneHandler = (db, data, entity) => {
     return Promise.reject('Failed to update');
 };
 
+const hashPassword = (password) => {
+    const saltRounds = 10;
+    return bcrypt.hash(password, saltRounds);
+};
+
+const comparePassword = (password, user) => {
+    return bcrypt.compare(password, user.password)
+        .then(res => {
+            if(res) {
+                return user;
+            } else {
+                return Promise.reject("No User Found");
+            }
+        });
+};
+
 module.exports = {
     create: create,
     update: update,
     remove: remove,
+    hashPassword: hashPassword,
+    comparePassword: comparePassword,
     findOneErrorHandler: findOneErrorHandler,
     updateFindOneHandler: updateFindOneHandler
 };

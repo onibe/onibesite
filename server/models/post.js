@@ -98,7 +98,7 @@ class Post extends CRUD {
         });
     }
 
-    static escapeAndTrim(post,trimLength) {
+    escapeAndTrim(post,trimLength) {
         const postTrimmed = post.html.substring(0,trimLength);
         const ellipsis = postTrimmed.length > trimLength ? '...' : '' ;
 

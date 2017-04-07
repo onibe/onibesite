@@ -7,8 +7,10 @@ const PostTag = require('./postTag');
 const Session = require('./session');
 const Schema = require('./schema');
 
+const { sequelize } = require('../data');
+
 class Model {
-    constructor(sequelize) {
+    constructor() {
         const schema = new Schema(sequelize);
 
         this.user = new User(schema);
@@ -31,4 +33,4 @@ class Model {
     }
 }
 
-module.exports = Model;
+module.exports = new Model();

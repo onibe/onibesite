@@ -5,7 +5,9 @@ const model = require('../models');
 const validator = require('./validator');
 const post = model.post;
 
-class Post {
+const menu = require('./menu');
+
+class PostRoute {
 
     constructor() {
 
@@ -77,6 +79,54 @@ class Post {
             .catch(err => next(err));
     }
 
+    pageList (req, res, next) {
+        const postTrimLength = 900;
+        const count = 10;
+        const pageNumber = (parseInt(req.params.page) > 0 ? parseInt(req.params.page) : 1);
+        const offset = (pageNumber - 1) * count;
+
+        post.findAndCountAll({
+            offset: offset,
+            limit: count,
+            order: 'createdAt DESC',
+            where: { draft: 0 }
+        }).then(results => {
+            const total = results.count;
+            const posts = results.data.map(post => {
+                return Object.assign({}, {link: '/post/' + post.id}, post);
+            }).map(data => {
+                return post.escapeAndTrim(data,postTrimLength);
+            });
+
+            res.render("posts/posts", menu.defaultMenu({
+                "data": posts,
+                "offset": offset,
+                "total": total,
+                "next":  (pageNumber * count < total - count) ? "/posts/" + (pageNumber + 1) : null,
+                "previous": pageNumber > 1 ? "/posts/" + (pageNumber - 1) : null
+            }));
+        });
+    }
+
+    page (req, res, next) {
+        const post = model.post;
+        const id = req.params.id;
+
+        post.findOne({where: { id: id, draft: 0}})
+            .then(post => {
+                res.render("posts/post", menu.defaultMenu({
+                    "post": post,
+                    "meta": {
+                        title: post.title
+                    }
+                }));
+            })
+            .catch(() => {
+                next();
+            });
+
+    }
+
 }
 
-module.exports = Post;
+module.exports = new PostRoute();

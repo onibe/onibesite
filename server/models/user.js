@@ -1,12 +1,10 @@
 'use strict';
 
-const bcrypt = require('bcrypt');
 const helper = require('./helper');
 
 class User {
     constructor(schema) {
         this.db = schema.user;
-        this.post = schema.post;
     }
 
     sync() {
@@ -25,16 +23,10 @@ class User {
         return db.update(data);
     }
 
-    hashPassword(password) {
-        const saltRounds = 10;
-        return bcrypt.hash(password, saltRounds);
-    }
-
     validateUser({username, password}) {
         const { db } = this;
 
         const userPromise = db.findOne({where: {username: username}});
-
 
         return Promise.all([userPromise])
             .then(data => {
@@ -44,24 +36,17 @@ class User {
                     return Promise.reject("No User Found");
                 }
 
-                return bcrypt.compare(password, user.password)
-                    .then(res => {
-                        if(res) {
-                            return user;
-                        } else {
-                            return Promise.reject("No User Found");
-                        }
-                    });
+                return helper.comparePassword(password, user);
             });
 
     }
 
     create(data) {
-        const { db, hashPassword } = this;
+        const { db } = this;
 
         data = helper.create(data);
 
-        return hashPassword(data.password).then(hash => {
+        return helper.hashPassword(data.password).then(hash => {
             data.password = hash;
             return db.sync()
                 .then(db.create(data));
