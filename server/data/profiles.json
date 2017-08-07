@@ -798,37 +798,7 @@
     "name": "ramen",
     "username": "ramen",
     "profile": "I'm here to burn time and money, and I'm all out of money.",
-    "picture": "/onibe-light/images/profile-pics/arishamod.jpg",
-    "cover_picture": "",
-    "charm_point": "I'm (probably) alive",
-    "role": [
-      "Translator"
-    ],
-    "translations": [
-      "Japanese"
-    ],
-    "personal_website": "http://blog.insti.moe",
-    "social_media": {
-      "facebook": "",
-      "twitter": ""
-    },
-    "best_girls": [
-      "Rin",
-      "Ruby"
-    ],
-    "best_seiyuu": [
-      "Furirin",
-      "Rippi"
-    ],
-    "what_onibe_means": "oh no ive been exposed",
-    "country": "USA",
-    "hobbies": "eating, refreshing websites"
-  },
-  {
-    "name": "ramen",
-    "username": "ramen",
-    "profile": "",
-    "picture": "",
+    "picture": "/onibe-light/images/profile-pics/ramen.jpg",
     "cover_picture": "",
     "charm_point": "I'm (probably) alive",
     "role": [
@@ -855,12 +825,42 @@
     "hobbies": "eating, refreshing websites"
   },
   {
+    "name": "YohaRiko",
+    "username": "yohariko",
+    "profile": "3D idol fan mainly Nogizaka46 and 48 group, casual 2D idol fan, mainly Love Live.",
+    "picture": "",
+    "cover_picture": "",
+    "charm_point": "making everyone around me look more attractive :^)",
+    "role": [
+      "Translator"
+    ],
+    "translations": [
+      "Japanese"
+    ],
+    "personal_website": "https://yoharimikumalovelive.tumblr.com/",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Yohane",
+      "Riko"
+    ],
+    "best_seiyuu": [
+      "Hoshino Minami (Nogizaka46)",
+      "Kubo Shiori (Nogizaka46)"
+    ],
+    "what_onibe_means": "One Normal Internet Based Entity…that does Translations for Japanese things…sometimes.",
+    "country": "Canada",
+    "hobbies": "Studying Japanese, playing VNs, reading LNs, following 3D idols, gaming and wotagei."
+  },
+  {
     "name": " CLAR A (Clara)",
     "username": "clara",
     "profile": "Some random brazilian girl that loves µ's",
     "picture": "",
     "cover_picture": "",
-    "charm_point": "making everyone around me look more attractive :^)",
+    "charm_point": "",
     "role": [
       "Translator"
     ],
