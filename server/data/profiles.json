@@ -1,500 +1,885 @@
-[{
-	"name": "shukamod",
-	"username": "shukamod",
-	"profile": "Just a Shukashuu fan who happened to dive into the sea of translation. Still lost at sea... ( ‾▿‾ )ゞ",
-	"picture": "/onibe-light/images/profile-pics/shukamod.png",
-	"charm_point": "Ikemen voice",
-	"role": [ "Admin", "Translator"],
-	"translations": ["Japanese", "Chinese"],
-	"personal_website": "http://saitou-shuka.tumblr.com/tl",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["You"],
-	"best_seiyuu": ["Shukashuu"],
-	"what_onibe_means": "o no I blove eshuka (too much)",
-	"country": "",
-	"hobbies": "Having Shuka-induced heart attacks, Love Live! karaoke, drawing, collecting seal plushies"
-}, {
-	"name": "Chezz",
-	"username": "Chezz",
-	"profile": "Really lazy translator who does the minimal amount of work to remain on the team. Spends his free time translating content the blasphemous anime series also known as <s>K-On! 3</s> BanG Dream!.",
-	"picture": "/onibe-light/images/profile-pics/chezz.jpg",
-	"charm_point": "Supposedly high IQ kappa",
-	"role": ["Translator"],
-	"translations": ["Japanese", "Chinese"],
-	"personal_website": "http://kankan-mikan.tumblr.com",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["Umi", "Kanan"],
-	"best_seiyuu": [],
-	"what_onibe_means": "o no",
-	"country": "",
-	"hobbies": ""
-}, {
-	"name": "Mega",
-	"username": "Mega~",
-	"profile": "I'm Mega, full time Honker who just likes doing random side projects for fun. I like tech and helping others~",
-	"picture": "/onibe-light/images/profile-pics/mega.png",
-	"cover_picture": "/onibe-light/images/profile-pics/megabanner.png",
-	"charm_point": "My genki attitude",
-	"role": ["QC"],
-	"translations": [],
-	"personal_website": "http://twitter.com/Mega_Honk",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["Honoka"],
-	"best_seiyuu": [],
-	"what_onibe_means": "Overly Nice Intelligent Beings Eating ",
-	"country": "",
-	"hobbies": ""
-}, {
-	"name": "KKEHarasho (AKA Eli Ayase)",
-	"username": "KKEHarasho (AKA Eli Ayase)",
-	"profile": "'The visionary and mastermind behind ONIBE, Eli Ayase intends to revolutionise the Love Live fandom, one exposé at a time.' -Fellow ONIBE member Astral",
-	"picture": "/onibe-light/images/profile-pics/KKEHarasho.jpg",
-	"cover_picture": "/onibe-light/images/profile-pics/KKEHarasho-Header.jpg",
-	"charm_point": "Kashikoi and kowai",
-	"role": ["Translator"],
-	"translations": ["Japanese"],
-	"personal_website": "https://www.youtube.com/channel/UCVwUwFir7ZHTzuQTBx68YlQ",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["Elichika", "Hanamaru", "Dia", "Chika"],
-	"best_seiyuu": ["Nanjolno", "Ucchi", "Aiai"],
-	"what_onibe_means": "??? What's an ONIBE can I eat it",
-	"country": "NORCAL BEST CAL",
-	"hobbies": "Befriending cats, talking to strangers, writing"
-}, {
-	"name": "Yunii",
-	"username": "Yunii",
-	"profile": "Timer and typesetter with too much time. Followed LL back in 2013 and seiyuus because of Shuka. Now I'm stuck here living and whaling for idols.",
-	"picture": "/onibe-light/images/profile-pics/yunii-photo.png",
-	"cover_picture": "/onibe-light/images/profile-pics/yuniiheader.png",
-	"charm_point": "NEET",
-	"role": ["Typesetter"],
-	"translations": [],
-	"personal_website": "https://twitter.com/Yuniikorn",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["You", "Kanan", "Chika", "Eli"],
-	"best_seiyuu": ["Shuka", "Suwawa", "Anchan", "Nanjou"],
-	"what_onibe_means": ":jollyThonk:",
-	"country": ":flag_ca:  :maple_leaf: :flag_ca: ",
-	"hobbies": "Rhythm Games"
-}, {
-	"name": "Yahallo",
-	"username": "Yahallo",
-	"profile": "Hi! I'm a suffering college student who sometimes watches anime and rarely translates things.",
-	"picture": "/onibe-light/images/profile-pics/yahalloavi.png",
-	"cover_picture": "/onibe-light/images/profile-pics/yahalloheadernew.png",
-	"charm_point": "Disappearing during the school ye- playing hard to get",
-	"role": ["Translator"],
-	"translations": ["Chinese"],
-	"personal_website": "https://twitter.com/yahalloing",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["Honoka"],
-	"best_seiyuu": ["Emitsun"],
-	"what_onibe_means": "screw you guys",
-	"country": "",
-	"hobbies": ""
-}, {
-	"name": "link2110",
-	"username": "link2110",
-	"profile": "Hi! I'm the manager of the team! I help on the website, and also all the social media stuff as well :D",
-	"picture": "/onibe-light/images/profile-pics/link2110.jpg",
-	"charm_point": ":^)",
-	"role": ["Admin", "Manager", "Website", "Social Media"],
-	"translations": [],
-	"personal_website": "",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["Eli", "You"],
-	"best_seiyuu": ["Nanjolno"],
-	"what_onibe_means": "o no i better eat",
-	"country": "Canada",
-	"hobbies": "Dota, programming, tech things"
-}, {
-	"name": "Melodii",
-	"username": "Melodii",
-	"profile": "Hello everybun I'm Melly a translator (in training)! I'm a potato level cosplayer as well and I'll do my best here! ^^",
-	"picture": "/onibe-light/images/profile-pics/melly.png",
-	"cover_picture": "/onibe-light/images/profile-pics/mellyheader.png",
-	"charm_point": "Puns",
-	"role": ["Translator"],
-	"translations": ["Japanese"],
-	"personal_website": "",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["Nico", "Dia", "Chika", "Yohane"],
-	"best_seiyuu": ["Arisa", "Soramaru", "Furirin", "Emitsun"],
-	"what_onibe_means": "Original Ninjas In Big Elephants",
-	"country": "CO/WA USA",
-	"hobbies": "Cosplay, Video Games, Dancing, Sleeping, Fanfic Writing, Card Games"
-}, {
-	"name": "LuciaHunter",
-	"username": "LuciaHunter",
-	"profile": "I'm Lucia. I translate stuff. Sometimes I run the Wikia and tweet things.",
-	"picture": "/onibe-light/images/profile-pics/lucia.jpg",
-	"cover_picture": "",
-	"charm_point": "Memes",
-	"role": ["Translator"],
-	"translations": ["Japanese", "Chinese"],
-	"personal_website": "http://luciahunter6.tumblr.com",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["Yohane", "Maki"],
-	"best_seiyuu": ["Soramaru", "Jolno", "Anchan", "Shukashuu"],
-	"what_onibe_means": "Onibe is a bastardized form of oni-bae which means a demon (Yohane) is my bae.",
-	"country": "Singapore",
-	"hobbies": "Playing a variety of games, shitposting"
-}, {
-	"name": "Kuu",
-	"username": "Kuu",
-	"profile": "I'm Kuu, I'm focused on Uraraji and does TL for CN-EN for both µ's and Aqours. I'm mostly active on tumblr so you can find me there. I am honored to be part of the team and will do my best in the future.",
-	"picture": "/onibe-light/images/profile-pics/KuuRin.jpg",
-	"cover_picture": "/onibe-light/images/profile-pics/kuurin-header.png",
-	"charm_point": "Being very focused",
-	"role": ["Translator"],
-	"translations": ["Chinese"],
-	"personal_website": "http://kuuxkat.tumblr.com/",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["Female Protag (P3P)", "Minami Kotori (LoveLive!)", "Ruushe (Shironeko Project)", "Kousaka Honoka (LoveLive!)"],
-	"best_seiyuu": ["Yui Horie", "Kana Hanazawa", "Tamura Yukari", "Saitou Shuka"],
-	"what_onibe_means": "Oh, No, I... But, Ehhhhhhhhh!",
-	"country": "Singapore (I'll take you to dinner if you want)",
-	"hobbies": "Playing Mobage (BGHS & SnP), Writing and Writing Fanfics"
-}, {
-	"name": "Eter",
-	"username": "Eter",
-	"profile": "Hi, I like making pretty things, but more so complaining when things are not.  Spreading the words of the Seiyuu since 2015.",
-	"picture": "/onibe-light/images/profile-pics/eter.jpg",
-	"cover_picture": "/onibe-light/images/profile-pics/eterbanner.jpg",
-	"charm_point": "Turnaround time from an hour to indefinitely",
-	"role": ["Typesetter"],
-	"translations": [],
-	"personal_website": "https://twitter.com/Eternith",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["YouChika", "Honoka"],
-	"best_seiyuu": ["Anchan", "Shuka", "Aiai", "Aikyan"],
-	"what_onibe_means": "ヤバい、ばれちゃった。",
-	"country": "Canada",
-	"hobbies": "Kancolle, Tech nerd"
-}, {
-	"name": "Astral",
-	"username": "Astral",
-	"profile": "Hailing from Vancouver, BC and based in Singapore. I spend my free time shitposting and playing Civilization VI.",
-	"picture": "/onibe-light/images/profile-pics/astral.png",
-	"cover_picture": "/onibe-light/images/profile-pics/astralbanner.png",
-	"charm_point": "Memes and my writing style I guess ¯\\_(ツ)_/¯",
-	"role": ["Translator"],
-	"translations": ["Japanese", "Chinese"],
-	"personal_website": "http://astralwinters.tumblr.com",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["Kanan", "Umi", "Eli", "Yohane"],
-	"best_seiyuu": ["Suwawa", "Mimorin", "Nanjolno", "Aikyan"],
-	"what_onibe_means": "¯\\_(ツ)_/¯",
-	"country": "British Columbia, Canada",
-	"hobbies": "Archery, scuba diving, video games"
-}, {
-	"name": "Yujacha",
-	"username": "Yujacha",
-	"profile": "My best girl is Rin because her SIF Constellation UR is the reason I fell into idol hell. Now, I spaghetti over Shukashuu and use my past experience on scanlation teams to do a bit of QC and TL!",
-	"picture": "/onibe-light/images/profile-pics/yujacha.png",
-	"charm_point": "Being the perfect size to hug (yo idk this is just what my friend told me)",
-	"role": ["Translator", "QC"],
-	"translations": ["Korean"],
-	"personal_website": "http://yujachachacha.tumblr.com",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["Rin", "You", "Kanan", "Nozomi"],
-	"best_seiyuu": ["Shukashuu", "Suwawa", "Anchan"],
-	"what_onibe_means": "Ordinary Netizens Innovating for the Benefit of Everyone",
-	"country": "Southern California",
-	"hobbies": "Reading, sleeping, watching Aqours seiyuu videos, playing SIF, drinking citron tea, actually just drinking in general :3c (except tomato juice, which can go f itself)"
-}, {
-	"name": "astrobunny",
-	"username": "astrobunny",
-	"profile": "Writer of code. Translator of moon.",
-	"picture": "/onibe-light/images/profile-pics/astrobunny.jpg",
-	"charm_point": "Twintails",
-	"role": ["Translator", "Website"],
-	"translations": ["Japanese", "Chinese"],
-	"personal_website": "https://astrobunny.net",
-	"social_media": {
-		"facebook": "",
-		"twitter": "astrobunny"
-	},
-	"best_girls": ["Ruby", "Nico"],
-	"best_seiyuu": ["Soramaru", "Suwawa"],
-	"what_onibe_means": "ONIgiri BEekon (onigiri bacon）",
-	"country": "",
-	"hobbies": "reading manga, listening to music, shitposting"
-}, {
-	"name": "MasterMirage",
-	"username": "MasterMirage",
-	"profile": "I'm MasterMirage, you'll find me on the Love Live subreddit and Discord.",
-	"picture": "/onibe-light/images/profile-pics/mmirl.png",
-	"charm_point": "",
-	"role": ["Admin"],
-	"translations": [],
-	"personal_website": "https://reddit.com/r/LoveLive",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["Kanan"],
-	"best_seiyuu": ["Suwawa"],
-	"what_onibe_means": "yes",
-	"country": "",
-	"hobbies": ""
-}, {
-	"name": "Kiharu",
-	"username": "Kiharu",
-	"profile": "I'm a native Japanese born in SoCal. I like to play games and watch idols. :)",
-	"picture": "/onibe-light/images/profile-pics/kiharu.png",
-	"cover_picture": "",
-	"charm_point": "nice joke",
-	"role": ["Translator"],
-	"translations": ["Japanese"],
-	"personal_website": "",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["Yoshiko"],
-	"best_seiyuu": ["Aikyan"],
-	"what_onibe_means": "Idk I think it's an insult or something",
-	"country": "",
-	"hobbies": ""
-}, {
-	"name": "Spunky Datenshuu",
-	"username": "Spunky Datenshuu",
-	"profile": "Ouisu~ I'm just one more TLr who goes by the name Datenshuu (sometimes Spunky). Yoroshiku!",
-	"picture": "/onibe-light/images/profile-pics/datenshuu.jpg",
-	"charm_point": "Shuka Height. Trust me. We camp out a lot, and I've seen tall people suffer during the nights :P",
-	"role": ["Translator"],
-	"translations": ["Japanese"],
-	"personal_website": "https://www.youtube.com/channel/UCrIn0FmmD3gIo89QW1mOhJw",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": [],
-	"best_seiyuu": [],
-	"what_onibe_means": "Oh? No? It's... But... EHHH?!!",
-	"country": "",
-	"hobbies": ""
-}, {
-	"name": "Dyrea",
-	"username": "Dyrea",
-	"profile": "I love Love Live!. I love Riko and Umi, and Mimorin is the most physically attractive woman I have ever seen. ",
-	"picture": "/onibe-light/images/profile-pics/dyrea.png",
-	"cover_picture": "/onibe-light/images/profile-pics/dyrea-header.png",
-	"charm_point": "High Energy",
-	"role": ["Translator"],
-	"translations": ["Japanese", "Chinese", "Indonesian"],
-	"personal_website": "http://translations.dyreatic.moe",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["Umi", "Riko"],
-	"best_seiyuu": ["Mimorin", "Rikyako"],
-	"what_onibe_means": "Donate $5000 to Love Live! Wikia to find out :D",
-	"country": "",
-	"hobbies": ""
-}, {
-	"name": "Jaewhy",
-	"username": "Jaewhy",
-	"profile": "Jae, 16, currently into Love Live!, does occasionally TL (from CN > EN), learning how to do timing.",
-	"picture": "/onibe-light/images/profile-pics/jae.png",
-	"charm_point": "Sarcasm",
-	"role": ["Translator", "Timer"],
-	"translations": ["Chinese"],
-	"personal_website": "",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["Chika", "You", "Riko"],
-	"best_seiyuu": ["Anchan", "Shuka", "Rkk"],
-	"what_onibe_means": "fk this I asked so many times no one gave me an answer so im just gonna assume someone was drunk on too much vodka and then somehow convinced the entire group to accept the name ",
-	"country": "Singapore, Singapore",
-	"hobbies": "Ruining (my) relationships jk"
-}, {
-	"name": "lakepower",
-	"username": "lakepower",
-	"profile": "Website admin with a fascination of doujins, fanfic, fanart and anything fanmade",
-	"picture": "/onibe-light/images/profile-pics/lakepower.jpg",
-	"cover_picture": "/onibe-light/images/profile-pics/lakepower-header.jpg",
-	"charm_point": "+10 Luck on every turn",
-	"role": ["Admin", "Website"],
-	"translations": [],
-	"personal_website": "",
-	"social_media": {
-		"facebook": "",
-		"twitter": "https://twitter.com/lakepowered"
-	},
-	"best_girls": ["Nico", "Nozomi", "Chika", "Ruby", "Dia"],
-	"best_seiyuu": ["Shikaco", "Kussun", "Soramaru", "Aiai"],
-	"what_onibe_means": "Oh No I've Backlogged Everything",
-	"country": "USA",
-	"hobbies": "Dota2, fighting games, developing, sleeping and a lot of things under the sun."
-}, {
-  "name": "Ｊさん",
-  "username": "jl140",
-  "profile": "はじめまして！ New to TL. I like to do videos when I have the spare time!",
-  "picture": "/onibe-light/images/profile-pics/jl140.png",
-  "cover_picture": "/onibe-light/images/profile-pics/jl140banner.png",
-  "charm_point": "I have a cute dog? :(",
-  "role": ["Translator"],
-  "translations": ["Japanese"],
-  "personal_website": "",
-  "social_media": {
-    "facebook": "",
-    "twitter": ""
-  },
-  "best_girls": [
-    "You",
-    "Maki",
-    "Rin",
-    "Eli"
-  ],
-  "best_seiyuu": ["Nanchan", "Mimorin", "Arisha", "Shukashuu"],
-  "what_onibe_means": "omg no i'll be executed",
-  "country": "AU",
-  "hobbies": "Cars, Photography, Travel"
-}, {
-  "name": "larysayshi",
-  "username": "larysayshi",
-  "profile": "The worst CN-En translator",
-  "picture": "/onibe-light/images/profile-pics/larysayshi.jpg",
-  "cover_picture": "/onibe-light/images/profile-pics/larysayshibanner.jpg",
-  "charm_point": "Being uncharming~",
-  "role": ["Translator"],
-  "translations": ["Chinese"],
-  "personal_website": "",
-  "social_media": {
-    "facebook": "",
-    "twitter": ""
-  },
-  "best_girls": [
-    "You-chan",
-    "Matsui Eriko"
-  ],
-  "best_seiyuu": [],
-  "what_onibe_means": "A way of life?",
-  "country": "",
-  "hobbies": ""
-}, {
-	"name": "Seika",
-	"username": "seika",
-	"profile": "I'm Seika, sometimes go by the name of Seika 97. I translate JP->EN occasionally, mainly µ's. I'll do my best here! ^^",
-	"picture": "/onibe-light/images/profile-pics/seika.jpg",
-	"cover_picture": "/onibe-light/images/profile-pics/seikaheader.jpg",
-	"charm_point": "The only person in SpritualHarashoSubs?",
-	"role": ["Translator"],
-	"translations": ["Japanese", "Chinese"],
-	"personal_website": "https://www.youtube.com/channel/UCVr3n7eCtIx5UbztfLJLqcw",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": [
-        "Ayase Eli (Love Live!)",
-        "Misaka Mikoto (To Aru Kagaku No Railgun)",
-        "Niijima Makoto (Persona 5)",
-        "Erina der Vogelweid (God Eater 2)"
+[
+  {
+    "name": "shukamod",
+    "username": "shukamod",
+    "profile": "Just a Shukashuu fan who happened to dive into the sea of translation. Still lost at sea... ( ‾▿‾ )ゞ",
+    "picture": "/onibe-light/images/profile-pics/shukamod.png",
+    "charm_point": "Ikemen voice",
+    "role": [
+      "Admin",
+      "Translator"
     ],
-	"best_seiyuu": ["Nanjou Yoshino", "Hanazawa Kana", "Sakura Ayane", "Satou Rina"],
-	"what_onibe_means": "o no i bloved elichika (& nanjolno)",
-	"country": "Malaysia (Remember to consider the hot weather when you come)",
-	"hobbies": "Playing JP PS4 games, draw stuffs (but not that much)"
-},{
-	"name": "rid9",
-	"username": "rid9",
-	"profile": "Hi! I'm just a fan who like to translate things. But I'm not that good at it tho",
-	"picture": "/onibe-light/images/profile-pics/rid9.jpg",
-	"cover_picture": "",
-	"charm_point": "魅力がないところです",
-	"role": ["Translator"],
-	"translations": [],
-	"personal_website": "",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["Maki", "You"],
-	"best_seiyuu": ["Suwawa", "Shukashuu", "Mimorin"],
-	"what_onibe_means": "Oh no I've been enticed ;)",
-	"country": "Indonesia, going back and forth between Sumatera and Java",
-	"hobbies": "Programming, Playing music, Procrastinating"
-},{
-	"name": "ArishaMod",
-	"username": "arishamod",
-	"profile": "Hi, I have fallen too deep into seiyuu hell and now I am helping to spread their names, one translation at a time.",
-	"picture": "/onibe-light/images/profile-pics/arishamod.jpg",
-	"cover_picture": "",
-	"charm_point": "Dreamer",
-	"role": ["Translator"],
-	"translations": ["Japanese", "Chinese"],
-	"personal_website": "https://www.tumblr.com/blog/arishamod",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["Hanayo", "Rin", "Mari"],
-	"best_seiyuu": ["Arisha", "Arisha"],
-	"what_onibe_means": "There will ONIBE one answer",
-	"country": "Singapore",
-	"hobbies": "looking at cats videos"
-},{
-	"name": "Insti",
-	"username": "insti",
-	"profile": "Your above average Love Live and Macross diehard. I don't do anything at all tbh.",
-	"picture": "",
-	"cover_picture": "",
-	"charm_point": "I can shitpost you so hard you'll think I'm a Pakistani fisherman.",
-	"role": ["Translator"],
-	"translations": ["Japanese", "Chinese"],
-	"personal_website": "http://blog.insti.moe",
-	"social_media": {
-		"facebook": "",
-		"twitter": ""
-	},
-	"best_girls": ["Umi", "Honoka", "Chika", "Yoshiko"],
-	"best_seiyuu": ["Hanayo", "Rin", "Mari"],
-	"what_onibe_means": "ơ̘͙̟̳̘͑ͩ̑ͅ ̷͈̙ͧͮͯ̑̌n̟̲̹ͩ͐̎͑ͮ̓͟ͅo̥̹ ̝̝̟̥ͬͦ̍̇̔̈́ͮ̀ȉ̭͚̞̻͠x̣̟̩͔̠̱̹ͥ͆͊̅̏x͎̌ͣ̈́ͦ̆͒̚ ̠̫̀̊̅̂͊b̗̬͑̎̈ͬ̀ͭ̍x͓̜͒̉̆͂͛ͫ̈x̹ͦ͑͂ͣͤẍ̟̈́͢ ͉͎̱ͩ̋̈́e̷̗x͕̻̰͈͓͍̑͌͗x̟͕̗͎̎x̮̪̠ͫ̂x̏̍̍̃x̢͎̬̟͓͙̾ͯ̔̆̿͋x̐ͥ̕",
-	"country": "Japan",
-	"hobbies": "Smartphones, Graphic Design, H Doujins, Shitposting."
-}]
+    "translations": [
+      "Japanese",
+      "Chinese"
+    ],
+    "personal_website": "http://saitou-shuka.tumblr.com/tl",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "You"
+    ],
+    "best_seiyuu": [
+      "Shukashuu"
+    ],
+    "what_onibe_means": "o no I blove eshuka (too much)",
+    "country": "",
+    "hobbies": "Having Shuka-induced heart attacks, Love Live! karaoke, drawing, collecting seal plushies"
+  },
+  {
+    "name": "Chezz",
+    "username": "Chezz",
+    "profile": "Really lazy translator who does the minimal amount of work to remain on the team. Spends his free time translating content the blasphemous anime series also known as <s>K-On! 3</s> BanG Dream!.",
+    "picture": "/onibe-light/images/profile-pics/chezz.jpg",
+    "charm_point": "Supposedly high IQ kappa",
+    "role": [
+      "Translator"
+    ],
+    "translations": [
+      "Japanese",
+      "Chinese"
+    ],
+    "personal_website": "http://kankan-mikan.tumblr.com",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Umi",
+      "Kanan"
+    ],
+    "best_seiyuu": [],
+    "what_onibe_means": "o no",
+    "country": "",
+    "hobbies": ""
+  },
+  {
+    "name": "Mega",
+    "username": "Mega~",
+    "profile": "I'm Mega, full time Honker who just likes doing random side projects for fun. I like tech and helping others~",
+    "picture": "/onibe-light/images/profile-pics/mega.png",
+    "cover_picture": "/onibe-light/images/profile-pics/megabanner.png",
+    "charm_point": "My genki attitude",
+    "role": [
+      "QC"
+    ],
+    "translations": [],
+    "personal_website": "http://twitter.com/Mega_Honk",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Honoka"
+    ],
+    "best_seiyuu": [],
+    "what_onibe_means": "Overly Nice Intelligent Beings Eating ",
+    "country": "",
+    "hobbies": ""
+  },
+  {
+    "name": "KKEHarasho (AKA Eli Ayase)",
+    "username": "KKEHarasho (AKA Eli Ayase)",
+    "profile": "'The visionary and mastermind behind ONIBE, Eli Ayase intends to revolutionise the Love Live fandom, one exposé at a time.' -Fellow ONIBE member Astral",
+    "picture": "/onibe-light/images/profile-pics/KKEHarasho.jpg",
+    "cover_picture": "/onibe-light/images/profile-pics/KKEHarasho-Header.jpg",
+    "charm_point": "Kashikoi and kowai",
+    "role": [
+      "Translator"
+    ],
+    "translations": [
+      "Japanese"
+    ],
+    "personal_website": "https://www.youtube.com/channel/UCVwUwFir7ZHTzuQTBx68YlQ",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Elichika",
+      "Hanamaru",
+      "Dia",
+      "Chika"
+    ],
+    "best_seiyuu": [
+      "Nanjolno",
+      "Ucchi",
+      "Aiai"
+    ],
+    "what_onibe_means": "??? What's an ONIBE can I eat it",
+    "country": "NORCAL BEST CAL",
+    "hobbies": "Befriending cats, talking to strangers, writing"
+  },
+  {
+    "name": "Yunii",
+    "username": "Yunii",
+    "profile": "I like Aqours, Bandori and other cute idols. I typeset pictures and videos and help people when they need it. I also like Kasumi the most.",
+    "picture": "/onibe-light/images/profile-pics/yunii.png",
+    "cover_picture": "/onibe-light/images/profile-pics/yuniiheader.png",
+    "charm_point": "Always Happy",
+    "role": [
+      "Typesetter"
+    ],
+    "translations": [],
+    "personal_website": "https://twitter.com/Yuniikorn",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Kasumi",
+      "You",
+      "Ruby",
+      "Chika"
+    ],
+    "best_seiyuu": [
+      "Shuka",
+      "Aiai",
+      "Aimi",
+      "Anchan"
+    ],
+    "what_onibe_means": "ONIBE NIBE IBE BE E",
+    "country": "Canada, the true land of the free",
+    "hobbies": "Hugging nesos"
+  },
+  {
+    "name": "Yahallo",
+    "username": "Yahallo",
+    "profile": "Hi! I'm a suffering college student who sometimes watches anime and rarely translates things.",
+    "picture": "/onibe-light/images/profile-pics/yahalloavi.png",
+    "cover_picture": "/onibe-light/images/profile-pics/yahalloheadernew.png",
+    "charm_point": "Disappearing during the school ye- playing hard to get",
+    "role": [
+      "Translator"
+    ],
+    "translations": [
+      "Chinese"
+    ],
+    "personal_website": "https://twitter.com/yahalloing",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Honoka"
+    ],
+    "best_seiyuu": [
+      "Emitsun"
+    ],
+    "what_onibe_means": "screw you guys",
+    "country": "",
+    "hobbies": ""
+  },
+  {
+    "name": "link2110",
+    "username": "link2110",
+    "profile": "Hi! I'm the manager of the team! I help on the website, and also all the social media stuff as well :D",
+    "picture": "/onibe-light/images/profile-pics/link2110.jpg",
+    "charm_point": ":^)",
+    "role": [
+      "Admin",
+      "Manager",
+      "Website",
+      "Social Media"
+    ],
+    "translations": [],
+    "personal_website": "",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Eli",
+      "You"
+    ],
+    "best_seiyuu": [
+      "Nanjolno"
+    ],
+    "what_onibe_means": "o no i better eat",
+    "country": "Canada",
+    "hobbies": "Dota, programming, tech things"
+  },
+  {
+    "name": "Melodii",
+    "username": "Melodii",
+    "profile": "Hello everybun I'm Melly a translator (in training)! I'm a potato level cosplayer as well and I'll do my best here! ^^",
+    "picture": "/onibe-light/images/profile-pics/melly.png",
+    "cover_picture": "/onibe-light/images/profile-pics/mellyheader.png",
+    "charm_point": "Puns",
+    "role": [
+    ],
+    "translations": [
+      "Japanese"
+    ],
+    "personal_website": "",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Nico",
+      "Dia",
+      "Chika",
+      "Yohane"
+    ],
+    "best_seiyuu": [
+      "Arisa",
+      "Soramaru",
+      "Furirin",
+      "Emitsun"
+    ],
+    "what_onibe_means": "Original Ninjas In Big Elephants",
+    "country": "CO/WA USA",
+    "hobbies": "Cosplay, Video Games, Dancing, Sleeping, Fanfic Writing, Card Games"
+  },
+  {
+    "name": "LuciaHunter",
+    "username": "LuciaHunter",
+    "profile": "I'm Lucia. I translate stuff. Sometimes I run the Wikia and tweet things.",
+    "picture": "/onibe-light/images/profile-pics/lucia.jpg",
+    "cover_picture": "",
+    "charm_point": "Memes",
+    "role": [
+      "Translator"
+    ],
+    "translations": [
+      "Japanese",
+      "Chinese"
+    ],
+    "personal_website": "http://luciahunter6.tumblr.com",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Yohane",
+      "Maki"
+    ],
+    "best_seiyuu": [
+      "Soramaru",
+      "Jolno",
+      "Anchan",
+      "Shukashuu"
+    ],
+    "what_onibe_means": "Onibe is a bastardized form of oni-bae which means a demon (Yohane) is my bae.",
+    "country": "Singapore",
+    "hobbies": "Playing a variety of games, shitposting"
+  },
+  {
+    "name": "Kuu",
+    "username": "Kuu",
+    "profile": "I'm Kuu, I'm focused on Uraraji and does TL for CN-EN for both µ's and Aqours. I'm mostly active on tumblr so you can find me there. I am honored to be part of the team and will do my best in the future.",
+    "picture": "/onibe-light/images/profile-pics/KuuRin.jpg",
+    "cover_picture": "/onibe-light/images/profile-pics/kuurin-header.png",
+    "charm_point": "Being very focused",
+    "role": [
+      "Translator"
+    ],
+    "translations": [
+      "Chinese"
+    ],
+    "personal_website": "http://kuuxkat.tumblr.com/",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Female Protag (P3P)",
+      "Minami Kotori (LoveLive!)",
+      "Ruushe (Shironeko Project)",
+      "Kousaka Honoka (LoveLive!)"
+    ],
+    "best_seiyuu": [
+      "Yui Horie",
+      "Kana Hanazawa",
+      "Tamura Yukari",
+      "Saitou Shuka"
+    ],
+    "what_onibe_means": "Oh, No, I... But, Ehhhhhhhhh!",
+    "country": "Singapore (I'll take you to dinner if you want)",
+    "hobbies": "Playing Mobage (BGHS & SnP), Writing and Writing Fanfics"
+  },
+  {
+    "name": "Eter",
+    "username": "Eter",
+    "profile": "Hi, I like making pretty things, but more so complaining when things are not.  Spreading the words of the Seiyuu since 2015.",
+    "picture": "/onibe-light/images/profile-pics/eter.jpg",
+    "cover_picture": "/onibe-light/images/profile-pics/eterbanner.jpg",
+    "charm_point": "Turnaround time from an hour to indefinitely",
+    "role": [
+      "Typesetter"
+    ],
+    "translations": [],
+    "personal_website": "https://twitter.com/Eternith",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "YouChika",
+      "Honoka"
+    ],
+    "best_seiyuu": [
+      "Anchan",
+      "Shuka",
+      "Aiai",
+      "Aikyan"
+    ],
+    "what_onibe_means": "ヤバい、ばれちゃった。",
+    "country": "Canada",
+    "hobbies": "Kancolle, Tech nerd"
+  },
+  {
+    "name": "Astral",
+    "username": "Astral",
+    "profile": "Hailing from Vancouver, BC and based in Singapore. I spend my free time shitposting and playing Civilization VI.",
+    "picture": "/onibe-light/images/profile-pics/astral.png",
+    "cover_picture": "/onibe-light/images/profile-pics/astralbanner.png",
+    "charm_point": "Memes and my writing style I guess ¯\\_(ツ)_/¯",
+    "role": [
+    ],
+    "translations": [
+      "Japanese",
+      "Chinese"
+    ],
+    "personal_website": "http://astralwinters.tumblr.com",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Kanan",
+      "Umi",
+      "Eli",
+      "Yohane"
+    ],
+    "best_seiyuu": [
+      "Suwawa",
+      "Mimorin",
+      "Nanjolno",
+      "Aikyan"
+    ],
+    "what_onibe_means": "¯\\_(ツ)_/¯",
+    "country": "British Columbia, Canada",
+    "hobbies": "Archery, scuba diving, video games"
+  },
+  {
+    "name": "Yujacha",
+    "username": "Yujacha",
+    "profile": "My best girl is Rin because her SIF Constellation UR is the reason I fell into idol hell. Now, I spaghetti over Shukashuu and use my past experience on scanlation teams to do a bit of QC and TL!",
+    "picture": "/onibe-light/images/profile-pics/yujacha.png",
+    "charm_point": "Being the perfect size to hug (yo idk this is just what my friend told me)",
+    "role": [
+      "Translator",
+      "QC"
+    ],
+    "translations": [
+      "Korean"
+    ],
+    "personal_website": "http://yujachachacha.tumblr.com",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Rin",
+      "You",
+      "Kanan",
+      "Nozomi"
+    ],
+    "best_seiyuu": [
+      "Shukashuu",
+      "Suwawa",
+      "Anchan"
+    ],
+    "what_onibe_means": "Ordinary Netizens Innovating for the Benefit of Everyone",
+    "country": "Southern California",
+    "hobbies": "Reading, sleeping, watching Aqours seiyuu videos, playing SIF, drinking citron tea, actually just drinking in general :3c (except tomato juice, which can go f itself)"
+  },
+  {
+    "name": "astrobunny",
+    "username": "astrobunny",
+    "profile": "Writer of code. Translator of moon.",
+    "picture": "/onibe-light/images/profile-pics/astrobunny.jpg",
+    "charm_point": "Twintails",
+    "role": [
+      "Translator",
+      "Website"
+    ],
+    "translations": [
+      "Japanese",
+      "Chinese"
+    ],
+    "personal_website": "https://astrobunny.net",
+    "social_media": {
+      "facebook": "",
+      "twitter": "astrobunny"
+    },
+    "best_girls": [
+      "Ruby",
+      "Nico"
+    ],
+    "best_seiyuu": [
+      "Soramaru",
+      "Suwawa"
+    ],
+    "what_onibe_means": "ONIgiri BEekon (onigiri bacon）",
+    "country": "",
+    "hobbies": "reading manga, listening to music, shitposting"
+  },
+  {
+    "name": "MasterMirage",
+    "username": "MasterMirage",
+    "profile": "I'm MasterMirage, you'll find me on the Love Live subreddit and Discord.",
+    "picture": "/onibe-light/images/profile-pics/mmirl.png",
+    "charm_point": "",
+    "role": [
+      "Admin"
+    ],
+    "translations": [],
+    "personal_website": "https://reddit.com/r/LoveLive",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Kanan"
+    ],
+    "best_seiyuu": [
+      "Suwawa"
+    ],
+    "what_onibe_means": "yes",
+    "country": "",
+    "hobbies": ""
+  },
+  {
+    "name": "Kiharu",
+    "username": "Kiharu",
+    "profile": "I'm a native Japanese born in SoCal. I like to play games and watch idols. :)",
+    "picture": "/onibe-light/images/profile-pics/kiharu.png",
+    "cover_picture": "",
+    "charm_point": "nice joke",
+    "role": [
+      "Translator"
+    ],
+    "translations": [
+      "Japanese"
+    ],
+    "personal_website": "",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Yoshiko"
+    ],
+    "best_seiyuu": [
+      "Aikyan"
+    ],
+    "what_onibe_means": "Idk I think it's an insult or something",
+    "country": "",
+    "hobbies": ""
+  },
+  {
+    "name": "Spunky Datenshuu",
+    "username": "Spunky Datenshuu",
+    "profile": "Ouisu~ I'm just one more TLr who goes by the name Datenshuu (sometimes Spunky). Yoroshiku!",
+    "picture": "/onibe-light/images/profile-pics/datenshuu.jpg",
+    "charm_point": "Shuka Height. Trust me. We camp out a lot, and I've seen tall people suffer during the nights :P",
+    "role": [
+      "Translator"
+    ],
+    "translations": [
+      "Japanese"
+    ],
+    "personal_website": "https://www.youtube.com/channel/UCrIn0FmmD3gIo89QW1mOhJw",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [],
+    "best_seiyuu": [],
+    "what_onibe_means": "Oh? No? It's... But... EHHH?!!",
+    "country": "",
+    "hobbies": ""
+  },
+  {
+    "name": "Dyrea",
+    "username": "Dyrea",
+    "profile": "I love Love Live!. I love Riko and Umi, and Mimorin is the most physically attractive woman I have ever seen. ",
+    "picture": "/onibe-light/images/profile-pics/dyrea.png",
+    "cover_picture": "/onibe-light/images/profile-pics/dyrea-header.png",
+    "charm_point": "High Energy",
+    "role": [
+      "Translator"
+    ],
+    "translations": [
+      "Japanese",
+      "Chinese",
+      "Indonesian"
+    ],
+    "personal_website": "http://translations.dyreatic.moe",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Umi",
+      "Riko"
+    ],
+    "best_seiyuu": [
+      "Mimorin",
+      "Rikyako"
+    ],
+    "what_onibe_means": "Donate $5000 to Love Live! Wikia to find out :D",
+    "country": "",
+    "hobbies": ""
+  },
+  {
+    "name": "Jaewhy",
+    "username": "Jaewhy",
+    "profile": "Jae, 16, currently into Love Live!, does occasionally TL (from CN > EN), learning how to do timing.",
+    "picture": "/onibe-light/images/profile-pics/jae.png",
+    "charm_point": "Sarcasm",
+    "role": [
+      "Translator",
+      "Timer"
+    ],
+    "translations": [
+      "Chinese"
+    ],
+    "personal_website": "",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Chika",
+      "You",
+      "Riko"
+    ],
+    "best_seiyuu": [
+      "Anchan",
+      "Shuka",
+      "Rkk"
+    ],
+    "what_onibe_means": "fk this I asked so many times no one gave me an answer so im just gonna assume someone was drunk on too much vodka and then somehow convinced the entire group to accept the name ",
+    "country": "Singapore, Singapore",
+    "hobbies": "Ruining (my) relationships jk"
+  },
+  {
+    "name": "lakepower",
+    "username": "lakepower",
+    "profile": "Website admin with a fascination of doujins, fanfic, fanart and anything fanmade",
+    "picture": "/onibe-light/images/profile-pics/lakepower.jpg",
+    "cover_picture": "/onibe-light/images/profile-pics/lakepower-header.jpg",
+    "charm_point": "+10 Luck on every turn",
+    "role": [
+      "Admin",
+      "Website"
+    ],
+    "translations": [],
+    "personal_website": "",
+    "social_media": {
+      "facebook": "",
+      "twitter": "https://twitter.com/lakepowered"
+    },
+    "best_girls": [
+      "Nico",
+      "Nozomi",
+      "You",
+      "Ruby",
+      "Dia"
+    ],
+    "best_seiyuu": [
+      "Shikaco",
+      "Kussun",
+      "Soramaru",
+      "Aiai"
+    ],
+    "what_onibe_means": "Oh No I've Backlogged Everything",
+    "country": "USA",
+    "hobbies": "Dota2, fighting games, developing, sleeping and a lot of things under the sun."
+  },
+  {
+    "name": "Ｊさん",
+    "username": "jl140",
+    "profile": "はじめまして！ New to TL. I like to do videos when I have the spare time!",
+    "picture": "/onibe-light/images/profile-pics/jl140.png",
+    "cover_picture": "/onibe-light/images/profile-pics/jl140banner.png",
+    "charm_point": "I have a cute dog? :(",
+    "role": [
+      "Translator"
+    ],
+    "translations": [
+      "Japanese"
+    ],
+    "personal_website": "",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "You",
+      "Maki",
+      "Rin",
+      "Eli"
+    ],
+    "best_seiyuu": [
+      "Nanchan",
+      "Mimorin",
+      "Arisha",
+      "Shukashuu"
+    ],
+    "what_onibe_means": "omg no i'll be executed",
+    "country": "AU",
+    "hobbies": "Cars, Photography, Travel"
+  },
+  {
+    "name": "larysayshi",
+    "username": "larysayshi",
+    "profile": "The worst CN-En translator",
+    "picture": "/onibe-light/images/profile-pics/larysayshi.jpg",
+    "cover_picture": "/onibe-light/images/profile-pics/larysayshibanner.jpg",
+    "charm_point": "Being uncharming~",
+    "role": [
+      "Translator"
+    ],
+    "translations": [
+      "Chinese"
+    ],
+    "personal_website": "",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "You-chan",
+      "Matsui Eriko"
+    ],
+    "best_seiyuu": [],
+    "what_onibe_means": "A way of life?",
+    "country": "",
+    "hobbies": ""
+  },
+  {
+    "name": "Seika",
+    "username": "seika",
+    "profile": "I'm Seika, sometimes go by the name of Seika 97. I translate JP->EN occasionally, mainly µ's. I'll do my best here! ^^",
+    "picture": "/onibe-light/images/profile-pics/seika.jpg",
+    "cover_picture": "/onibe-light/images/profile-pics/seikaheader.jpg",
+    "charm_point": "The only person in SpritualHarashoSubs?",
+    "role": [
+      "Translator"
+    ],
+    "translations": [
+      "Japanese",
+      "Chinese"
+    ],
+    "personal_website": "https://www.youtube.com/channel/UCVr3n7eCtIx5UbztfLJLqcw",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Ayase Eli (Love Live!)",
+      "Misaka Mikoto (To Aru Kagaku No Railgun)",
+      "Niijima Makoto (Persona 5)",
+      "Erina der Vogelweid (God Eater 2)"
+    ],
+    "best_seiyuu": [
+      "Nanjou Yoshino",
+      "Hanazawa Kana",
+      "Sakura Ayane",
+      "Satou Rina"
+    ],
+    "what_onibe_means": "o no i bloved elichika (& nanjolno)",
+    "country": "Malaysia (Remember to consider the hot weather when you come)",
+    "hobbies": "Playing JP PS4 games, draw stuffs (but not that much)"
+  },
+  {
+    "name": "rid9",
+    "username": "rid9",
+    "profile": "Hi! I'm just a fan who like to translate things. But I'm not that good at it tho",
+    "picture": "/onibe-light/images/profile-pics/rid9.jpg",
+    "cover_picture": "",
+    "charm_point": "魅力がないところです",
+    "role": [
+      "Translator"
+    ],
+    "translations": [],
+    "personal_website": "",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Maki",
+      "You"
+    ],
+    "best_seiyuu": [
+      "Suwawa",
+      "Shukashuu",
+      "Mimorin"
+    ],
+    "what_onibe_means": "Oh no I've been enticed ;)",
+    "country": "Indonesia, going back and forth between Sumatera and Java",
+    "hobbies": "Programming, Playing music, Procrastinating"
+  },
+  {
+    "name": "ArishaMod",
+    "username": "arishamod",
+    "profile": "Hi, I have fallen too deep into seiyuu hell and now I am helping to spread their names, one translation at a time.",
+    "picture": "/onibe-light/images/profile-pics/arishamod.jpg",
+    "cover_picture": "",
+    "charm_point": "Dreamer",
+    "role": [
+      "Translator"
+    ],
+    "translations": [
+      "Japanese",
+      "Chinese"
+    ],
+    "personal_website": "https://www.tumblr.com/blog/arishamod",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Hanayo",
+      "Rin",
+      "Mari"
+    ],
+    "best_seiyuu": [
+      "Arisha",
+      "Arisha"
+    ],
+    "what_onibe_means": "There will ONIBE one answer",
+    "country": "Singapore",
+    "hobbies": "looking at cats videos"
+  },
+  {
+    "name": "Insti",
+    "username": "insti",
+    "profile": "Your above average Love Live and Macross diehard. I don't do anything at all tbh.",
+    "picture": "",
+    "cover_picture": "",
+    "charm_point": "I can shitpost you so hard you'll think I'm a Pakistani fisherman.",
+    "role": [
+      "Translator"
+    ],
+    "translations": [
+      "Japanese",
+      "Chinese"
+    ],
+    "personal_website": "http://blog.insti.moe",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Umi",
+      "Honoka",
+      "Chika",
+      "Yoshiko"
+    ],
+    "best_seiyuu": [
+      "Hanayo",
+      "Rin",
+      "Mari"
+    ],
+    "what_onibe_means": "ơ̘͙̟̳̘͑ͩ̑ͅ ̷͈̙ͧͮͯ̑̌n̟̲̹ͩ͐̎͑ͮ̓͟ͅo̥̹ ̝̝̟̥ͬͦ̍̇̔̈́ͮ̀ȉ̭͚̞̻͠x̣̟̩͔̠̱̹ͥ͆͊̅̏x͎̌ͣ̈́ͦ̆͒̚ ̠̫̀̊̅̂͊b̗̬͑̎̈ͬ̀ͭ̍x͓̜͒̉̆͂͛ͫ̈x̹ͦ͑͂ͣͤẍ̟̈́͢ ͉͎̱ͩ̋̈́e̷̗x͕̻̰͈͓͍̑͌͗x̟͕̗͎̎x̮̪̠ͫ̂x̏̍̍̃x̢͎̬̟͓͙̾ͯ̔̆̿͋x̐ͥ̕",
+    "country": "Japan",
+    "hobbies": "Smartphones, Graphic Design, H Doujins, Shitposting."
+  },
+  {
+    "name": "ramen",
+    "username": "ramen",
+    "profile": "I'm here to burn time and money, and I'm all out of money.",
+    "picture": "/onibe-light/images/profile-pics/arishamod.jpg",
+    "cover_picture": "",
+    "charm_point": "I'm (probably) alive",
+    "role": [
+      "Translator"
+    ],
+    "translations": [
+      "Japanese"
+    ],
+    "personal_website": "http://blog.insti.moe",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Rin",
+      "Ruby"
+    ],
+    "best_seiyuu": [
+      "Furirin",
+      "Rippi"
+    ],
+    "what_onibe_means": "oh no ive been exposed",
+    "country": "USA",
+    "hobbies": "eating, refreshing websites"
+  },
+  {
+    "name": "ramen",
+    "username": "ramen",
+    "profile": "",
+    "picture": "",
+    "cover_picture": "",
+    "charm_point": "I'm (probably) alive",
+    "role": [
+      "Translator"
+    ],
+    "translations": [
+      "Japanese"
+    ],
+    "personal_website": "https://ganbaramen.tumblr.com/",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Rin",
+      "Ruby"
+    ],
+    "best_seiyuu": [
+      "Furirin",
+      "Rippi"
+    ],
+    "what_onibe_means": "oh no ive been exposed",
+    "country": "USA",
+    "hobbies": "eating, refreshing websites"
+  },
+  {
+    "name": " CLAR A (Clara)",
+    "username": "clara",
+    "profile": "Some random brazilian girl that loves µ's",
+    "picture": "",
+    "cover_picture": "",
+    "charm_point": "making everyone around me look more attractive :^)",
+    "role": [
+      "Translator"
+    ],
+    "translations": [
+      "Japanese"
+    ],
+    "personal_website": "https://www.youtube.com/c/CLARAtl",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Maki"
+    ],
+    "best_seiyuu": [
+      "Nanjolno"
+    ],
+    "what_onibe_means": "It means what your heart says it means.",
+    "country": "Brazil",
+    "hobbies": "Watching animu, drawing and playing with cats"
+  }
+]

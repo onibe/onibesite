@@ -70,7 +70,7 @@
     "gulp-sass": "^2.1.0",
     "gulp-util": "^3.0.7",
     "mocha": "^2.5.3",
-    "node-sass": "^3.7.0",
+    "node-sass": "^4.5.3",
     "run-sequence": "^1.1.5",
     "sequelize-cli": "^2.5.1",
     "tap": "^8.0.1",
