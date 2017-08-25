@@ -105,7 +105,7 @@
     ],
     "best_seiyuu": [
       "Nanjolno",
-      "Ucchi",
+      "King",
       "Aiai"
     ],
     "what_onibe_means": "??? What's an ONIBE can I eat it",
@@ -822,9 +822,9 @@
     "hobbies": "Studying Japanese, playing VNs, reading LNs, following 3D idols, gaming and wotagei."
   },
   {
-    "name": " CLAR A (Clara)",
+    "name": " CLAR A",
     "username": "clara",
-    "profile": "Some random brazilian girl that loves µ's",
+    "profile": "Some random brazilian girl that loves µ's.",
     "picture": "/onibe-light/images/profile-pics/clara.png",
     "cover_picture": "",
     "charm_point": "",
@@ -848,5 +848,39 @@
     "what_onibe_means": "It means what your heart says it means.",
     "country": "Brazil",
     "hobbies": "Watching animu, drawing and playing with cats"
+  },
+  {
+    "name": "arbshortcake",
+    "username": "arbshortcake",
+    "profile": "KonnichiWUG! I'm the official ONIBE trash boy. Kobayashi Aika is my love.",
+    "picture": "/onibe-light/images/profile-pics/arbshortcake.jpg",
+    "cover_picture": "",
+    "charm_point": "🐵🐵🐵🐵🐵",
+    "role": [
+      "Translator"
+    ],
+    "translations": [
+      "Japanese"
+    ],
+    "personal_website": "https://arbs-high-quality-translations.tumblr.com/l",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Yoshiko",
+      "Riko",
+      "Nozomi",
+      "Umi"
+    ],
+    "best_seiyuu": [
+      "Aikyan",
+      "Aikyan",
+      "Aikyan",
+      "Aikyan"
+    ],
+    "what_onibe_means": "o no i'm bad english.",
+    "country": "USA",
+    "hobbies": "Breaking ATMs"
   }
 ]
