@@ -416,7 +416,7 @@
     "personal_website": "https://astrobunny.net",
     "social_media": {
       "facebook": "",
-      "twitter": "astrobunny"
+      "twitter": "https://twitter.com/astrobunny"
     },
     "best_girls": [
       "Ruby",
@@ -709,7 +709,7 @@
       "Japanese",
       "Chinese"
     ],
-    "personal_website": "https://www.tumblr.com/blog/arishamod",
+    "personal_website": "https://arishamod.tumblr.com",
     "social_media": {
       "facebook": "",
       "twitter": ""
