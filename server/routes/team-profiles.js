@@ -20,7 +20,8 @@ class TeamProfileRoute {
             "website",
             "designer",
             "manager",
-            "social_media"
+            "social_media",
+            ""
         ];
 
         const roledProfiles = uniqBy(roles.map(role =>
