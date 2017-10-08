@@ -13,11 +13,12 @@ class TeamProfileRoute {
 
     static getProfiles() {
         const roles = [
-            "admin",
             "translator",
+            "admin",
             "typesetter",
             "qc",
             "website",
+            "designer",
             "manager",
             "social_media",
             ""
