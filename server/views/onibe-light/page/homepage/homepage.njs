@@ -84,6 +84,8 @@
                             <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                         </form>
                     </div>
+                    <h4>BTC</h4>
+                    <div>36zHmrSBXSHWFpBM3gETu6ZnEiqawfhdjQ</div>
                 </div>
             </div>
             <div class="col-md-4 hidden-xs">
