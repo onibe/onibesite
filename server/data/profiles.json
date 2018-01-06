@@ -532,6 +532,32 @@
     "hobbies": "reading manga, listening to music, shitposting"
   },
   {
+    "name": "MasterMirage",
+    "username": "MasterMirage",
+    "profile": "I'm MasterMirage, you'll find me on the Love Live subreddit and Discord.",
+    "picture": "/onibe-light/images/profile-pics/mmirl.png",
+    "charm_point": "",
+    "role": [
+      "Admin",
+      "Social Media"
+    ],
+    "translations": [],
+    "personal_website": "https://reddit.com/r/LoveLive",
+    "social_media": {
+      "facebook": "",
+      "twitter": ""
+    },
+    "best_girls": [
+      "Kanan"
+    ],
+    "best_seiyuu": [
+      "Suwawa"
+    ],
+    "what_onibe_means": "yes",
+    "country": "",
+    "hobbies": ""
+  },
+  {
     "name": "Kiharu",
     "username": "Kiharu",
     "profile": "I'm a native Japanese born in SoCal. I like to play games and watch idols. :)",
