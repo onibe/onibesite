@@ -42,7 +42,7 @@ class expressInit {
 
         // Autoloaded Initializers
         const initializers = glob.sync(path.resolve(basePath + '/config/initializers/*.js'));
-        initializers.forEach(function (initializer) {
+        initializers.forEach((initializer) => {
             const initilizerFile = require(initializer);
             initilizerFile(app,config);
         });
